@@ -83,8 +83,8 @@ const Login: React.FC = () => {
       </div>
       <div className={styles.content}>
         <LoginForm
-          logo={<img alt="logo" />}
-          title={'title'}
+          logo={<img alt="logo" src='/logo.svg'/>}
+          title={'Gconfig'}
           subTitle={'subTitle'}
           initialValues={{
             autoLogin: true,

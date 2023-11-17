@@ -1,4 +1,12 @@
-﻿export default [
+﻿/*
+ * @Author: lx.jin 308561217@qq.com
+ * @Date: 2023-11-17 17:18:59
+ * @LastEditors: lx.jin 308561217@qq.com
+ * @LastEditTime: 2023-11-17 18:12:06
+ * @FilePath: /Uilab-Application/config/routes.ts
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
+export default [
   {
     path: '/user',
     layout: false,
@@ -18,29 +26,6 @@
     name: 'welcome',
     icon: 'smile',
     component: './Welcome',
-  },
-  {
-    path: '/admin',
-    name: 'admin',
-    icon: 'crown',
-    access: 'canAdmin',
-    routes: [
-      {
-        path: '/admin/sub-page',
-        name: 'sub-page',
-        icon: 'smile',
-        component: './Welcome',
-      },
-      {
-        component: './404',
-      },
-    ],
-  },
-  {
-    name: 'list.table-list',
-    icon: 'table',
-    path: '/list',
-    component: './TableList',
   },
   {
     path: '/',
