@@ -2,7 +2,7 @@
  * @Author: lx.jin 308561217@qq.com
  * @Date: 2023-11-17 17:18:59
  * @LastEditors: lx.jin 308561217@qq.com
- * @LastEditTime: 2023-11-20 12:19:06
+ * @LastEditTime: 2023-11-20 16:30:39
  * @FilePath: /Uilab-Application/config/routes.ts
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -29,9 +29,13 @@ export default [
   },
   {
     path: '/role-manage',
-    name: 'role-manage',
     icon: 'smile',
-    component: '../../lib/Uilab-Comp/smart-comp/UIPages/ListReport',
+    routes: [
+      {
+        path: '/ListReport',
+        component: '../../lib/Uilab-Comp/smart-comp/UIPages/ListReport',
+      },
+    ],
   },
   {
     path: '/',

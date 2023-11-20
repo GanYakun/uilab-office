@@ -1,6 +1,6 @@
 [submodule "lib/Uilab-Comp"]
 	path = lib/Uilab-Comp
 	url = https://gitee.com/cloudlakenet/uilab-comp.git
-[submodule "lib/gongsconfigbfui5"]
-	path = lib/gongsconfigbfui5
+[submodule "lib/Ui5"]
+	path = lib/Ui5
 	url = https://gitee.com/cloudlakenet/gongsconfigbfui5.git
