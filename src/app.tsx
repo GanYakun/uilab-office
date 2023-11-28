@@ -2,7 +2,7 @@ import Footer from '@/components/Footer';
 import RightContent from '@/components/RightContent';
 import type { Settings as LayoutSettings } from '@ant-design/pro-components';
 import { PageLoading } from '@ant-design/pro-components';
-import type { RunTimeLayoutConfig } from 'umi';
+import type { RequestConfig, RunTimeLayoutConfig } from 'umi';
 import { history } from 'umi';
 import defaultSettings from '../config/defaultSettings';
 import Odata from '../lib/Uilab-Comp/utils/odata/odata.js';
@@ -13,9 +13,7 @@ export const initialStateConfig = {
   loading: <PageLoading />,
 };
 
-/**
- * @see  https://umijs.org/zh-CN/plugins/plugin-initial-state
- * */
+/** 获取初始状态 */
 export async function getInitialState(): Promise<{
   settings?: Partial<LayoutSettings>;
   currentUser?: API.CurrentUser;
@@ -57,6 +55,10 @@ export async function getInitialState(): Promise<{
   };
 }
 
+/**
+ * 格式化树形结构数据 生成 menu 层级结构 点击菜单按钮事件
+ * @param menuList 原始的菜单数据
+ */
 export interface MenuDataItem {
   authority?: string[] | string;
   children?: MenuDataItem[];
@@ -68,6 +70,10 @@ export interface MenuDataItem {
   path: string;
 }
 
+/**
+ * 格式化树形结构数据 生成 menu 层级结构 点击菜单按钮事件
+ * @param menuList 原始的菜单数据
+ */
 const menuDataRender = (menuList: MenuDataItem[]): MenuDataItem[] => {
   return menuList.map((item) => {
     const { isLink, entry, path, children } = item
@@ -89,7 +95,10 @@ const menuDataRender = (menuList: MenuDataItem[]): MenuDataItem[] => {
   });
 };
 
-// ProLayout 支持的api https://procomponents.ant.design/components/layout
+/**
+ * 静态菜单数据
+ * @param menuList 原始的菜单数据
+ */
 export const layout: RunTimeLayoutConfig = ({ initialState }) => {
   return {
     rightContentRender: () => <RightContent />,
@@ -114,8 +123,7 @@ export const layout: RunTimeLayoutConfig = ({ initialState }) => {
 export const request: RequestConfig = {
   errorConfig: {
     adaptor: (resData) => {
-      console.log({ resData })
-      return { ...resData, success: resData.ok, errorMessage: resData?.message ? resData.message : '请求错误，检测网络或联系管理员', };
+      return { ...resData, success: resData.ok, errorMessage: resData?.message ? resData.message : 'error', };
     },
   },
 };

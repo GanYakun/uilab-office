@@ -1,16 +1,11 @@
 import Footer from '@/components/Footer';
 import { login } from '@/services/ant-design-pro/api';
-import {
-  LockOutlined,
-  UserOutlined,
-} from '@ant-design/icons';
-import {
-  LoginForm,
-  ProFormText,
-} from '@ant-design/pro-components';
+import { LockOutlined, UserOutlined } from '@ant-design/icons';
+import { LoginForm, ProFormText } from '@ant-design/pro-components';
 import { Alert, message } from 'antd';
 import React, { useState } from 'react';
-import { FormattedMessage, history, SelectLang, useIntl, useModel } from 'umi';
+import { FormattedMessage, history, useIntl, useModel } from 'umi';
+import { appConfig } from '../../../../config/appConfig';
 import styles from './index.less';
 
 const LoginMessage: React.FC<{
@@ -30,9 +25,7 @@ const Login: React.FC = () => {
   const [userLoginState, setUserLoginState] = useState<API.LoginResult>({});
   const [type, setType] = useState<string>('account');
   const { initialState, setInitialState } = useModel('@@initialState');
-
   const intl = useIntl();
-
   const fetchUserInfo = async () => {
     const userInfo = await initialState?.fetchUserInfo?.();
     if (userInfo) {
@@ -47,7 +40,6 @@ const Login: React.FC = () => {
     try {
       // 登录
       const msg = await login({ ...values, type });
-      console.log({ msg })
       if (msg['_LOGIN_PASSED_'] === 'TRUE') {
         const defaultLoginSuccessMessage = intl.formatMessage({
           id: 'pages.login.success',
@@ -59,19 +51,13 @@ const Login: React.FC = () => {
         if (!history) return;
         const { query } = history.location;
         const { redirect } = query as { redirect: string };
-        //history.replace(redirect || '/'); 微前端有BUG
-        history.replace('/');
+        history.replace(redirect || '/');
         return;
       }
       message.error(msg['_ERROR_MESSAGE_']);
       // 如果失败去设置用户错误信息
       setUserLoginState(msg);
     } catch (error) {
-      // const defaultLoginFailureMessage = intl.formatMessage({
-      //   id: 'pages.login.failure',
-      //   defaultMessage: '登录失败，请重试！',
-      // });
-      // message.error(defaultLoginFailureMessage);
     }
   };
   const { status, type: loginType } = userLoginState;
@@ -83,9 +69,9 @@ const Login: React.FC = () => {
       </div>
       <div className={styles.content}>
         <LoginForm
-          logo={<img alt="logo" src='/logo.svg'/>}
-          title={'Gconfig'}
-          subTitle={'subTitle'}
+          logo={<img alt="logo" src={appConfig.logo} />}
+          title={appConfig.title}
+          subTitle={appConfig.subTitle}
           initialValues={{
             autoLogin: true,
           }}
