@@ -5,19 +5,21 @@ import { join } from 'path';
 import defaultSettings from './defaultSettings';
 import proxy from './proxy';
 import routes from './routes';
-
 const { REACT_APP_ENV } = process.env;
 
 export default defineConfig({
   hash: true,
-  antd: {},
+  antd: {
+    //dark: true, //暗黑风格
+    compact: true,
+  },
   dva: {
     hmr: true,
   },
   layout: {
     // https://umijs.org/zh-CN/plugins/plugin-layout
     locale: true,
-    siderWidth: 208,
+    siderWidth: 250,
     ...defaultSettings,
   },
   // https://umijs.org/zh-CN/plugins/plugin-locale
