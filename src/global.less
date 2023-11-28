@@ -28,7 +28,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.ant-col-6 {
+.ant-form-item {
+  margin-bottom: 0;
+}
+
+.ant-col-6,
+.ant-col-8,
+.ant-col-12 {
   .ant-form-item {
     margin-bottom: 0;
     height: 100%;
@@ -37,8 +43,14 @@ body {
   }
 }
 
+.ant-col-6,
+.ant-col-8,
 .ant-col-offset-12 {
   margin-bottom: 24px;
+}
+
+.ant-pro-grid-content.wide {
+  max-width: calc(100% - 24px);
 }
 
 ul,
