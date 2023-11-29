@@ -2,7 +2,7 @@
  * @Author: lx.jin 308561217@qq.com
  * @Date: 2023-11-23 10:51:23
  * @LastEditors: lx.jin 308561217@qq.com
- * @LastEditTime: 2023-11-28 17:07:19
+ * @LastEditTime: 2023-11-29 15:24:26
  * @FilePath: /Uilab-Application/config/appConfig.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -22,16 +22,54 @@ const appConfig = {
         icon: 'smile',
         apps: [
             'role-manage',
-            'assetentry-manage',
-            'process-entity-manage',
-            'approval-manage',
-            'assetpickuprequest-manage'
+            'supplierapprove-managebyapplication',
+            'supplierapprove-managebyprocurement',
+            'supplierapprove-managebycompliance',
+            'supplier-dd-form'
         ]
     }],
     locale: {
         default: 'en-Us',
         antd: true,
         baseNavigator: true,
+    },
+    //服务配置
+    ServiceName: 'officeauto',
+    loginName: 'externalLogin',
+    fetchUserInfo: {
+        parameters: {
+            $expand: {
+                UILabApp: {},
+                PartyRole: {},
+                Person: {},
+                RoleTypeSecurityPermission: {
+                    $expand: {
+                        SecurityPermission: {}
+                    }
+                }
+            },
+        },
+    },
+    //开发代理
+    proxy: {
+        dev: {
+            '/officeauto/': {
+                target: 'http://officeauto.banff-tech.com/',
+                changeOrigin: true,
+                pathRewrite: {
+                    '^': '',
+                },
+                secure: false, //配置关闭证书签名验证
+            },
+            '/odata/': {
+                target: 'http://officeauto.banff-tech.com/',
+                changeOrigin: true,
+                pathRewrite: {
+                    '^': '',
+                },
+                secure: false, //配置关闭证书签名验证
+            },
+        },
     }
 }
 

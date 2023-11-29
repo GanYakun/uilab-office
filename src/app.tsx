@@ -6,6 +6,7 @@ import type { RequestConfig, RunTimeLayoutConfig } from 'umi';
 import { history } from 'umi';
 import defaultSettings from '../config/defaultSettings';
 import Odata from '../lib/Uilab-Comp/utils/odata/odata.js';
+import { appConfig } from '../config/appConfig';
 const loginPath = '/user/login';
 
 /** 获取用户信息比较慢的时候会展示一个*/
@@ -23,18 +24,8 @@ export async function getInitialState(): Promise<{
   const fetchUserInfo = async () => {
     let option = {
       path: `Me`,
-      url: `gongsconfig/control/odatasvc/launchpadManage/`,
-      parameters: {
-        $expand: {
-          PartyRole: {},
-          Person: {},
-          RoleTypeSecurityPermission: {
-            $expand: {
-              SecurityPermission: {}
-            }
-          }
-        },
-      },
+      url: `${appConfig.ServiceName}/control/odatasvc/launchpadManage/`,
+      parameters: appConfig?.fetchUserInfo?.parameters
     };
     const result = await Odata.read(option);
     return result.data

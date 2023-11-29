@@ -1,7 +1,14 @@
+/*
+ * @Author: lx.jin 308561217@qq.com
+ * @Date: 2023-11-28 09:05:26
+ * @LastEditors: lx.jin 308561217@qq.com
+ * @LastEditTime: 2023-11-29 15:20:21
+ * @FilePath: /Uilab-Application/config/config.ts
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
 import { defineConfig } from 'umi';
 import { join } from 'path';
 import defaultSettings from './defaultSettings';
-import proxy from './proxy';
 import routes from './routes';
 const { REACT_APP_ENV } = process.env;
 import { appConfig } from './appConfig';
@@ -44,7 +51,7 @@ export default defineConfig({
   esbuild: {},
   title: false,
   ignoreMomentLocale: true,
-  proxy: proxy[REACT_APP_ENV || 'dev'],
+  proxy: appConfig.proxy[REACT_APP_ENV || 'dev'],
   manifest: {
     basePath: '/',
   },
