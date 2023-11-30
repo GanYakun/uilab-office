@@ -4,6 +4,7 @@ import type { Settings as LayoutSettings } from '@ant-design/pro-components';
 import { PageLoading } from '@ant-design/pro-components';
 import type { RequestConfig, RunTimeLayoutConfig } from 'umi';
 import { history } from 'umi';
+import { stringify } from 'querystring';
 import defaultSettings from '../config/defaultSettings';
 import Odata from '../lib/Uilab-Comp/utils/odata/odata.js';
 import { appConfig } from '../config/appConfig';
@@ -100,9 +101,20 @@ export const layout: RunTimeLayoutConfig = ({ initialState }) => {
     footerRender: () => <Footer />,
     onPageChange: () => {
       const { location } = history;
+      const { query = {}, search, pathname } = location;
+      const { redirect } = query;
       // 如果没有登录，重定向到 login
       if (!initialState?.currentUser && location.pathname !== loginPath) {
-        history.push(loginPath);
+         if (!redirect) {
+          history.replace({
+            pathname: loginPath,
+            search: stringify({
+              redirect: pathname + search,
+            }),
+          });
+        } else {
+          history.push(loginPath);
+        }
       }
     },
     menuHeaderRender: undefined,

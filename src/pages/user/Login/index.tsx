@@ -4,7 +4,7 @@ import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { LoginForm, ProFormText } from '@ant-design/pro-components';
 import { Alert, message } from 'antd';
 import React, { useState } from 'react';
-import { FormattedMessage, history, useIntl, useModel } from 'umi';
+import { FormattedMessage, history, useIntl, useModel, setLocale } from 'umi';
 import { appConfig } from '../../../../config/appConfig';
 import styles from './index.less';
 
@@ -52,6 +52,7 @@ const Login: React.FC = () => {
         const { query } = history.location;
         const { redirect } = query as { redirect: string };
         history.replace(redirect || '/');
+        setLocale(appConfig?.locale?.default, false)
         return;
       }
       message.error(msg['_ERROR_MESSAGE_']);
