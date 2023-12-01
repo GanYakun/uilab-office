@@ -2,7 +2,7 @@
  * @Author: lx.jin 308561217@qq.com
  * @Date: 2023-11-17 17:18:59
  * @LastEditors: lx.jin 308561217@qq.com
- * @LastEditTime: 2023-11-30 15:30:38
+ * @LastEditTime: 2023-12-01 15:39:38
  * @FilePath: /Uilab-Application/src/locales/zh-CN.ts
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -13,6 +13,7 @@ import pwa from './zh-CN/pwa';
 import settingDrawer from './zh-CN/settingDrawer';
 import settings from './zh-CN/settings';
 import { appConfig } from '../../config/appConfig';
+import { zhCN } from '../../lib/Uilab-Comp/smart-comp/Process/locale'
 export default {
   'navBar.lang': '语言',
   'layout.user.link.help': '帮助',
@@ -29,4 +30,5 @@ export default {
   ...pwa,
   ...component,
   ...appConfig.appLocales['zh-CN'],
+  ...zhCN,
 };
