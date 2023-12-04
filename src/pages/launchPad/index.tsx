@@ -6,58 +6,36 @@
  * @FilePath: /qiankun/uiLab/apps/launchPad/src/pages/LaunchPad.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './index.less';
 import { appConfig } from '../../../config/appConfig'
+import { history as umiHistory } from 'umi';
 
 const LaunchPad: React.FC = () => {
-  const data = [
-    {
-      name: "Vendors",
-      children: [
-        {
-          url: "xxx",
-          title: "Registered Vendors",
-        },
-        {
-          url: "xxx",
-          title: "Registered Vendors",
-        },
-        {
-          url: "xxx",
-          title: "Registered Vendors",
-        },
-        {
-          url: "xxx",
-          title: "Registered Vendors",
-        },
-        {
-          url: "xxx",
-          title: "Registered Vendors",
-        },
-        {
-          url: "xxx",
-          title: "Registered Vendors",
-        }
-      ]
-    }
-  ]
+  const [dataSource, setDataSource] = useState<any>([]);
   useEffect(() => {
-    //console.log({ appConfig })
+    setDataSource(appConfig.feApps);
   }, [])
+  //页面跳转
+  const _historyPush = (url: string) => {
+    umiHistory.push({
+      pathname: url,
+      query: {},
+    })
+  }
   return <div>
-    {data.map((item, index) => {
+    {dataSource?.map((item: any, index: number) => {
       return <div key={index} className='container'>
         <div className='groupName'>{item.name}</div>
         <div className='pannel'>
           {
-            item.children.map((childItem, childIndex) => {
-              return <div className='pannel-item' key={`child-${childIndex}`}>
+            item.apps.map((childItem: any, childIndex: number) => {
+              return <div className='pannel-item' key={`child-${childIndex}`} onClick={() => _historyPush(`/${item.path}/${childItem}`)}>
                 <div style={{ width: "100%" }}>
                   <div>
                     <img width={48} height={48} src='navigate@2x.png' />
                   </div>
-                  <div className='title'>{childItem.title}</div>
+                  <div className='title'>{childItem}</div>
                   <div className='description'></div>
                 </div>
                 <div className='tags'></div>
