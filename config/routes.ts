@@ -2,7 +2,7 @@
  * @Author: lx.jin 308561217@qq.com
  * @Date: 2023-11-17 17:18:59
  * @LastEditors: lx.jin 308561217@qq.com
- * @LastEditTime: 2023-11-28 10:02:19
+ * @LastEditTime: 2023-12-04 12:13:42
  * @FilePath: /Uilab-Application/config/routes.ts
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -11,7 +11,7 @@ import { appConfig } from './appConfig'
 /**
  * 获取当前路由文件
  */
-const getRouteFiles = () => {
+export const getRouteFiles = () => {
   const result: any[] = []
   if (Array.isArray(appConfig.feApps)) {
     for (let group of appConfig.feApps) {
