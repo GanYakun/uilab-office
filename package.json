@@ -5,7 +5,7 @@
   "description": "An out-of-box UI solution for enterprise applications",
   "scripts": {
     "analyze": "cross-env ANALYZE=1 umi build",
-    "build": "umi build",
+    "build": "npm run copy && umi build",
     "deploy": "npm run build && npm run gh-pages",
     "dev": "npm run start:dev",
     "copy": "cp -r ./lib/Ui5/o3/apps/ ./public/Ui5/",
