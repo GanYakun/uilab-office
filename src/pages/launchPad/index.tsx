@@ -8,14 +8,35 @@
  */
 import React, { useEffect, useState } from 'react';
 import './index.less';
-import { appConfig } from '../../../config/appConfig'
+import { appConfig, getSecurityPermissionGroup } from '../../../config/appConfig'
 import { history as umiHistory } from 'umi';
 import { FormattedMessage } from "react-intl";
+import { useModel } from 'umi';
 
 const LaunchPad: React.FC = () => {
   const [dataSource, setDataSource] = useState<any>([]);
+  let { initialState } = useModel('@@initialState');
   useEffect(() => {
-    setDataSource(appConfig.feApps);
+    let arr: any = [];
+    const access = getSecurityPermissionGroup(initialState?.currentUser);
+    // 权限功能，只有有权限的才会添加
+    appConfig.feApps.forEach(item => {
+      let apps: any[] = [];
+      item?.apps?.forEach((childItem) => {
+        if (access[childItem.access]) {
+          apps.push(childItem);
+        }
+      })
+      if (apps.length) {
+        arr.push({
+          icon: item.icon,
+          name: item.name,
+          path: item.path,
+          apps
+        })
+      }
+    })
+    setDataSource(arr);
   }, [])
   //页面跳转
   const _historyPush = (url: string) => {
@@ -31,12 +52,12 @@ const LaunchPad: React.FC = () => {
         <div className='pannel'>
           {
             item?.apps?.map((childItem: any, childIndex: number) => {
-              return <div className='pannel-item' key={`child-${childIndex}`} onClick={() => _historyPush(`/${item.path}/${childItem}`)}>
+              return <div className='pannel-item' key={`child-${childIndex}`} onClick={() => _historyPush(`/${item.path}/${childItem.appName}`)}>
                 <div style={{ width: "100%" }}>
                   <div>
                     <img width={48} height={48} src='navigate@2x.png' />
                   </div>
-                  <div className='title'><FormattedMessage id={`menu.${item.name}.${childItem}`} /></div>
+                  <div className='title'><FormattedMessage id={`menu.${item.name}.${childItem.appName}`} /></div>
                   <div className='description'></div>
                 </div>
                 <div className='tags'></div>
