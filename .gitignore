@@ -12,5 +12,5 @@ node_modules
 .history
 .vscode/
 *.log
-#dist
+dist
 .eslintcache
