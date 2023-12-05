@@ -1,57 +1,55 @@
-# Ant Design Pro
 
-This project is initialized with [Ant Design Pro](https://pro.ant.design). Follow is the quick guide for how to use.
+<!--
+ * @Author: lx.jin 308561217@qq.com
+ * @Date: 2022-01-20 21:59:52
+ * @LastEditors: lx.jin 308561217@qq.com
+ * @LastEditTime: 2023-12-05 18:47:10
+ * @FilePath: /uilab/README.md
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
 
-## Environment Prepare
+## 一、结构介绍：
 
-Install `node_modules`:
+##### 1.应用配置
 
-```bash
-npm install
-```
+        a.confg 项目配置文件
+        b.lib 子模块
+        c.public 静态资源
+        d.src 业务代码
+        e.test 测试代码
+        f.typings 类型定义
+        g.mock 接口模拟数据
+        h.config.ts 项目配置
+        i.mock.ts 接口模拟数据
+        j.plugin.ts 插件配置
+        k.theme.ts 主题配置
+        l.umi.ts 项目配置
+        m.router.ts 路由配置
 
-or
+## 二、环境搭建：
 
-```bash
-yarn
-```
+##### 1.软件包版本说明：
 
-## Provided Scripts
+| 序号 | 软件名                      | 版本                            |
+| ---- | --------------------------- | ------------------------------- |
+| 1    | umi.js                      | v3.5                            |
+| 2    | node.js                     | 10.13 或以上，且 17.00 以下     |
+| 3    | npm                         | <7.00                           |
+| 4    | yarn                        | ^1.7                            |
+| 3    | @umijs/plugin-qiankun       | v2.39(主应用、子应用都需要安装) |
+| 4    | react                       | ^17.0.0                         |
+| 5    | react-dom                   | 17.0.0                          |
+| 6    | antd                        | 4.20.0                          |
+| 7    | launchPad 为 ant design pro | 5.2.0                           |
 
-Ant Design Pro provides some useful script to help you quick start and build with web project, code style check and test.
+## 三、uiLab 代码运行步骤：
 
-Scripts provided in `package.json`. It's safe to modify or add additional script:
+1. 进入 uilab 根目录
+2. `yarn install` ，npm 版本大于 14 请使用 yarn1.6+
+3. `npm run start`  启动主应用
+4. `npm run build`  打包主应用
 
-### Start project
+## 四、注意事项：
 
-```bash
-npm start
-```
+1. 子模块命名规则 Uilab-Comp UI5
 
-### Build project
-
-```bash
-npm run build
-```
-
-### Check code style
-
-```bash
-npm run lint
-```
-
-You can also use script to auto fix some lint error:
-
-```bash
-npm run lint:fix
-```
-
-### Test code
-
-```bash
-npm test
-```
-
-## More
-
-You can view full document on our [official website](https://pro.ant.design). And welcome any feedback in our [github](https://github.com/ant-design/ant-design-pro).
