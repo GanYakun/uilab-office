@@ -10,6 +10,7 @@ import React, { useEffect, useState } from 'react';
 import './index.less';
 import { appConfig } from '../../../config/appConfig'
 import { history as umiHistory } from 'umi';
+import { FormattedMessage } from "react-intl";
 
 const LaunchPad: React.FC = () => {
   const [dataSource, setDataSource] = useState<any>([]);
@@ -26,16 +27,16 @@ const LaunchPad: React.FC = () => {
   return <div>
     {dataSource?.map((item: any, index: number) => {
       return <div key={index} className='container'>
-        <div className='groupName'>{item.name}</div>
+        <div className='groupName'><FormattedMessage id={`menu.${item.name}`} /></div>
         <div className='pannel'>
           {
-            item.apps.map((childItem: any, childIndex: number) => {
+            item?.apps?.map((childItem: any, childIndex: number) => {
               return <div className='pannel-item' key={`child-${childIndex}`} onClick={() => _historyPush(`/${item.path}/${childItem}`)}>
                 <div style={{ width: "100%" }}>
                   <div>
                     <img width={48} height={48} src='navigate@2x.png' />
                   </div>
-                  <div className='title'>{childItem}</div>
+                  <div className='title'><FormattedMessage id={`menu.${item.name}.${childItem}`} /></div>
                   <div className='description'></div>
                 </div>
                 <div className='tags'></div>
