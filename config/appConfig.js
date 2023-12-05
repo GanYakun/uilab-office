@@ -13,7 +13,7 @@
 const appConfig = {
     //应用名称
     title: 'OfficeAuto',
-    subTitle: '工至可配置业务平台系统v0.1',
+    subTitle: 'v0.1',
     logo: '/try8.svg',
     //Fe应用
     feApps: [
