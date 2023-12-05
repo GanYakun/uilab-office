@@ -19,7 +19,7 @@ const LaunchPad: React.FC = () => {
   useEffect(() => {
     let arr: any = [];
     const access = getSecurityPermissionGroup(initialState?.currentUser);
-    // 权限功能，只有有权限的才会添加
+
     appConfig.feApps.forEach(item => {
       let apps: any[] = [];
       item?.apps?.forEach((childItem) => {

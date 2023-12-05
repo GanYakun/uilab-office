@@ -61,9 +61,25 @@ export const getRouteFiles = () => {
       )
     }
   }
+  if (Array.isArray(appConfig.custApps)) {
+    result.forEach((item, index) => {
+      for (let group of appConfig.custApps) {
+        const { path: groupPath, routes } = group
+        if (groupPath.includes(item.path)) {
+          routes.forEach((childItem) => {
+            const { path, name, routes: chidRouter } = childItem
+            result[index].routes.push({
+              path: `${path}`,
+              name: name,
+              routes: chidRouter
+            })
+          })
+        }
+      }
+    })
+  }
   return result
 }
-
 export default [
   {
     path: '/launchPad',

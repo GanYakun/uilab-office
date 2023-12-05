@@ -38,10 +38,6 @@ const appConfig = {
                     access: 'can001',
                 },
                 {
-                    appName: 'supplierapprove-managebyapplication',
-                    access: 'can01',
-                },
-                {
                     appName: 'supplierapprove-managebyprocurement',
                     access: 'can03',
                 },
@@ -72,11 +68,11 @@ const appConfig = {
                         "redirect": "/menu2/supplierapprove-managebyapplication/SupplierPartiesList"
                     }, {
                         "path": "/menu2/supplierapprove-managebyapplication/SupplierPartiesList",
-                        "component": "../../lib/Uilab-Comp/smart-comp/UIPages/ListReport",
+                        "component": "../../src/pages/Anotations/ListReport",
                         "hideInMenu": true
                     }, {
                         "path": "/menu2/supplierapprove-managebyapplication/SupplierPartiesObjectPage",
-                        "component": "../../lib/Uilab-Comp/smart-comp/UIPages/ObjectPage",
+                        "component": "../../src/pages/Anotations/ObjectPage",
                         "hideInMenu": true
                     }]
                 },
