@@ -65,6 +65,7 @@ const appConfig = {
                     "path": "/menu2/supplierapprove-managebyapplication",
                     access: 'can01',
                     "routes": [{
+                        access: 'can01',
                         "path": "/menu2/supplierapprove-managebyapplication",
                         "redirect": "/menu2/supplierapprove-managebyapplication/SupplierPartiesList",
                     }, {
@@ -263,14 +264,15 @@ const getRouteFiles = () => {
     if (Array.isArray(appConfig.custApps)) {
         result.forEach((item, index) => {
             for (let group of appConfig.custApps) {
-                const { path: groupPath, routes } = group
+                const { path: groupPath, routes, access } = group
                 if (groupPath.includes(item.path)) {
                     routes.forEach((childItem) => {
                         const { path, name, routes: chidRouter } = childItem
                         result[index].routes.push({
                             path: `${path}`,
                             name: name,
-                            routes: chidRouter
+                            routes: chidRouter,
+                            access
                         })
                     })
                 }

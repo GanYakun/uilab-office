@@ -8,7 +8,7 @@
  */
 import React, { useEffect, useState } from 'react';
 import './index.less';
-import { appConfig, getSecurityPermissionGroup } from '../../../config/appConfig'
+import { getRouteFiles, getSecurityPermissionGroup } from '../../../config/appConfig'
 import { history as umiHistory } from 'umi';
 import { FormattedMessage } from "react-intl";
 import { useModel } from 'umi';
@@ -20,19 +20,19 @@ const LaunchPad: React.FC = () => {
     let arr: any = [];
     const access = getSecurityPermissionGroup(initialState?.currentUser);
 
-    appConfig.feApps.forEach(item => {
-      let apps: any[] = [];
-      item?.apps?.forEach((childItem) => {
-        if (access[childItem.access]) {
-          apps.push(childItem);
+    getRouteFiles().forEach(item => {
+      let routes: any[] = [];
+      item?.routes?.forEach((childItem) => {
+        if (access[childItem.routes[0].access]) {
+          routes.push(childItem);
         }
       })
-      if (apps.length) {
+      if (routes.length) {
         arr.push({
           icon: item.icon,
           name: item.name,
           path: item.path,
-          apps
+          routes
         })
       }
     })
@@ -51,13 +51,13 @@ const LaunchPad: React.FC = () => {
         <div className='groupName'><FormattedMessage id={`menu.${item.name}`} /></div>
         <div className='pannel'>
           {
-            item?.apps?.map((childItem: any, childIndex: number) => {
-              return <div className='pannel-item' key={`child-${childIndex}`} onClick={() => _historyPush(`/${item.path}/${childItem.appName}`)}>
+            item?.routes?.map((childItem: any, childIndex: number) => {
+              return <div className='pannel-item' key={`child-${childIndex}`} onClick={() => _historyPush(`${item.path}/${childItem.name}`)}>
                 <div style={{ width: "100%" }}>
                   <div>
                     <img width={48} height={48} src='navigate@2x.png' />
                   </div>
-                  <div className='title'><FormattedMessage id={`menu.${item.name}.${childItem.appName}`} /></div>
+                  <div className='title'><FormattedMessage id={`menu.${item.name}.${childItem.name}`} /></div>
                   <div className='description'></div>
                 </div>
                 <div className='tags'></div>
