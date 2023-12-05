@@ -2,7 +2,7 @@
  * @Author: lx.jin 308561217@qq.com
  * @Date: 2023-11-23 10:51:23
  * @LastEditors: lx.jin 308561217@qq.com
- * @LastEditTime: 2023-12-04 15:55:21
+ * @LastEditTime: 2023-12-05 10:21:22
  * @FilePath: /Uilab-Application/config/appConfig.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -31,12 +31,38 @@ const appConfig = {
             icon: 'smile',
             apps: [
                 'supplierparty-manage',
-                'supplierapprove-managebyapplication',
+                // 'supplierapprove-managebyapplication',
                 'supplierapprove-managebyprocurement',
                 'supplierapprove-managebycompliance',
                 'supplier-dd-form',
             ],
 
+        }
+    ],
+    //自定义应用
+    custApps: [
+        {
+            "path": "/menu2",
+            "name": "supplier",
+            "icon": "smile",
+            "routes": [
+                {
+                    "name": "supplierapprove-managebyapplication",
+                    "path": "/menu2/supplierapprove-managebyapplication",
+                    "routes": [{
+                        "path": "/menu2/supplierapprove-managebyapplication",
+                        "redirect": "/menu2/supplierapprove-managebyapplication/SupplierPartiesList"
+                    }, {
+                        "path": "/menu2/supplierapprove-managebyapplication/SupplierPartiesList",
+                        "component": "../../lib/Uilab-Comp/smart-comp/UIPages/ListReport",
+                        "hideInMenu": true
+                    }, {
+                        "path": "/menu2/supplierapprove-managebyapplication/SupplierPartiesObjectPage",
+                        "component": "../../lib/Uilab-Comp/smart-comp/UIPages/ObjectPage",
+                        "hideInMenu": true
+                    }]
+                },
+            ]
         }
     ],
     //国际化配置
