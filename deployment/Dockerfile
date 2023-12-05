@@ -6,7 +6,7 @@ FROM registry.cn-hangzhou.aliyuncs.com/banff/nginx:latest
 
 WORKDIR /usr/share/nginx/html/
 
-COPY deployment/nginx.conf /opt/runtime/nginx/etc/nginx/nginx.conf
+COPY ./deployment/nginx.conf /opt/runtime/nginx/etc/nginx/nginx.conf
 
 COPY ./dist/* /usr/share/nginx/html/
 
