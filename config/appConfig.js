@@ -70,11 +70,11 @@ const appConfig = {
                         "redirect": "/menu2/supplierapprove-managebyapplication/SupplierPartiesList",
                     }, {
                         "path": "/menu2/supplierapprove-managebyapplication/SupplierPartiesList",
-                        "component": "../../src/pages/Anotations/ListReport",
+                        "component": "../../src/pages/supplierapprove-managebyapplication/ListReport",
                         "hideInMenu": true
                     }, {
                         "path": "/menu2/supplierapprove-managebyapplication/SupplierPartiesObjectPage",
-                        "component": "../../src/pages/Anotations/ObjectPage",
+                        "component": "../../src/pages/supplierapprove-managebyapplication/ObjectPage",
                         "hideInMenu": true
                     }]
                 },

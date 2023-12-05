@@ -31,7 +31,7 @@ export default () => {
                             </Steps>
                         },
                         path: "",
-                        title: "Process"
+                        title: "Steps"
                     },
                     type: "columns",
                     fixed: "left",
