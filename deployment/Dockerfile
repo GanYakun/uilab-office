@@ -8,7 +8,7 @@ WORKDIR /usr/share/nginx/html/
 
 COPY deployment/nginx.conf /opt/runtime/nginx/etc/nginx/nginx.conf
 
-COPY dist/ /usr/share/nginx/html/
+COPY ./dist/* /usr/share/nginx/html/
 
 EXPOSE 80
 
