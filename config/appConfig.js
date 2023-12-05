@@ -2,7 +2,7 @@
  * @Author: lx.jin 308561217@qq.com
  * @Date: 2023-11-23 10:51:23
  * @LastEditors: lx.jin 308561217@qq.com
- * @LastEditTime: 2023-12-05 10:21:22
+ * @LastEditTime: 2023-12-05 10:37:13
  * @FilePath: /Uilab-Application/config/appConfig.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -22,7 +22,10 @@ const appConfig = {
             name: 'user&permission',
             icon: 'smile',
             apps: [
-                'role-manage',
+                {
+                    appName: 'role-manage',
+                    access: 'canAdmin',
+                }
             ],
         },
         {
@@ -30,11 +33,26 @@ const appConfig = {
             name: 'supplier',
             icon: 'smile',
             apps: [
-                'supplierparty-manage',
-                // 'supplierapprove-managebyapplication',
-                'supplierapprove-managebyprocurement',
-                'supplierapprove-managebycompliance',
-                'supplier-dd-form',
+                {
+                    appName: 'supplierparty-manage',
+                    access: 'can001',
+                },
+                {
+                    appName: 'supplierapprove-managebyapplication',
+                    access: 'can01',
+                },
+                {
+                    appName: 'supplierapprove-managebyprocurement',
+                    access: 'can03',
+                },
+                {
+                    appName: 'supplierapprove-managebycompliance',
+                    access: 'can02',
+                },
+                {
+                    appName: 'supplier-dd-form',
+                    access: 'can04',
+                },
             ],
 
         }
@@ -169,6 +187,30 @@ const appConfig = {
     }
 }
 
+//权限配置
+const getSecurityPermissionGroup = (currentUser) => {
+    let SecurityPermissionGroup = {
+        canSystem: true,//平台管理员使用
+    }
+    if (currentUser && currentUser.UILabApp) {
+        SecurityPermissionGroup = {
+            ...SecurityPermissionGroup,
+            canAdmin: currentUser.userLoginId === 'admin',
+            can00: currentUser.UILabApp.findIndex((item) => item.permissionId === '00') !== -1,//审批
+            can001: currentUser.UILabApp.findIndex((item) => item.permissionId === '00' || item.permissionId === '01' || item.permissionId === '02' || item.permissionId === '03') !== -1,//vondors-approved
+            can01: currentUser.UILabApp.findIndex((item) => item.permissionId === '01') !== -1,//Applicant
+            can02: currentUser.UILabApp.findIndex((item) => item.permissionId === '02') !== -1,//Compliance
+            can03: currentUser.UILabApp.findIndex((item) => item.permissionId === '03') !== -1,//procurement
+            can04: currentUser.UILabApp.findIndex((item) => item.permissionId === '04') !== -1,//vondors
+        }
+    }
+
+    console.log({ currentUser, SecurityPermissionGroup })
+
+    return SecurityPermissionGroup
+}
+
 export {
-    appConfig
+    appConfig,
+    getSecurityPermissionGroup,
 }

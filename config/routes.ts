@@ -2,7 +2,7 @@
  * @Author: lx.jin 308561217@qq.com
  * @Date: 2023-11-17 17:18:59
  * @LastEditors: lx.jin 308561217@qq.com
- * @LastEditTime: 2023-12-04 12:13:42
+ * @LastEditTime: 2023-12-05 10:39:14
  * @FilePath: /Uilab-Application/config/routes.ts
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -18,32 +18,36 @@ export const getRouteFiles = () => {
       const { path: groupPath, name: groupName, icon, apps } = group
       const groupArr = []
       for (let item of apps) {
-        const manifest = require(`../public/Ui5/${item}/webapp/manifest.json`)
+        const { appName, access } = item
+        const manifest = require(`../public/Ui5/${appName}/webapp/manifest.json`)
         const { routes, targets } = manifest['sap.ui5'].routing
         const routeArr = []
         for (let route of routes) {
           const { name } = route
           if (targets[name]?.name === 'sap.fe.templates.ListReport') {
             routeArr.push({
-              path: `/${groupPath}/${item}`,
-              redirect: `/${groupPath}/${item}/${name}`
+              path: `/${groupPath}/${appName}`,
+              redirect: `/${groupPath}/${appName}/${name}`,
+              access
             })
             routeArr.push({
-              path: `/${groupPath}/${item}/${name}`,
+              path: `/${groupPath}/${appName}/${name}`,
               component: `../../lib/Uilab-Comp/smart-comp/UIPages/ListReport`,
               hideInMenu: true,
+              access
             })
           } else if (targets[name]?.name === 'sap.fe.templates.ObjectPage') {
             routeArr.push({
-              path: `/${groupPath}/${item}/${name}`,
+              path: `/${groupPath}/${appName}/${name}`,
               component: '../../lib/Uilab-Comp/smart-comp/UIPages/ObjectPage',
               hideInMenu: true,
+              access
             })
           }
         }
         groupArr.push({
-          name: `${item}`,
-          path: `/${groupPath}/${item}`,
+          name: `${appName}`,
+          path: `/${groupPath}/${appName}`,
           routes: routeArr
         })
       }

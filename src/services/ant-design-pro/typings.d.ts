@@ -3,6 +3,9 @@
 
 declare namespace API {
   type CurrentUser = {
+    findIndex(arg0: (item: any) => boolean): unknown;
+    userLoginId: string;
+    UILabApp: CurrentUser | undefined;
     name?: string;
     avatar?: string;
     userid?: string;

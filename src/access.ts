@@ -1,9 +1,5 @@
-/**
- * @see https://umijs.org/zh-CN/plugins/plugin-access
- * */
+import { getSecurityPermissionGroup } from '../config/appConfig'
 export default function access(initialState: { currentUser?: API.CurrentUser } | undefined) {
   const { currentUser } = initialState ?? {};
-  return {
-    canAdmin: currentUser && currentUser.access === 'admin',
-  };
+  return currentUser && getSecurityPermissionGroup ? getSecurityPermissionGroup(currentUser) : {}
 }
