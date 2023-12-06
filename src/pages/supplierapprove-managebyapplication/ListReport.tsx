@@ -9,8 +9,7 @@
 import React, { useEffect, useState } from 'react';
 import './index.less';
 import ListReport from "../../../lib/Uilab-Comp/smart-comp/UIPages/ListReport";
-import { Steps } from 'ant5';
-const { Step } = Steps;
+import Steps from "../../../lib/Uilab-Comp/smart-comp/CustComp/Steps";
 /**
  * @params SmartProps     []
  * 1. 添加的类型           *children  string
@@ -24,11 +23,8 @@ export default () => {
             SmartProps: [
                 {
                     data: {
-                        render: () => {
-                            return <Steps size="small" labelPlacement="vertical" type='inline'>
-                                <Step title="Finished" />
-                                <Step title="In Progress" />
-                            </Steps>
+                        render: (val) => {
+                            return <Steps queryEntity={val["@odata.id"]} isInline={true} />
                         },
                         path: "",
                         title: "Steps"

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import './index.less';
 import ObjectPage from "../../../lib/Uilab-Comp/smart-comp/UIPages/ObjectPage";
-import { Steps } from 'antd';
-const { Step } = Steps;
+import Steps from "../../../lib/Uilab-Comp/smart-comp/CustComp/Steps";
+
 /**
  * @params SmartProps     []
  * 1. 添加的类型           *children  string
@@ -18,11 +18,8 @@ export default (props) => {
                     {
                         data: {
                             targetData: {
-                                render: () => {
-                                    return <Steps size="small" labelPlacement="vertical">
-                                        <Step title="Finished" />
-                                        <Step title="In Progress" />
-                                    </Steps>
+                                render: (val) => {
+                                    return <Steps queryEntity={val} isInline={false} />
                                 },
                                 facetType: "step",
                             }
