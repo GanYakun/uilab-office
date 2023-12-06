@@ -10,29 +10,37 @@ import React, { useEffect, useState } from 'react';
 import './index.less';
 import ListReport from "../../../lib/Uilab-Comp/smart-comp/UIPages/ListReport";
 import Steps from "../../../lib/Uilab-Comp/smart-comp/CustComp/Steps";
+import { KeepAlive } from 'umi';
 /**
  * @params SmartProps     []
  * 1. 添加的类型           *children  string
  * 2. 添加的内容           *SmartProps object[](描述)
  */
+console.log({ KeepAlive });
 
 export default () => {
     return <div>
-        <ListReport SmartProps={[{
-            children: "SmartTable",
-            SmartProps: [
-                {
-                    data: {
-                        render: (val) => {
-                            return <Steps queryEntity={val["@odata.id"]} isInline={true} />
+        <KeepAlive
+            name="listreport" //可按照name卸载缓存状态下的 <KeepAlive> 节点
+            saveScrollPosition="screen" //自动保存共享屏幕容器的滚动位置
+            when={true}
+        >
+            <ListReport SmartProps={[{
+                children: "SmartTable",
+                SmartProps: [
+                    {
+                        data: {
+                            render: (val) => {
+                                return <Steps queryEntity={val["@odata.id"]} isInline={true} />
+                            },
+                            path: "",
+                            title: "Steps"
                         },
-                        path: "",
-                        title: "Steps"
-                    },
-                    type: "columns",
-                    fixed: "left",
-                }
-            ]
-        }]} />
+                        type: "columns",
+                        fixed: "left",
+                    }
+                ]
+            }]} />
+        </KeepAlive>
     </div>
 }
