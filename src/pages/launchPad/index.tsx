@@ -2,7 +2,7 @@
  * @Author: lx.jin 308561217@qq.com
  * @Date: 2022-08-04 18:10:09
  * @LastEditors: lx.jin 308561217@qq.com
- * @LastEditTime: 2023-12-04 14:21:22
+ * @LastEditTime: 2023-12-06 17:20:45
  * @FilePath: /qiankun/uiLab/apps/launchPad/src/pages/LaunchPad.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -12,6 +12,9 @@ import { getRouteFiles, getSecurityPermissionGroup } from '../../../config/appCo
 import { history as umiHistory } from 'umi';
 import { FormattedMessage } from "react-intl";
 import { useModel } from 'umi';
+import { ArrowDownOutlined, ArrowUpOutlined } from '@ant-design/icons';
+import { Progress, Statistic } from 'ant5';
+import { red, green } from '@ant-design/colors';
 
 const LaunchPad: React.FC = () => {
   const [dataSource, setDataSource] = useState<any>([]);
@@ -45,6 +48,23 @@ const LaunchPad: React.FC = () => {
       query: {},
     })
   }
+
+  const tagEnum = {
+    'supplierparty-manage': (
+      <>
+        <Statistic
+          value={11.28}
+          precision={2}
+          valueStyle={{ color: '#3f8600' }}
+          prefix={<ArrowUpOutlined />}
+          suffix="%"
+        /></>
+    ),
+    'supplierapprove-managebyprocurement': <Progress type="circle" percent={30} size={60} />,
+    'supplierapprove-managebycompliance': <Progress percent={50} />,
+    'supplierapprove-managebyapplication': <Progress percent={60} steps={5} strokeColor={[green[6], green[6], red[5]]} />,
+  }
+
   return <div>
     {dataSource?.map((item: any, index: number) => {
       return <div key={index} className='container'>
@@ -55,12 +75,14 @@ const LaunchPad: React.FC = () => {
               return <div className='pannel-item' key={`child-${childIndex}`} onClick={() => _historyPush(`${item.path}/${childItem.name}`)}>
                 <div style={{ width: "100%" }}>
                   <div>
-                    <img width={48} height={48} src='navigate@2x.png' />
+                    <img width={48} height={48} src={`officeAuto/${childItem.name}.png`} />
                   </div>
                   <div className='title'><FormattedMessage id={`menu.${item.name}.${childItem.name}`} /></div>
                   <div className='description'></div>
                 </div>
-                <div className='tags'></div>
+                <div className='tags'>
+                  {tagEnum[childItem.name]}
+                </div>
                 <div className='bottom'>
                   <img className='navigate' src='navigate@2x.png' />
                 </div>
