@@ -40,20 +40,6 @@ const appConfig = {
                 {
                     appName: 'supplierapprove-managebyapplication',
                     access: 'can01',
-                    "ListReport": [{
-                        children: "SmartTable",
-                        SmartProps: [
-                            {
-                                data: {
-                                    comName: "Steps",
-                                    path: "",
-                                    title: "Steps"
-                                },
-                                type: "columns",
-                                fixed: "left",
-                            }
-                        ]
-                    }],
                     "ObjectPage": [
                         {
                             children: "",
@@ -74,6 +60,22 @@ const appConfig = {
                 {
                     appName: 'supplierapprove-managebyprocurement',
                     access: 'can03',
+                    "ObjectPage": [
+                        {
+                            children: "",
+                            SmartProps: [
+                                {
+                                    data: {
+                                        targetData: {
+                                            facetType: "step",
+                                        }
+                                    },
+                                    type: "HeaderFacets",
+                                    position: "right",
+                                }
+                            ]
+                        }
+                    ]
                 },
                 {
                     appName: 'supplierapprove-managebycompliance',
