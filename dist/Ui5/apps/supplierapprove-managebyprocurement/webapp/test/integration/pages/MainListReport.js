@@ -1,0 +1,1 @@
+sap.ui.define(["sap/fe/test/ListReport"],function(e){"use strict";var t={actions:{},assertions:{}};return new e({appId:"com.banfftech.supplierapprovemanagebyprocurement",componentId:"SupplierPartiesList",entitySet:"SupplierParties"},t)});
