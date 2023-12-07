@@ -2,7 +2,7 @@
  * @Author: lx.jin 308561217@qq.com
  * @Date: 2023-12-05 18:05:29
  * @LastEditors: lx.jin 308561217@qq.com
- * @LastEditTime: 2023-12-05 18:28:28
+ * @LastEditTime: 2023-12-07 11:52:11
  * @FilePath: /Uilab-Application/src/pages/Anotations/ListReport.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -19,21 +19,6 @@ import Steps from "../../../lib/Uilab-Comp/smart-comp/CustComp/Steps";
 
 export default () => {
     return <div>
-        <ListReport SmartProps={[{
-            children: "SmartTable",
-            SmartProps: [
-                {
-                    data: {
-                        render: (val) => {
-                            return <Steps queryEntity={val["@odata.id"]} isInline={true} />
-                        },
-                        path: "",
-                        title: "Steps"
-                    },
-                    type: "columns",
-                    fixed: "left",
-                }
-            ]
-        }]} />
+        <ListReport />
     </div>
 }
