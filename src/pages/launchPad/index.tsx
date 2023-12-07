@@ -2,7 +2,7 @@
  * @Author: lx.jin 308561217@qq.com
  * @Date: 2022-08-04 18:10:09
  * @LastEditors: lx.jin 308561217@qq.com
- * @LastEditTime: 2023-12-06 17:20:45
+ * @LastEditTime: 2023-12-07 10:51:49
  * @FilePath: /qiankun/uiLab/apps/launchPad/src/pages/LaunchPad.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -12,9 +12,8 @@ import { getRouteFiles, getSecurityPermissionGroup } from '../../../config/appCo
 import { history as umiHistory } from 'umi';
 import { FormattedMessage } from "react-intl";
 import { useModel } from 'umi';
-import { ArrowDownOutlined, ArrowUpOutlined } from '@ant-design/icons';
+import { FileSyncOutlined, FileDoneOutlined } from '@ant-design/icons';
 import { Progress, Statistic } from 'ant5';
-import { red, green } from '@ant-design/colors';
 
 const LaunchPad: React.FC = () => {
   const [dataSource, setDataSource] = useState<any>([]);
@@ -50,19 +49,10 @@ const LaunchPad: React.FC = () => {
   }
 
   const tagEnum = {
-    'supplierparty-manage': (
-      <>
-        <Statistic
-          value={11.28}
-          precision={2}
-          valueStyle={{ color: '#3f8600' }}
-          prefix={<ArrowUpOutlined />}
-          suffix="%"
-        /></>
-    ),
+    'supplierparty-manage': <Statistic title="Registered quantity" value={112} prefix={<FileDoneOutlined />} valueStyle={{ color: '#3f8600' }}/>,
+    'supplierapprove-managebyapplication': <Statistic title="Quantity to be registered" value={47} prefix={<FileSyncOutlined />} valueStyle={{ color: '#00BFFF' }} />,
     'supplierapprove-managebyprocurement': <Progress type="circle" percent={30} size={60} />,
     'supplierapprove-managebycompliance': <Progress percent={50} />,
-    'supplierapprove-managebyapplication': <Progress percent={60} steps={5} strokeColor={[green[6], green[6], red[5]]} />,
   }
 
   return <div>
