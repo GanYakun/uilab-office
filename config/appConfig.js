@@ -37,10 +37,10 @@ const appConfig = {
                     appName: 'supplierparty-manage',
                     access: 'can001',
                 },
-                {
-                    appName: 'supplierapprove-managebyprocurement',
-                    access: 'can03',
-                },
+                // {
+                //     appName: 'supplierapprove-managebyprocurement',
+                //     access: 'can03',
+                // },
                 {
                     appName: 'supplierapprove-managebycompliance',
                     access: 'can02',
@@ -63,9 +63,9 @@ const appConfig = {
                 {
                     "name": "supplierapprove-managebyapplication",
                     "path": "/menu2/supplierapprove-managebyapplication",
-                    access: 'can01',
+                    "access": 'can01',
                     "routes": [{
-                        access: 'can01',
+                        "access": 'can01',
                         "path": "/menu2/supplierapprove-managebyapplication",
                         "redirect": "/menu2/supplierapprove-managebyapplication/SupplierPartiesList",
                     }, {
@@ -78,8 +78,32 @@ const appConfig = {
                         "hideInMenu": true
                     }]
                 },
+                {
+                    "name": 'supplierapprove-managebyprocurement',
+                    "path": '/menu2/supplierapprove-managebyprocurement',
+                    "access": 'can03',
+                    "routes": [
+                        {
+                            "path": '/menu2/supplierapprove-managebyprocurement',
+                            "redirect": '/menu2/supplierapprove-managebyprocurement/SupplierPartiesList',
+                            "access": 'can03'
+                        },
+                        {
+                            "path": '/menu2/supplierapprove-managebyprocurement/SupplierPartiesList',
+                            "component": '../../src/pages/supplierapprove-managebyprocurement/ListReport',
+                            "hideInMenu": true,
+                            "access": 'can03'
+                        },
+                        {
+                            "path": '/menu2/supplierapprove-managebyprocurement/SupplierPartiesObjectPage',
+                            "component": '../../src/pages/supplierapprove-managebyprocurement/ObjectPage',
+                            "hideInMenu": true,
+                            "access": 'can03'
+                        }
+                    ]
+                }
             ]
-        }
+        },
     ],
     //国际化配置
     appLocales: {
