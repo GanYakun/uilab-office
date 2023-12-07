@@ -106,7 +106,7 @@ export const layout: RunTimeLayoutConfig = ({ initialState }) => {
       const { redirect } = query;
       // 如果没有登录，重定向到 login
       if (!initialState?.currentUser && location.pathname !== loginPath) {
-         if (!redirect) {
+        if (!redirect) {
           history.replace({
             pathname: loginPath,
             search: stringify({
