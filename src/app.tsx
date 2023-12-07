@@ -8,6 +8,7 @@ import { stringify } from 'querystring';
 import defaultSettings from '../config/defaultSettings';
 import Odata from '../lib/Uilab-Comp/utils/odata/odata.js';
 import { appConfig } from '../config/appConfig';
+import '../lib/Uilab-Comp/smart-comp/Process/auto-update'
 const loginPath = '/user/login';
 
 /** 获取用户信息比较慢的时候会展示一个*/
