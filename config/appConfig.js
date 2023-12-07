@@ -35,12 +35,47 @@ const appConfig = {
             apps: [
                 {
                     appName: 'supplierparty-manage',
-                    access: 'can001',
+                    access: 'can001'
                 },
-                // {
-                //     appName: 'supplierapprove-managebyprocurement',
-                //     access: 'can03',
-                // },
+                {
+                    appName: 'supplierapprove-managebyapplication',
+                    access: 'can01',
+                    "ListReport": [{
+                        children: "SmartTable",
+                        SmartProps: [
+                            {
+                                data: {
+                                    comName: "Steps",
+                                    path: "",
+                                    title: "Steps"
+                                },
+                                type: "columns",
+                                fixed: "left",
+                            }
+                        ]
+                    }],
+                    "ObjectPage": [
+                        {
+                            children: "",
+                            SmartProps: [
+                                {
+                                    data: {
+                                        targetData: {
+                                            comName: "Steps",
+                                            facetType: "step",
+                                        }
+                                    },
+                                    type: "HeaderFacets",
+                                    position: "right",
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    appName: 'supplierapprove-managebyprocurement',
+                    access: 'can03',
+                },
                 {
                     appName: 'supplierapprove-managebycompliance',
                     access: 'can02',
@@ -54,57 +89,7 @@ const appConfig = {
         }
     ],
     //自定义应用
-    custApps: [
-        {
-            "path": "/menu2",
-            "name": "supplier",
-            "icon": "smile",
-            "routes": [
-                {
-                    "name": "supplierapprove-managebyapplication",
-                    "path": "/menu2/supplierapprove-managebyapplication",
-                    "access": 'can01',
-                    "routes": [{
-                        "access": 'can01',
-                        "path": "/menu2/supplierapprove-managebyapplication",
-                        "redirect": "/menu2/supplierapprove-managebyapplication/SupplierPartiesList",
-                    }, {
-                        "path": "/menu2/supplierapprove-managebyapplication/SupplierPartiesList",
-                        "component": "../../src/pages/supplierapprove-managebyapplication/ListReport",
-                        "hideInMenu": true
-                    }, {
-                        "path": "/menu2/supplierapprove-managebyapplication/SupplierPartiesObjectPage",
-                        "component": "../../src/pages/supplierapprove-managebyapplication/ObjectPage",
-                        "hideInMenu": true
-                    }]
-                },
-                {
-                    "name": 'supplierapprove-managebyprocurement',
-                    "path": '/menu2/supplierapprove-managebyprocurement',
-                    "access": 'can03',
-                    "routes": [
-                        {
-                            "path": '/menu2/supplierapprove-managebyprocurement',
-                            "redirect": '/menu2/supplierapprove-managebyprocurement/SupplierPartiesList',
-                            "access": 'can03'
-                        },
-                        {
-                            "path": '/menu2/supplierapprove-managebyprocurement/SupplierPartiesList',
-                            "component": '../../src/pages/supplierapprove-managebyprocurement/ListReport',
-                            "hideInMenu": true,
-                            "access": 'can03'
-                        },
-                        {
-                            "path": '/menu2/supplierapprove-managebyprocurement/SupplierPartiesObjectPage',
-                            "component": '../../src/pages/supplierapprove-managebyprocurement/ObjectPage',
-                            "hideInMenu": true,
-                            "access": 'can03'
-                        }
-                    ]
-                }
-            ]
-        },
-    ],
+    custApps: [],
     //国际化配置
     appLocales: {
         'en-US': {
@@ -242,7 +227,7 @@ const getRouteFiles = () => {
             const { path: groupPath, name: groupName, icon, apps } = group
             const groupArr = []
             for (let item of apps) {
-                const { appName, access } = item
+                const { appName, access, ListReport, ObjectPage } = item
                 const manifest = require(`../public/Ui5/${appName}/webapp/manifest.json`)
                 const { routes, targets } = manifest['sap.ui5'].routing
                 const routeArr = []
@@ -252,20 +237,26 @@ const getRouteFiles = () => {
                         routeArr.push({
                             path: `/${groupPath}/${appName}`,
                             redirect: `/${groupPath}/${appName}/${name}`,
-                            access
+                            access,
+                            ListReport,
+                            ObjectPage
                         })
                         routeArr.push({
                             path: `/${groupPath}/${appName}/${name}`,
                             component: `../../lib/Uilab-Comp/smart-comp/UIPages/ListReport`,
                             hideInMenu: true,
-                            access
+                            access,
+                            ListReport,
+                            ObjectPage
                         })
                     } else if (targets[name]?.name === 'sap.fe.templates.ObjectPage') {
                         routeArr.push({
                             path: `/${groupPath}/${appName}/${name}`,
                             component: '../../lib/Uilab-Comp/smart-comp/UIPages/ObjectPage',
                             hideInMenu: true,
-                            access
+                            access,
+                            ListReport,
+                            ObjectPage
                         })
                     }
                 }
@@ -285,24 +276,24 @@ const getRouteFiles = () => {
             )
         }
     }
-    if (Array.isArray(appConfig.custApps)) {
-        result.forEach((item, index) => {
-            for (let group of appConfig.custApps) {
-                const { path: groupPath, routes, access } = group
-                if (groupPath.includes(item.path)) {
-                    routes.forEach((childItem) => {
-                        const { path, name, routes: chidRouter } = childItem
-                        result[index].routes.push({
-                            path: `${path}`,
-                            name: name,
-                            routes: chidRouter,
-                            access
-                        })
-                    })
-                }
-            }
-        })
-    }
+    // if (Array.isArray(appConfig.custApps)) {
+    //     result.forEach((item, index) => {
+    //         for (let group of appConfig.custApps) {
+    //             const { path: groupPath, routes, access } = group
+    //             if (groupPath.includes(item.path)) {
+    //                 routes.forEach((childItem) => {
+    //                     const { path, name, routes: chidRouter } = childItem
+    //                     result[index].routes.push({
+    //                         path: `${path}`,
+    //                         name: name,
+    //                         routes: chidRouter,
+    //                         access
+    //                     })
+    //                 })
+    //             }
+    //         }
+    //     })
+    // }
     return result
 }
 
