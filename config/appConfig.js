@@ -61,7 +61,6 @@ const appConfig = {
                                 {
                                     data: {
                                         targetData: {
-                                            comName: "Steps",
                                             facetType: "step",
                                         }
                                     },
