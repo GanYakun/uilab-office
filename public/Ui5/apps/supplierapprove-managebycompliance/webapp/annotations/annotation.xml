@@ -91,7 +91,7 @@
 
             <Annotation Term="UI.Facets">
                 <Collection>
-                    <Record Type="UI.CollectionFacet">
+                    <!-- <Record Type="UI.CollectionFacet">
                         <PropertyValue Property="ID" String="SupplierFacet"/>
                         <PropertyValue Property="Label" String="DD Form"/>
                         <PropertyValue Property="Facets" >
@@ -107,13 +107,13 @@
                                 </Record>
                             </Collection>
                         </PropertyValue>
-                    </Record>
+                    </Record> -->
                     <Record Type="UI.ReferenceFacet">
                         <PropertyValue Property="ID" String="FileList"/>
                         <PropertyValue Property="Label" String="{@i18n>FileList}"/>
                         <PropertyValue Property="Target"  AnnotationPath="ComplianceReport/@UI.LineItem#FileList"/>
                     </Record>
-                    <Record Type="UI.ReferenceFacet">
+                    <!-- <Record Type="UI.ReferenceFacet">
                         <PropertyValue Property="Label" String="{@i18n>ContactMechPurpose}"/>
                         <PropertyValue Property="ID" String="ContactMechPurpose"/>
                         <PropertyValue Property="Target" AnnotationPath="PostalAddress/@UI.LineItem#PostalAddressLineItem_NOAction"/>
@@ -122,7 +122,7 @@
                         <PropertyValue Property="ID" String="BeneficialPersonLineItem"/>
                         <PropertyValue Property="Label" String="{@i18n>BeneficialPersonLineItem}"/>
                         <PropertyValue Property="Target" AnnotationPath="BeneficialPerson/@UI.LineItem#BeneficialPersonLineItem"/>
-                    </Record>
+                    </Record> -->
                     <Record Type="UI.CollectionFacet">
                         <PropertyValue Property="Label" String="{@i18n>ViewDDForm}"/>
                         <PropertyValue Property="ID" String="DDForm"/>
@@ -186,7 +186,7 @@
                                 <Record Type="UI.ReferenceFacet">
                                     <PropertyValue Property="ID" String="COMPLIANCE_CER"/>
                                     <PropertyValue Property="Label" String="COMPLIANCE CERTIFICATIONS"/>
-                                    <PropertyValue Property="Target" AnnotationPath="SupplierDDForm/SurveyQuestionAnswer/@UI.LineItem#AnswerLineItem"/>
+                                    <PropertyValue Property="Target" AnnotationPath="SupplierDDForm/SurveyQuestionAnswer/@UI.LineItem#ComplianceAnswerLineItem"/>
                                 </Record>
                             </Collection>
                         </PropertyValue>
@@ -400,6 +400,47 @@
                 </Collection>
             </Annotation>
         </Annotations>
+
+            <Annotations Target="com.dpbird.DDFormSurveyQuestionAnswer">
+                <Annotation Term="UI.LineItem" Qualifier="ComplianceAnswerLineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>DDFormSurveyQuestion/question</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>enumResponse</Path>
+                            </PropertyValue>
+                            <PropertyValue Property="Criticality">
+                                <If>
+                                    <Eq>
+                                        <Path>enumResponse</Path>
+                                        <String>TRUE</String>
+                                    </Eq>
+                                    <Int>2</Int>
+                                    <Int>3</Int>
+                                </If>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>textResponse</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
         </Schema>
     </edmx:DataServices>
 </edmx:Edmx>

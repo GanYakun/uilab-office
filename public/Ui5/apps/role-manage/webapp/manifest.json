@@ -17,7 +17,7 @@
         },
         "dataSources": {
             "mainService": {
-                "uri": "/gongsconfig/control/odataAppSvc/orgStructureManage/",
+                "uri": "/officeauto/control/odataAppSvc/orgStructureManage/",
                 "type": "OData",
                 "settings": {
                     "annotations": [
