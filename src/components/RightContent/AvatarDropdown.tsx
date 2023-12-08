@@ -5,7 +5,8 @@ import type { ItemType } from 'antd/lib/menu/hooks/useItems';
 import { stringify } from 'querystring';
 import type { MenuInfo } from 'rc-menu/lib/interface';
 import React, { useCallback } from 'react';
-import { history, useModel } from 'umi';
+import { history, useModel, FormattedMessage, getLocale } from 'umi';
+
 import HeaderDropdown from '../HeaderDropdown';
 import styles from './index.less';
 
@@ -90,7 +91,7 @@ const AvatarDropdown: React.FC<GlobalHeaderRightProps> = ({ menu }) => {
     {
       key: 'logout',
       icon: <LogoutOutlined />,
-      label: '退出登录',
+      label: <FormattedMessage id='pages.login.logout' defaultMessage='logout' />,
     },
   ];
 

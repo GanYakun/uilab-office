@@ -1,3 +1,19 @@
+/*
+ * @Author: lx.jin 308561217@qq.com
+ * @Date: 2023-12-07 14:34:38
+ * @LastEditors: lx.jin 308561217@qq.com
+ * @LastEditTime: 2023-12-08 10:06:09
+ * @FilePath: /Uilab-Application/src/locales/en-US/pages.ts
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
+/*
+ * @Author: lx.jin 308561217@qq.com
+ * @Date: 2023-12-07 14:34:38
+ * @LastEditors: lx.jin 308561217@qq.com
+ * @LastEditTime: 2023-12-08 10:05:48
+ * @FilePath: /Uilab-Application/src/locales/en-US/pages.ts
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
 export default {
   'pages.layouts.userLayout.title':
     'Ant Design is the most influential web design specification in Xihu district',
@@ -5,6 +21,7 @@ export default {
   'pages.login.accountLogin.errorMessage': 'Incorrect username/password(admin/ant.design)',
   'pages.login.failure': 'Login failed, please try again!',
   'pages.login.success': 'Login successful!',
+  'pages.login.logout': 'Logout',
   'pages.login.username.placeholder': 'Username: admin or user',
   'pages.login.username.required': 'Please input your username!',
   'pages.login.password.placeholder': 'Password: ant.design',
