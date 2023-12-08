@@ -2,7 +2,7 @@
  * @Author: lx.jin 308561217@qq.com
  * @Date: 2023-11-23 10:51:23
  * @LastEditors: lx.jin 308561217@qq.com
- * @LastEditTime: 2023-12-08 12:24:07
+ * @LastEditTime: 2023-12-08 14:14:49
  * @FilePath: /Uilab-Application/config/appConfig.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -36,6 +36,21 @@ const appConfig = {
                 {
                     appName: 'supplierparty-manage',
                     access: 'can001',
+                    "ListReport": [
+                        {
+                            children: "SmartTable",
+                            SmartProps: [
+                                {
+                                    data: {
+                                        width: 100
+                                    },
+                                    type: "columns",
+                                    index: 0,
+                                    operate: "addType", // add, replace, delete addType
+                                }
+                            ]
+                        }
+                    ]
                 },
                 {
                     appName: 'supplierapprove-managebyapplication',
@@ -86,7 +101,7 @@ const appConfig = {
                                         }
                                     },
                                     type: "HeaderFacets",
-                                    position: "right",
+                                    operate: "add", // add, replace, delete
                                 }
                             ]
                         }
@@ -116,7 +131,6 @@ const appConfig = {
                     access: 'can04',
                 },
             ],
-
         }
     ],
     //自定义应用
