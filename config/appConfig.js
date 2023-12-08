@@ -35,7 +35,22 @@ const appConfig = {
             apps: [
                 {
                     appName: 'supplierparty-manage',
-                    access: 'can001'
+                    access: 'can001',
+                    "ListReport": [
+                        {
+                            children: "SmartTable",
+                            SmartProps: [
+                                {
+                                    data: {
+                                        
+                                    },
+                                    type: "columns",
+                                    index: 0,
+                                    operate: "add", // add, replace, delete
+                                }
+                            ]
+                        }
+                    ]
                 },
                 {
                     appName: 'supplierapprove-managebyapplication',
@@ -51,7 +66,7 @@ const appConfig = {
                                         }
                                     },
                                     type: "HeaderFacets",
-                                    position: "right",
+                                    operate: "add", // add, replace, delete
                                 }
                             ]
                         }
