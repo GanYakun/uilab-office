@@ -36,6 +36,7 @@ const appConfig = {
                 {
                     appName: 'supplierparty-manage',
                     access: 'can001',
+<<<<<<< Updated upstream
                     "ListReport": [
                         {
                             children: "SmartTable",
@@ -51,6 +52,8 @@ const appConfig = {
                             ]
                         }
                     ]
+=======
+>>>>>>> Stashed changes
                 },
                 {
                     appName: 'supplierapprove-managebyapplication',
@@ -87,6 +90,21 @@ const appConfig = {
                                     },
                                     type: "HeaderFacets",
                                     position: "right",
+                                }
+                            ]
+                        }
+                    ],
+                    "ListReport": [
+                        {
+                            children: "SmartTable",
+                            SmartProps: [
+                                {
+                                    data: {
+                                        width: 100
+                                    },
+                                    type: "columns",
+                                    index: 0,
+                                    operate: "addType", // add, replace, delete addType
                                 }
                             ]
                         }
