@@ -1,0 +1,152 @@
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/gongsconfig/control/odataAppSvc/assetPickUpManage/$metadata">
+        <edmx:Include Namespace="com.dpbird"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="local">
+             <Annotations Target="com.dpbird.O3Container/AssetPickUpRequests">
+                 <Annotation Term="UI.DeleteHidden" Bool="true"/>  
+                 <Annotation Term="UI.UpdateHidden">  
+                    <If>
+                        <Eq>
+                            <Path>statusId</Path>
+                            <String>APPROVAL_CREATED</String>
+                        </Eq>
+                        <Bool>false</Bool>
+                        <Bool>true</Bool>
+                    </If>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.SubmitApproval/approverData">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="com.dpbird.SubmitApproval">
+                <Annotation Term="Common.SideEffects">
+                    <Record>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath>assetPickUpRequest</NavigationPropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.CancelApproval">
+                <Annotation Term="Common.SideEffects">
+                    <Record>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath>assetPickUpRequest</NavigationPropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.AssetPickUp">
+                <Annotation Term="Common.SideEffects">
+                    <Record>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath>assetPickUpRequest</NavigationPropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.AssetPickUpRequest">
+                <Annotation Term="UI.Identification">
+                    <Collection>
+                        <Record Type="UI.DataFieldForAction">
+                            <PropertyValue Property="Label" String="提交审批" />
+                            <PropertyValue Property="Action" String="com.dpbird.SubmitApproval" />
+                            <Annotation Term="UI.Hidden" Path="isHiddenSubmitApproval"/>
+                        </Record>
+                        <Record Type="UI.DataFieldForAction">
+                            <PropertyValue Property="Label" String="撤销审批" />
+                            <PropertyValue Property="Action" String="com.dpbird.CancelApproval" />
+                            <Annotation Term="UI.Hidden" Path="isHiddenCancelApproval"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+               <Annotation Term="UI.QuickCreateFacets">
+                    <Collection>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="ID" String="quickcreatefieldgroup"/>
+                            <PropertyValue Property="Label" String="资产领用申请"/>
+                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#quickcreatefieldgroup"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                 <Annotation Term="UI.FieldGroup" Qualifier="quickcreatefieldgroup">
+                    <Record Type="UI.FieldGroupType">
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="productId"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="assetPurpose"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="supplier"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="description"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="useCase"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="quantity"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="estimatedBudget"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.DataPoint" Qualifier="ApplicationStatus">
+                    <Record Type="UI.DataPointType">
+                        <PropertyValue Property="Title" String="申请状态"/>
+                        <PropertyValue Property="Value" Path="statusId"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.HeaderFacets">
+                    <Collection>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="ID" String="GeneratedHeaderFacet1"/>
+                            <PropertyValue Property="Label" String="基本信息"/>
+                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#BaseInfo"/>
+                        </Record>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="ID" String="GeneratedHeaderFacet2"/>
+                            <PropertyValue Property="Label" String="申请状态"/>
+                            <PropertyValue Property="Target" AnnotationPath="@UI.DataPoint#ApplicationStatus"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.Facets">
+                    <Collection>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="ID" String="GeneratedFacet1"/>
+                            <PropertyValue Property="Label" String="申请人信息"/>
+                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#ApplicantInformation"/>
+                        </Record>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="ID" String="GeneratedFacet2"/>
+                            <PropertyValue Property="Label" String="审批记录"/>
+                            <PropertyValue Property="Target" AnnotationPath="ApprovalRecord/@UI.LineItem#RecordApproval"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

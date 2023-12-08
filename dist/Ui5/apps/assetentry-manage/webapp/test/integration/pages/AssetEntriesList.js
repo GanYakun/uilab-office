@@ -1,0 +1,1 @@
+sap.ui.define(["sap/fe/test/ListReport"],function(t){"use strict";var e={actions:{},assertions:{}};return new t({appId:"com.banfftech.assetentrymanage",componentId:"AssetEntriesList",entitySet:"AssetEntries"},e)});

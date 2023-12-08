@@ -17,7 +17,7 @@
         },
         "dataSources": {
             "mainService": {
-                "uri": "/officeauto/control/odataAppSvc/approvalManage/",
+                "uri": "/gongsconfig/control/odataAppSvc/approvalManage/",
                 "type": "OData",
                 "settings": {
                     "annotations": [

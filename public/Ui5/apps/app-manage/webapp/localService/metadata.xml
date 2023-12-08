@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Reference Uri="http://docs.oasis-open.org/odata/odata/v4.0/errata03/os/complete/vocabularies/Org.OData.Measures.V1.xml">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/odata/vocabularies/Core.xml">
+        <edmx:Include Namespace="Org.OData.Core.V1" Alias="Core"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/odata/vocabularies/Capabilities.xml">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/odata/vocabularies/Common.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/odata/vocabularies/UI.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/odata/vocabularies/Aggregation.xml">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/odata/vocabularies/Session.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.Session.v1" Alias="Session"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="com.dpbird">
+            <EntityType Name="UILabApp">
+                <Key>
+                    <PropertyRef Name="uiLabAppId"/>
+                </Key>
+                <Property Name="uiLabAppId" Type="Edm.String" Nullable="false" MaxLength="60"/>
+                <Property Name="uiLabAppName" Type="Edm.String" MaxLength="255"/>
+                <Property Name="permissionId" Type="Edm.String" MaxLength="60"/>
+                <Property Name="description" Type="Edm.String" MaxLength="255"/>
+            </EntityType>
+            <EntityContainer Name="O3Container">
+                <EntitySet Name="UILabApps" EntityType="com.dpbird.UILabApp"/>
+            </EntityContainer>
+            <Annotations Target="com.dpbird.UILabApp/uiLabAppId">
+                <Annotation Term="Common.Label">
+                    <String>uiLabAppId</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.UILabApp/uiLabAppName">
+                <Annotation Term="Common.Label">
+                    <String>uiLabAppName</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.UILabApp/permissionId">
+                <Annotation Term="Common.Label">
+                    <String>permissionId</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.UILabApp/description">
+                <Annotation Term="Common.Label">
+                    <String>description</String>
+                </Annotation>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

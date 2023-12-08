@@ -40,20 +40,11 @@
                         </PropertyValue>
                     </Record>
                 </Annotation>
-                <Annotation Term="UI.HeaderFacets">
-                    <Collection>
-                        <Record Type="UI.ReferenceFacet">
-                            <PropertyValue Property="ID" String="GeneratedHeaerFacet1"/>
-                            <PropertyValue Property="Label" String="基本信息"/>
-                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#BasicInfo"/>
-                        </Record>
-                    </Collection>
-                </Annotation>
                 <Annotation Term="UI.Facets">
                     <Collection>
                          <Record Type="UI.ReferenceFacet">
                             <PropertyValue Property="ID" String="basicInfo"/>
-                            <PropertyValue Property="Label" String="角色分配列表"/>
+                            <PropertyValue Property="Label" String="基本信息"/>
                             <PropertyValue Property="Target"  AnnotationPath="RoleTypeUILabApp/@UI.LineItem"/>
                         </Record>
                     </Collection>

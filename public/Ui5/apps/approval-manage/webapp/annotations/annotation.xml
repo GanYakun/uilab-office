@@ -46,96 +46,10 @@
                  <Annotation Term="UI.DeleteHidden" Bool="true"/>  
             </Annotations>
             <Annotations Target="com.dpbird.Approval">
-                <Annotation Term="UI.LineItem" Qualifier="OfficeAutoApprovalList">
-                    <Collection>
-                        <Record Type="UI.DataField">
-                            <PropertyValue Property="Value">
-                                <Path>SupplierParty/partyName</Path>
-                            </PropertyValue>
-                            <Annotation Term="UI.Importance">
-                                <EnumMember>UI.ImportanceType/High</EnumMember>
-                            </Annotation>
-                        </Record>
-                        <Record Type="UI.DataField">
-                            <PropertyValue Property="Value">
-                                <Path>workEffortName</Path>
-                            </PropertyValue>
-                            <Annotation Term="UI.Importance">
-                                <EnumMember>UI.ImportanceType/High</EnumMember>
-                            </Annotation>
-                        </Record>
-                        <Record Type="UI.DataField">
-                            <PropertyValue Property="Value">
-                                <Path>MainProcess/version</Path>
-                            </PropertyValue>
-                            <Annotation Term="UI.Importance">
-                                <EnumMember>UI.ImportanceType/High</EnumMember>
-                            </Annotation>
-                        </Record>
-                        <Record Type="UI.DataField">
-                            <PropertyValue Property="Value">
-                                <Path>MainProcess/description</Path>
-                            </PropertyValue>
-                            <Annotation Term="UI.Importance">
-                                <EnumMember>UI.ImportanceType/High</EnumMember>
-                            </Annotation>
-                        </Record>
-                        <Record Type="UI.DataField">
-                            <PropertyValue Property="Value">
-                                <Path>fromDate</Path>
-                            </PropertyValue>
-                            <Annotation Term="UI.Importance">
-                                <EnumMember>UI.ImportanceType/High</EnumMember>
-                            </Annotation>
-                        </Record>
-                        <Record Type="UI.DataField">
-                            <PropertyValue Property="Value">
-                                <Path>thruDate</Path>
-                            </PropertyValue>
-                            <Annotation Term="UI.Importance">
-                                <EnumMember>UI.ImportanceType/High</EnumMember>
-                            </Annotation>
-                        </Record>
-                        <Record Type="UI.DataField">
-                            <PropertyValue Property="Value">
-                                <Path>RootNodeWorkEffort/createdByUserLogin</Path>
-                            </PropertyValue>
-                            <Annotation Term="UI.Importance">
-                                <EnumMember>UI.ImportanceType/High</EnumMember>
-                            </Annotation>
-                        </Record>
-                        <Record Type="UI.DataField">
-                            <PropertyValue Property="Value">
-                                <Path>comments</Path>
-                            </PropertyValue>
-                            <Annotation Term="UI.Importance">
-                                <EnumMember>UI.ImportanceType/High</EnumMember>
-                            </Annotation>
-                        </Record>
-                        <Record Type="UI.DataField">
-                            <PropertyValue Property="Value">
-                                <Path>mannerEnumId</Path>
-                            </PropertyValue>
-                            <Annotation Term="UI.Importance">
-                                <EnumMember>UI.ImportanceType/High</EnumMember>
-                            </Annotation>
-                        </Record>
-                        <Record Type="UI.DataField">
-                            <PropertyValue Property="Value">
-                                <Path>statusId</Path>
-                            </PropertyValue>
-                            <Annotation Term="UI.Importance">
-                                <EnumMember>UI.ImportanceType/High</EnumMember>
-                            </Annotation>
-                        </Record>
-                    </Collection>
-                </Annotation>
-
-
                 <Annotation Term="UI.Identification">
                     <Collection>
                         <Record Type="UI.DataFieldForAction">
-                            <PropertyValue Property="Label" String="Approve" />
+                            <PropertyValue Property="Label" String="审批通过" />
                             <PropertyValue Property="Action" String="com.dpbird.Approved" />
                             <Annotation Term="UI.Hidden">
                                 <If>
@@ -149,7 +63,7 @@
                             </Annotation>
                         </Record>
                         <Record Type="UI.DataFieldForAction">
-                            <PropertyValue Property="Label" String="Reject" />
+                            <PropertyValue Property="Label" String="审批不通过" />
                             <PropertyValue Property="Action" String="com.dpbird.ApproveRefuse" />
                             <Annotation Term="UI.Hidden">
                                 <If>
@@ -166,7 +80,7 @@
                 </Annotation>
                 <Annotation Term="UI.SelectionPresentationVariant" Qualifier="WaitApproval">
                     <Record Type="UI.SelectionPresentationVariantType">
-                        <PropertyValue Property="Text" String="Unapproved" />
+                        <PropertyValue Property="Text" String="待审批" />
                         <PropertyValue Property="SelectionVariant">
                             <Record Type="UI.SelectionVariantType">
                                 <PropertyValue Property="SelectOptions">
@@ -191,7 +105,7 @@
                             <Record Type="UI.PresentationVariantType">
                                 <PropertyValue Property="Visualizations">
                                     <Collection>
-                                        <AnnotationPath>@UI.LineItem#OfficeAutoApprovalList</AnnotationPath>
+                                        <AnnotationPath>@UI.LineItem#ApprovalList</AnnotationPath>
                                     </Collection>
                                 </PropertyValue>
                             </Record>
@@ -200,7 +114,7 @@
                 </Annotation>
                 <Annotation Term="UI.SelectionPresentationVariant" Qualifier="ProcessApproval">
                     <Record Type="UI.SelectionPresentationVariantType">
-                        <PropertyValue Property="Text" String="Approved" />
+                        <PropertyValue Property="Text" String="已审批" />
                         <PropertyValue Property="SelectionVariant">
                             <Record Type="UI.SelectionVariantType">
                                 <PropertyValue Property="SelectOptions">
@@ -225,7 +139,7 @@
                             <Record Type="UI.PresentationVariantType">
                                 <PropertyValue Property="Visualizations">
                                     <Collection>
-                                        <AnnotationPath>@UI.LineItem#OfficeAutoApprovalList</AnnotationPath>
+                                        <AnnotationPath>@UI.LineItem#ApprovalList</AnnotationPath>
                                     </Collection>
                                 </PropertyValue>
                             </Record>
@@ -234,7 +148,7 @@
                 </Annotation>
                 <Annotation Term="UI.DataPoint" Qualifier="ApprovalStatus">
                     <Record Type="UI.DataPointType">
-                        <PropertyValue Property="Title" String="Approval status"/>
+                        <PropertyValue Property="Title" String="审批状态"/>
                         <PropertyValue Property="Value" Path="statusId"/>
                     </Record>
                 </Annotation>
@@ -242,12 +156,12 @@
                     <Collection>
                         <Record Type="UI.ReferenceFacet">
                             <PropertyValue Property="ID" String="GeneratedHeaderFacet1"/>
-                            <PropertyValue Property="Label" String="Basic information"/>
+                            <PropertyValue Property="Label" String="基本信息"/>
                             <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#BaseInfo"/>
                         </Record>
                         <Record Type="UI.ReferenceFacet">
                             <PropertyValue Property="ID" String="GeneratedHeaderFacet2"/>
-                            <PropertyValue Property="Label" String="Approval status"/>
+                            <PropertyValue Property="Label" String="审批状态"/>
                             <PropertyValue Property="Target" AnnotationPath="@UI.DataPoint#ApprovalStatus"/>
                         </Record>
                     </Collection>
@@ -256,35 +170,42 @@
                     <Collection>
                         <Record Type="UI.ReferenceFacet">
                             <PropertyValue Property="ID" String="GeneratedFacet1"/>
-                            <PropertyValue Property="Label" String="Originator Information"/>
+                            <PropertyValue Property="Label" String="流程发起人信息"/>
                             <PropertyValue Property="Target" AnnotationPath="RootNodeWorkEffort/@UI.FieldGroup#ApproverInformation"/>
                         </Record>
-                        <!-- 供应商数据集 -->
-                        <Record Type="UI.CollectionFacet">
-                            <PropertyValue Property="ID" String="SupplierFacet"/>
-                            <PropertyValue Property="Label" String="Supplier Information "/>
-                            <PropertyValue Property="Facets" >
-                                <Collection >
-                                    <Record Type="UI.ReferenceFacet">
-                                        <PropertyValue Property="ID" String="SPINFO"/>
-                                        <PropertyValue Property="Target" AnnotationPath="SupplierParty/@UI.FieldGroup#PartyGroupFieldGroup"/>
-                                    </Record>
-                                    <Record Type="UI.ReferenceFacet">
-                                        <PropertyValue Property="Target" AnnotationPath="SupplierParty/@UI.FieldGroup#ContactInfo"/>
-                                        <PropertyValue Property="Label" String="Contact Information"/>
-                                        <PropertyValue Property="ID" String="ContactInfo"/>
-                                    </Record>
-                                    <Record Type="UI.ReferenceFacet">
-                                        <PropertyValue Property="Target" AnnotationPath="SupplierParty/@UI.FieldGroup#SupplierTimeInfo"/>
-                                        <PropertyValue Property="Label" String="Supplier time information"/>
-                                        <PropertyValue Property="ID" String="TimeInfo"/>
-                                    </Record>
-                                </Collection>
-                            </PropertyValue>
+                        <Record Type="UI.ReferenceFacet">
+                            <Annotation Term="UI.Hidden">
+                                <If>
+                                    <Eq>
+                                        <Path>dbEntityName</Path>
+                                        <String>EmplLeave</String>
+                                    </Eq>
+                                    <Bool>false</Bool>
+                                    <Bool>true</Bool>
+                                </If>
+                            </Annotation>
+                            <PropertyValue Property="ID" String="GeneratedFacet2"/>
+                            <PropertyValue Property="Label" String="请假申请信息"/>
+                            <PropertyValue Property="Target" AnnotationPath="LeaveApproval/@UI.FieldGroup#BaseInfo"/>
+                        </Record>
+                        <Record Type="UI.ReferenceFacet">
+                            <Annotation Term="UI.Hidden">
+                                <If>
+                                    <Eq>
+                                        <Path>dbEntityName</Path>
+                                        <String>Requirement</String>
+                                    </Eq>
+                                    <Bool>false</Bool>
+                                    <Bool>true</Bool>
+                                </If>
+                            </Annotation>
+                            <PropertyValue Property="ID" String="GeneratedFacet3"/>
+                            <PropertyValue Property="Label" String="资产领用申请信息"/>
+                            <PropertyValue Property="Target" AnnotationPath="AssetPickUpRequest/@UI.FieldGroup#BaseInfo"/>
                         </Record>
                         <Record Type="UI.ReferenceFacet">
                             <PropertyValue Property="ID" String="GeneratedFacet4"/>
-                            <PropertyValue Property="Label" String="Approval Record"/>
+                            <PropertyValue Property="Label" String="审批记录"/>
                             <PropertyValue Property="Target" AnnotationPath="ApprovalRecord/@UI.LineItem#RecordApproval"/>                        
                         </Record>
                     </Collection>

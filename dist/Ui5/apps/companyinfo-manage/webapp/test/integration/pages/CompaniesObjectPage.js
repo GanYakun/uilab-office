@@ -1,0 +1,1 @@
+sap.ui.define(["sap/fe/test/ObjectPage"],function(e){"use strict";var n={actions:{},assertions:{}};return new e({appId:"com.banfftech.companyinfomanage",componentId:"CompaniesObjectPage",entitySet:"Companies"},n)});

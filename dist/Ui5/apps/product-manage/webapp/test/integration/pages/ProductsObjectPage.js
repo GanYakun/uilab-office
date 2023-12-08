@@ -1,0 +1,1 @@
+sap.ui.define(["sap/fe/test/ObjectPage"],function(t){"use strict";var e={actions:{},assertions:{}};return new t({appId:"com.banfftech.productmanage",componentId:"ProductsObjectPage",entitySet:"Products"},e)});

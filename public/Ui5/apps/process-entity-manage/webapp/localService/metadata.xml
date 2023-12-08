@@ -15,12 +15,6 @@
     <edmx:Reference Uri="/odata/vocabularies/UI.xml">
         <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
     </edmx:Reference>
-    <edmx:Reference Uri="/odata/vocabularies/Aggregation.xml">
-        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/>
-    </edmx:Reference>
-    <edmx:Reference Uri="/odata/vocabularies/Session.xml">
-        <edmx:Include Namespace="com.sap.vocabularies.Session.v1" Alias="Session"/>
-    </edmx:Reference>
     <edmx:DataServices>
         <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="com.dpbird">
             <EntityType Name="MainProcess">
@@ -80,7 +74,6 @@
                 <Property Name="configFieldTotal" Type="Edm.Decimal"/>
                 <Property Name="dbEntityId" Type="Edm.String" Nullable="false" MaxLength="60"/>
                 <Property Name="dbEntityName" Type="Edm.String" MaxLength="100"/>
-                <Property Name="dbEntityTypeField" Type="Edm.String" MaxLength="100"/>
                 <Property Name="dbEntityTypeId" Type="Edm.String" MaxLength="100"/>
                 <Property Name="description" Type="Edm.String" MaxLength="255"/>
                 <NavigationProperty Name="DBField" Type="Collection(com.dpbird.DBField)"/>
@@ -154,7 +147,6 @@
                 <Property Name="dbFieldTypeId" Type="Edm.String" MaxLength="60"/>
                 <Property Name="dbFieldId" Type="Edm.String" Nullable="false" MaxLength="60"/>
                 <Property Name="dbFieldName" Type="Edm.String" MaxLength="100"/>
-                <Property Name="isPrimaryKey" Type="Edm.String" MaxLength="1"/>
                 <Property Name="valueTypeId" Type="Edm.String" MaxLength="60"/>
                 <Property Name="description" Type="Edm.String" MaxLength="255"/>
                 <Property Name="dbEntityId" Type="Edm.String" MaxLength="60"/>
@@ -396,11 +388,6 @@
                 <Property Name="createdByUserLogin" Type="Edm.String" MaxLength="320"/>
                 <Property Name="lastModifiedDate" Type="Edm.DateTimeOffset" Precision="3"/>
                 <Property Name="lastModifiedByUserLogin" Type="Edm.String" MaxLength="320"/>
-                <Property Name="orderId" Type="Edm.String" MaxLength="60"/>
-                <Property Name="workFlowId" Type="Edm.String" MaxLength="60"/>
-                <Property Name="custRequestParentId" Type="Edm.String" MaxLength="60"/>
-                <Property Name="numberId" Type="Edm.Int64"/>
-                <Property Name="ownerPartyId" Type="Edm.String" MaxLength="60"/>
             </EntityType>
             <EntityType Name="Member">
                 <Key>
@@ -790,11 +777,6 @@
             <Annotations Target="com.dpbird.ProcessEntity/dbEntityName">
                 <Annotation Term="Common.Label">
                     <String>dbEntityName</String>
-                </Annotation>
-            </Annotations>
-            <Annotations Target="com.dpbird.ProcessEntity/dbEntityTypeField">
-                <Annotation Term="Common.Label">
-                    <String>dbEntityTypeField</String>
                 </Annotation>
             </Annotations>
             <Annotations Target="com.dpbird.ProcessEntity/dbEntityTypeId">
@@ -1215,11 +1197,6 @@
             <Annotations Target="com.dpbird.DBField/dbFieldName">
                 <Annotation Term="Common.Label">
                     <String>dbFieldName</String>
-                </Annotation>
-            </Annotations>
-            <Annotations Target="com.dpbird.DBField/isPrimaryKey">
-                <Annotation Term="Common.Label">
-                    <String>isPrimaryKey</String>
                 </Annotation>
             </Annotations>
             <Annotations Target="com.dpbird.DBField/valueTypeId">
@@ -2212,31 +2189,6 @@
             <Annotations Target="com.dpbird.InCustRequest/lastModifiedByUserLogin">
                 <Annotation Term="Common.Label">
                     <String>lastModifiedByUserLogin</String>
-                </Annotation>
-            </Annotations>
-            <Annotations Target="com.dpbird.InCustRequest/orderId">
-                <Annotation Term="Common.Label">
-                    <String>orderId</String>
-                </Annotation>
-            </Annotations>
-            <Annotations Target="com.dpbird.InCustRequest/workFlowId">
-                <Annotation Term="Common.Label">
-                    <String>workFlowId</String>
-                </Annotation>
-            </Annotations>
-            <Annotations Target="com.dpbird.InCustRequest/custRequestParentId">
-                <Annotation Term="Common.Label">
-                    <String>custRequestParentId</String>
-                </Annotation>
-            </Annotations>
-            <Annotations Target="com.dpbird.InCustRequest/numberId">
-                <Annotation Term="Common.Label">
-                    <String>numberId</String>
-                </Annotation>
-            </Annotations>
-            <Annotations Target="com.dpbird.InCustRequest/ownerPartyId">
-                <Annotation Term="Common.Label">
-                    <String>ownerPartyId</String>
                 </Annotation>
             </Annotations>
             <Annotations Target="com.dpbird.Member">

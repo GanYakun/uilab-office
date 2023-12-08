@@ -11,7 +11,7 @@
         "description": "{{appDescription}}",
         "dataSources": {
             "mainService": {
-                "uri": "/officeauto/control/odataAppSvc/permissionManage/",
+                "uri": "/gongsconfig/control/odataAppSvc/permissionManage/",
                 "type": "OData",
                 "settings": {
                     "annotations": [
