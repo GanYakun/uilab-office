@@ -8,7 +8,7 @@
     "build": "npm run copy && umi build",
     "deploy": "npm run build && npm run gh-pages",
     "dev": "npm run start:dev",
-    "copy": "rm -rf ./public/Ui5 && cp -r ./lib/Ui5/o3/apps/ ./public/Ui5/",
+    "copy": "git submodule update && rm -rf ./public/Ui5 && cp -r ./lib/Ui5/o3/apps/ ./public/Ui5/",
     "gh-pages": "gh-pages -d dist",
     "i18n-remove": "pro i18n-remove --locale=zh-CN --write",
     "postinstall": "umi g tmp",
