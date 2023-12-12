@@ -1,1 +1,0 @@
-sap.ui.define(["sap/fe/test/ListReport"],function(e){"use strict";var s={actions:{},assertions:{}};return new e({appId:"com.banfftech.purchaseordermanage",componentId:"PurchaseOrderHeadersList",entitySet:"PurchaseOrderHeaders"},s)});

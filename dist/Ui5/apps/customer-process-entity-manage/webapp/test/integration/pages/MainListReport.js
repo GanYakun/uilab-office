@@ -1,1 +1,0 @@
-sap.ui.define(["sap/fe/test/ListReport"],function(t){"use strict";var e={actions:{},assertions:{}};return new t({appId:"com.banfftech.customerprocessentitymanage",componentId:"ProcessEntitiesList",entitySet:"ProcessEntities"},e)});

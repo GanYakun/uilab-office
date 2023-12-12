@@ -1,1 +1,0 @@
-sap.ui.define(["sap/fe/test/ListReport"],function(e){"use strict";var n={actions:{},assertions:{}};return new e({appId:"com.banfftech.companyinfomanage",componentId:"CompaniesList",entitySet:"Companies"},n)});
