@@ -2,7 +2,3 @@
 	path = lib/Uilab-Comp
 	url = https://gitee.com/cloudlakenet/uilab-comp.git
 	branch = master
-[submodule "lib/Ui5"]
-	path = lib/Ui5
-	url = https://gitee.com/cloudlakenet/officeautobfui5.git
-	branch = master
