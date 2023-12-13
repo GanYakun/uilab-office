@@ -3,7 +3,7 @@
  * @Author: lx.jin 308561217@qq.com
  * @Date: 2022-01-20 21:59:52
  * @LastEditors: lx.jin 308561217@qq.com
- * @LastEditTime: 2023-12-05 18:47:10
+ * @LastEditTime: 2023-12-13 15:09:38
  * @FilePath: /uilab/README.md
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -49,7 +49,9 @@
 3. `npm run start`  启动主应用
 4. `npm run build`  打包主应用
 
-## 四、注意事项：
+## 四、添加子模块：
+1. git submodule add -b master -f xxxx.git lib/Ui5
+2. git submodule init
+3. git submodule update
 
-1. 子模块命名规则 Uilab-Comp UI5
 
