@@ -581,7 +581,7 @@
                         <PropertyValue Property="ID" String="SurveyQuestionApplLineItem"/>
                         <PropertyValue Property="Target" AnnotationPath="SurveyQuestionAppl/@UI.LineItem#SurveyQuestionApplLineItem"/>
                     </Record> -->
-                      <Record Type="UI.ReferenceFacet">
+                    <Record Type="UI.ReferenceFacet">
                         <PropertyValue Property="ID" String="FileList"/>
                         <PropertyValue Property="Label" String="{@i18n>FileList}"/>
                         <PropertyValue Property="Target"  AnnotationPath="FileList/@UI.LineItem#FileList"/>
@@ -1322,7 +1322,7 @@
                                 </Record>
                             </Collection>
                         </PropertyValue>
-                        <PropertyValue Property="photo" String="http://dpbird.oss-cn-hangzhou.aliyuncs.com/partyManage/partyImage/d49f064f-f94b-4e7b-9265-fa38d57e2321.png" />
+                        <PropertyValue Property="photo" String="http://dpbird.oss-cn-hangzhou.aliyuncs.com/partyManage/partyImage/de32462f-c677-4e3a-976f-fed452a85e31.png" />
                     </Record>
                 </Annotation>
             </Annotations>
@@ -1373,7 +1373,7 @@
                                 </Record>
                             </Collection>
                         </PropertyValue>
-                        <PropertyValue Property="photo" String="http://dpbird.oss-cn-hangzhou.aliyuncs.com/partyManage/partyImage/d49f064f-f94b-4e7b-9265-fa38d57e2321.png"/>
+                        <PropertyValue Property="photo" String="http://dpbird.oss-cn-hangzhou.aliyuncs.com/partyManage/partyImage/eeba1cbe-ce73-4f10-901d-bb7922409a8b.png"/>
                     </Record>
                 </Annotation>
             </Annotations>
@@ -1465,6 +1465,50 @@
                             </PropertyValue>
                             <Annotation Term="UI.Importance">
                                 <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+
+            <Annotations Target="com.dpbird.DDFormSurveyQuestionAnswerNoDraft">
+                <Annotation Term="UI.LineItem" Qualifier="ComplianceAnswerLineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>DDFormSurveyQuestion/question</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>enumResponse</Path>
+                            </PropertyValue>
+                            <PropertyValue Property="Criticality">
+                                <Path>enumResponseCritical</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>textResponse</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                            <Annotation Term="UI.Hidden">
+                                <If>
+                                    <Eq>
+                                        <Path>enumResponse</Path>
+                                        <String>TRUE</String>
+                                    </Eq>
+                                    <Bool>false</Bool>
+                                    <Bool>true</Bool>
+                                </If>
                             </Annotation>
                         </Record>
                     </Collection>
