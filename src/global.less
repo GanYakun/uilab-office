@@ -163,7 +163,39 @@ ol {
   }
 }
 
+#uilab-ObjectPage-icon::before {
+  content: "";
+  position: absolute;
+  width: 64px;
+  height: 1px;
+  top: 50%;
+  transform: translate(0, -50%);
+  background-image: linear-gradient(to left, #0854a0, rgba(8, 84, 160, 0)) !important;
+  right: 100%;
+}
 
+#uilab-ObjectPage-icon::after {
+  content: "";
+  position: absolute;
+  width: 64px;
+  height: 1px;
+  top: 50%;
+  transform: translate(0, -50%);
+  background-image: linear-gradient(to right, #0854a0, rgba(8, 84, 160, 0)) !important;
+  left: 100%;
+}
+
+.btn-icon:hover {
+  .icon {
+    color: var(--ant-primary-color-hover) !important;
+  }
+}
+
+.btn-icon:active {
+  .icon {
+    color: var(--ant-primary-color-active) !important;
+  }
+}
 
 @media (max-width: @screen-xs) {
   .ant-table {
