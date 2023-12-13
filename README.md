@@ -49,7 +49,9 @@
 3. `npm run start`  启动主应用
 4. `npm run build`  打包主应用
 
-## 四、注意事项：
+## 四、添加子模块：
+1. git submodule add -b master -f xxxx.git lib/Ui5
+2. git submodule init
+3. git submodule update
 
-1. 子模块命名规则 Uilab-Comp UI5
 
