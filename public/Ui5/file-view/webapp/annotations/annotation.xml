@@ -1,0 +1,72 @@
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+    
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+        <edmx:Include Namespace="Org.OData.Core.V1" Alias="Core"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    
+    <edmx:Reference Uri="/dinstitute/control/odataAppSvc/dinstitute/$metadata">
+        <edmx:Include Namespace="com.dpbird"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="local">
+            <Annotations Target="com.dpbird.File">
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>fileDate</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>folderName</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                        <!-- <Record Type="UI.DataFieldWithIntentBasedNavigation">
+                            <PropertyValue Property="Value" Path="fileId" />
+                            <PropertyValue Property="SemanticObject">
+                                <If>
+                                    <Eq>
+                                        <Path>fileType</Path>
+                                        <String>估算书</String>
+                                    </Eq>
+                                    <String>Project</String>
+                                    <String>SkbgContentDimension</String>
+                                </If>
+                            </PropertyValue>
+                            <PropertyValue Property="Action" String="Query" />
+                        </Record> -->
+                        <Record Type="UI.DataFieldWithUrl">
+                            <PropertyValue Property="Value">
+                                <Path>fileName</Path>
+                            </PropertyValue>
+                            <PropertyValue Property="Url">
+                                <Path>fileUrl</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>fileType</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

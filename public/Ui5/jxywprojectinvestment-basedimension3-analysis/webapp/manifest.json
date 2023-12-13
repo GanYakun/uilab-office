@@ -1,0 +1,182 @@
+{
+    "_version": "1.49.0",
+    "sap.app": {
+        "id": "com.banfftech.jxywprojectinvestmentanalysis",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "0.0.1"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "resources": "resources.json",
+        "sourceTemplate": {
+            "id": "@sap/generator-fiori:alp",
+            "version": "1.9.4",
+            "toolsId": "f24822de-7664-4689-be33-6d10741f2f85"
+        },
+        "dataSources": {
+            "mainService": {
+                "uri": "/dinstitute/control/odataAppSvc/dinstitute/",
+                "type": "OData",
+                "settings": {
+                    "annotations": [
+                        "annotation"
+                    ],
+                    "localUri": "localService/metadata.xml",
+                    "odataVersion": "4.0"
+                }
+            },
+            "annotation": {
+                "type": "ODataAnnotation",
+                "uri": "annotations/annotation.xml",
+                "settings": {
+                    "localUri": "annotations/annotation.xml"
+                }
+            }
+        },
+        "crossNavigation": {
+            "inbounds": {
+                "com-banfftech-jxywprojectinvestmentanalysis-inbound": {
+                    "signature": {
+                        "parameters": {},
+                        "additionalParameters": "allowed"
+                    },
+                    "semanticObject": "JxywProjectInvestment",
+                    "action": "Analysis",
+                    "title": "{{flpTitle}}",
+                    "subTitle": "{{flpSubtitle}}",
+                    "icon": ""
+                }
+            }
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": true,
+        "dependencies": {
+            "minUI5Version": "1.115.1",
+            "libs": {
+                "sap.m": {},
+                "sap.ui.core": {},
+                "sap.ushell": {},
+                "sap.fe.templates": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "com.banfftech.jxywprojectinvestmentanalysis.i18n.i18n"
+                }
+            },
+            "": {
+                "dataSource": "mainService",
+                "preload": true,
+                "settings": {
+                    "synchronizationMode": "None",
+                    "operationMode": "Server",
+                    "autoExpandSelect": true,
+                    "earlyRequests": true
+                }
+            },
+            "@i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "uri": "i18n/i18n.properties"
+            }
+        },
+        "resources": {
+            "css": []
+        },
+        "routing": {
+            "config": {},
+            "routes": [
+                {
+                    "pattern": ":?query:",
+                    "name": "JxywProjectInvestmentViewsList",
+                    "target": "JxywProjectInvestmentViewsList"
+                },
+                {
+                    "pattern": "JxywProjectInvestmentViews({key}):?query:",
+                    "name": "JxywProjectInvestmentViewsObjectPage",
+                    "target": "JxywProjectInvestmentViewsObjectPage"
+                }
+            ],
+            "targets": {
+                "JxywProjectInvestmentViewsList": {
+                    "type": "Component",
+                    "id": "JxywProjectInvestmentViewsList",
+                    "name": "sap.fe.templates.ListReport",
+                    "options": {
+                        "settings": {
+                            "entitySet": "JxywProjectInvestmentViews",
+                            "variantManagement": "Page",
+                            "initialLoad": "Enabled",
+                            "navigation": {
+                                "JxywProjectInvestmentViews": {
+                                    "detail": {
+                                        "route": "JxywProjectInvestmentViewsObjectPage"
+                                    }
+                                }
+                            },
+                            "controlConfiguration": {
+
+                            },
+                            "views": {
+                                "paths": [
+                                    {
+                                        "primary": [
+                                            {
+                                                "annotationPath": "com.sap.vocabularies.UI.v1.PresentationVariant"
+                                            }
+                                        ],
+                                        "secondary": [
+                                            {
+                                                "annotationPath": "com.sap.vocabularies.UI.v1.PresentationVariant"
+                                            }
+                                        ],
+                                        "defaultPath": "both"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "JxywProjectInvestmentViewsObjectPage": {
+                    "type": "Component",
+                    "id": "JxywProjectInvestmentViewsObjectPage",
+                    "name": "sap.fe.templates.ObjectPage",
+                    "options": {
+                        "settings": {
+                            "editableHeaderContent": false,
+                            "entitySet": "JxywProjectInvestmentViews"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "sap.fiori": {
+        "registrationIds": [],
+        "archeType": "analytical"
+    }
+}
