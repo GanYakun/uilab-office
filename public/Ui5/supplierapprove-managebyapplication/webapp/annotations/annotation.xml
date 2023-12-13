@@ -587,7 +587,16 @@
                         <PropertyValue Property="Action" String="com.dpbird.SubmitToProcurement"/>
                         <PropertyValue Property="Label"  String="{@i18n>SubmitApproval_Supplier}"/>
                         <PropertyValue Property="IconUrl" String="sap-icon://hr-approval"/>
-                        <Annotation Term="UI.Hidden" Path="applicantSubmitHidden"/>
+                        <Annotation Term="UI.Hidden">
+                            <If>
+                                <Eq>
+                                    <Path>currentStatusId</Path>
+                                    <String>PROCESSED</String>
+                                </Eq>
+                                <Bool>true</Bool>
+                                <Bool>false</Bool>
+                            </If>
+                        </Annotation>
                     </Record> 
                     <Record Type="UI.DataFieldForAction" >
                         <PropertyValue Property="Action" String="com.dpbird.ReturnToSupplier"/>
