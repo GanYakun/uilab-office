@@ -381,8 +381,8 @@ const appConfig = {
 	proxy: {
 		dev: {
 			'/dinstitute/': {
-				// target: 'http://dinstitute.dinstitute.banff-tech.com',
-				target: 'http://192.168.50.30:8080',
+				target: 'http://dinstitute.dinstitute.banff-tech.com',
+				// target: 'http://192.168.50.30:8080',
 				changeOrigin: true,
 				pathRewrite: {
 					'^': '',
@@ -390,8 +390,8 @@ const appConfig = {
 				secure: false, //配置关闭证书签名验证
 			},
 			'/odata/': {
-				// target: 'http://dinstitute.dinstitute.banff-tech.com',
-				target: 'http://192.168.50.30:8080',
+				target: 'http://dinstitute.dinstitute.banff-tech.com',
+				// target: 'http://192.168.50.30:8080',
 				changeOrigin: true,
 				pathRewrite: {
 					'^': '',

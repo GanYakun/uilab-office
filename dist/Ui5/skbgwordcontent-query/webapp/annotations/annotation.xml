@@ -13,10 +13,6 @@
             <Annotations Target="com.dpbird.SkbgContentDimension">
                 <Annotation Term="UI.Identification" >
                     <Collection >
-                        <Record Type="UI.DataFieldForAction" >
-                            <PropertyValue Property="Action" String="com.dpbird.GenerateFeasibilityStudyReport"/>
-                            <PropertyValue Property="Label"  String="针对性生成新可研" />
-                        </Record>
                          <Record Type="UI.DataFieldForAction" >
                             <PropertyValue Property="Action" String="com.dpbird.GenerateDraftReviewComments"/>
                             <PropertyValue Property="Label"  String="生成可研评审意见" />
