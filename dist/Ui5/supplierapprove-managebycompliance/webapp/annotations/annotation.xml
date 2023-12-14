@@ -13,13 +13,13 @@
     </edmx:Reference>
     <edmx:DataServices>
         <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="local">
-            <Annotations Target="com.dpbird.SupplierParty">
-                <Annotation Term="UI.SelectionFields">
-                    <Collection>
-                        <PropertyPath>partyId</PropertyPath>
-                        <PropertyPath>PartyClassification/PartyClassificationGroup/description</PropertyPath>
-                    </Collection>
-                </Annotation>
+        <Annotations Target="com.dpbird.SupplierParty">
+            <Annotation Term="UI.SelectionFields">
+                <Collection>
+                    <PropertyPath>partyId</PropertyPath>
+                    <PropertyPath>groupTypeId</PropertyPath>
+                </Collection>
+            </Annotation>
                 <Annotation Term="UI.LineItem" Qualifier="ComplianceAppLineItem">
                     <Collection>
                         <Record Type="UI.DataField">
@@ -90,18 +90,6 @@
                             <PropertyValue Property="Target"
                                 AnnotationPath="@UI.DataPoint#PartyClasification" />
                         </Record>
-                        <Record Type="UI.ReferenceFacet">
-                            <PropertyValue Property="Label" String="Compliance Response" />
-                            <PropertyValue Property="ID" String="ComplianceResult" />
-                            <PropertyValue Property="Target"
-                                AnnotationPath="@UI.FieldGroup#ComplianceResult" />
-                        </Record>
-                        <Record Type="UI.ReferenceFacet">
-                            <PropertyValue Property="Label" String="Work Scope" />
-                            <PropertyValue Property="ID" String="WorkScope" />
-                            <PropertyValue Property="Target"
-                                AnnotationPath="@UI.FieldGroup#WorkScope" />
-                        </Record>
                     </Collection>
                 </Annotation>
 
@@ -125,24 +113,6 @@
 
                 <Annotation Term="UI.Facets">
                     <Collection>
-                        <!-- <Record Type="UI.CollectionFacet">
-                        <PropertyValue Property="ID" String="SupplierFacet"/>
-                        <PropertyValue Property="Label" String="DD Form"/>
-                        <PropertyValue Property="Facets" >
-                            <Collection >
-                                <Record Type="UI.ReferenceFacet">
-                                    <PropertyValue Property="ID" String="DDFormBoolFields"/>
-                                    <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#DDFormBoolFields"/>
-                                </Record>
-                                <Record Type="UI.ReferenceFacet">
-                                    <PropertyValue Property="Label" String="{@i18n>SurveyQuestionApplLineItem}"/>
-                                    <PropertyValue Property="ID" String="SurveyQuestionApplLineItem"/>
-                                    <PropertyValue Property="Target"
-                        AnnotationPath="SurveyQuestionAndAnswer/@UI.LineItem#SurveyQuestionApplLineItem"/>
-                                </Record>
-                            </Collection>
-                        </PropertyValue>
-                    </Record> -->
                         <Record Type="UI.ReferenceFacet">
                             <PropertyValue Property="ID" String="SupportedDocument" />
                             <PropertyValue Property="Label" String="Supported Documents" />
@@ -155,18 +125,7 @@
                             <PropertyValue Property="Target"
                                 AnnotationPath="ComplianceReport/@UI.LineItem#FileList" />
                         </Record>
-                        <!-- <Record Type="UI.ReferenceFacet">
-                        <PropertyValue Property="Label" String="{@i18n>ContactMechPurpose}"/>
-                        <PropertyValue Property="ID" String="ContactMechPurpose"/>
-                        <PropertyValue Property="Target"
-                        AnnotationPath="PostalAddress/@UI.LineItem#PostalAddressLineItem_NOAction"/>
-                    </Record>
-                    <Record Type="UI.ReferenceFacet">
-                        <PropertyValue Property="ID" String="BeneficialPersonLineItem"/>
-                        <PropertyValue Property="Label" String="{@i18n>BeneficialPersonLineItem}"/>
-                        <PropertyValue Property="Target"
-                        AnnotationPath="BeneficialPerson/@UI.LineItem#BeneficialPersonLineItem"/>
-                    </Record> -->
+                       
                         <Record Type="UI.CollectionFacet">
                             <PropertyValue Property="Label" String="{@i18n>ViewDDForm}" />
                             <PropertyValue Property="ID" String="DDForm" />
@@ -257,9 +216,31 @@
                                 </Collection>
                             </PropertyValue>
                         </Record>
-                    </Collection>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="ID" String="ComplianceNote"/>
+                            <PropertyValue Property="Label" String="{@i18n>ComplianceNote}"/>
+                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#ComplianceNote"/>
+                        </Record>
+                </Collection>
+            </Annotation>
 
-                </Annotation>
+            <Annotation Term="UI.FieldGroup" Qualifier="ComplianceNote">
+                <Record Type="UI.FieldGroupType">
+                    <PropertyValue Property="Data">
+                        <Collection>
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Value" Path="adverseResults"/>
+                            </Record>
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Value" Path="additionalProtection"/>
+                            </Record>
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Value" Path="complianceComments" />
+                            </Record>
+                        </Collection>
+                    </PropertyValue>
+                </Record>
+            </Annotation>
 
                 <Annotation Term="UI.Identification">
                     <Collection>
@@ -520,6 +501,7 @@
                     </Collection>
                 </Annotation>
             </Annotations>
+              
         </Schema>
     </edmx:DataServices>
 </edmx:Edmx>
