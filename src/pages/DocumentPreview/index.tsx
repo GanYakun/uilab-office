@@ -5,17 +5,16 @@ import { ProForm, ProFormText, PageContainer } from '@ant-design/pro-components'
 import { Button } from "antd"
 import DocxViewer from "../../components/DocxViewer/index"
 import Odata from "../../../lib/Uilab-Comp/utils/odata/odata"
+import { DownloadOutlined } from '@ant-design/icons';
 
 window.serviceUrl = `dinstitute/control/odataAppSvc/dinstitute/`
 
-const DocumentPreview: React.FC = () => {
-
-  const file = `http://localhost:8000/dinstitute/control/odatasvc/dinstitute/Files('d08a4f9c-cb4d-40ab-b487-eb3058271f43')/fileContent`
+const DocumentPreview: React.FC = (props) => {
+  const { location } = props;
+  const { skbgContentId, fileUrl } = location.query;
 
   const [newFileUrl, setNewFileUrl] = useState('')
-
   const [isFromShow, setIsFromShow] = useState(true)
-
   return (
     <div className={styles.pageIndexBox}>
       <div className={styles.fileViewerBox} >
@@ -23,7 +22,7 @@ const DocumentPreview: React.FC = () => {
           当前文档
         </div>
         <div className={styles.fileViewer}>
-          <DocxViewer docxUrl={file} id={'type'} />
+          <DocxViewer docxUrl={`${window.location.origin}${fileUrl}`} id={'type'} />
         </div>
       </div>
       {
@@ -34,18 +33,17 @@ const DocumentPreview: React.FC = () => {
           <div className={styles.proForm}>
             <ProForm
               onFinish={async (value) => {
-                console.log({ value })
                 let batchArr = [
                   {
                     method: "POST",
-                    path: `SkbgContentDimensions('2942')/com.dpbird.GenerateFeasibilityStudyReport`,
+                    path: `SkbgContentDimensions('${skbgContentId}')/com.dpbird.GenerateFeasibilityStudyReport`,
                     body: {
                       ...value
                     },
                   },
                   {
                     method: "GET",
-                    path: `SkbgContentDimensions('2942')`,
+                    path: `SkbgContentDimensions('${skbgContentId}')`,
                     parameters: {
                       $select: `preparationCompany,preparationDate,projectBasis,projectCompany,projectName,projectSituation,skbgContentId`,
                       $expand: {
@@ -89,18 +87,31 @@ const DocumentPreview: React.FC = () => {
         >
           <div className={styles.newfileViewerTitle}>
             新文档
-            <Button
-              type="primary"
-              className={styles.newfileViewerTitleBtn}
-              onClick={() => {
-                setIsFromShow(true)
-              }}
-            >
-              重新生成
-            </Button>
+            <div className={styles.TitleBtn}>
+              <a style={{ paddingTop: "3px" }}>
+                <Button
+                  type="primary"
+                  onClick={() => {
+                    setIsFromShow(true)
+                  }}
+                  size={'small'}
+                >
+                  重新生成
+                </Button>
+              </a>
+              <a href={`${window.location.origin}${newFileUrl}`} download="custom_filename.docx">
+                <Button
+                  type="primary"
+                  shape="circle"
+                  icon={<DownloadOutlined />}
+                  size={'small'}
+                />
+              </a>
+            </div>
+
           </div>
           <div className={styles.fileViewer}>
-            <DocxViewer docxUrl={`http://localhost:8000${newFileUrl}`} id={'type1'} />
+            <DocxViewer docxUrl={`${window.location.origin}${newFileUrl}`} id={'type1'} />
           </div>
         </div>
       }

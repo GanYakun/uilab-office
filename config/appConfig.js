@@ -37,11 +37,26 @@ const appConfig = {
 				{
 					appName: 'skbgwordcontent-query',
 					access: 'canSystem',
+					"ObjectPage": [
+						{
+							children: "",
+							SmartProps: [
+								{
+									data: {
+										facetType: "CustomButton",
+									},
+									type: "Identification",
+									operate: "add",
+								}
+							]
+						}
+					]
 				},
 				{
 					appName: 'file-view',
 					access: 'canSystem',
 				},
+
 			],
 		},
 		//项目分配-管理
