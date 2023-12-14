@@ -44,6 +44,7 @@
 
 ## 三、uiLab 代码运行步骤：
 
+0. 如果没有安装yarn，需要执行 `npm install -g yarn`
 1. 进入 uilab 根目录
 2. `yarn install` ，npm 版本大于 14 请使用 yarn1.6+
 3. `npm run start`  启动主应用
@@ -53,5 +54,4 @@
 1. git submodule add -b master -f xxxx.git lib/Ui5
 2. git submodule init
 3. git submodule update
-
 

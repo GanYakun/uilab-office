@@ -65,13 +65,12 @@ const appConfig = {
                             children: "",
                             SmartProps: [
                                 {
-                                    data: {
-                                        targetData: {
-                                            facetType: "step",
-                                        }
+                                    property: "HeaderFacets",//对象属性
+                                    operateType: "add", // 操作类型：add, replace, delete
+                                    config: {
+                                        type: 'CommonComp',//组件类型：CommonComp CustComp
+                                        name: 'Steps',////组件名称
                                     },
-                                    type: "HeaderFacets",
-                                    operate: "add", // add, replace, delete
                                 }
                             ]
                         }
@@ -100,14 +99,21 @@ const appConfig = {
                             children: "",
                             SmartProps: [
                                 {
-                                    data: {
-                                        targetData: {
-                                            facetType: "step",
-                                        }
+                                    property: "HeaderFacets",//对象属性
+                                    operateType: "add", // 操作类型：add, replace, delete
+                                    config: {
+                                        type: 'CommonComp',//组件类型：CommonComp CustComp
+                                        name: 'Steps',////组件名称
                                     },
-                                    type: "HeaderFacets",
-                                    operate: "add", // add, replace, delete
-                                }
+                                },
+                                {
+                                    property: "Identification",//对象属性
+                                    operateType: "add", // 操作类型：add, replace, delete
+                                    config: {
+                                        type: 'CommonComp',//组件类型：CommonComp CustComp
+                                        name: 'Tour',////组件名称
+                                    },
+                                },
                             ]
                         }
                     ],
@@ -116,12 +122,12 @@ const appConfig = {
                             children: "SmartTable",
                             SmartProps: [
                                 {
-                                    data: {
+                                    property: "columns",
+                                    operateType: "addType", // add, replace, delete addType
+                                    index: 0,
+                                    config: {
                                         width: 65
                                     },
-                                    type: "columns",
-                                    index: 0,
-                                    operate: "addType", // add, replace, delete addType
                                 }
                             ]
                         }
