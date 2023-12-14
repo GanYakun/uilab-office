@@ -45,20 +45,14 @@ const DocumentPreview: React.FC = (props) => {
                     method: "GET",
                     path: `SkbgContentDimensions('${skbgContentId}')`,
                     parameters: {
-                      $select: `preparationCompany,preparationDate,projectBasis,projectCompany,projectName,projectSituation,skbgContentId`,
-                      $expand: {
-                        File: {
-                          $select: `fileId,fileName,fileUrl`
-                        }
-                      }
+                      $select: `skbgFirstDraftName,skbgFirstDraftUrl `,
                     },
                   }
                 ]
                 const result = await Odata.submit(batchArr);
                 if (result && result[1]) {
-                  console.log({ result })
-                  const { File } = result[1].data
-                  setNewFileUrl(File.fileUrl)
+                  const { skbgFirstDraftUrl } = result[1].data
+                  setNewFileUrl(skbgFirstDraftUrl)
                   setIsFromShow(false)
                 }
               }}
@@ -78,7 +72,7 @@ const DocumentPreview: React.FC = (props) => {
               <ProFormText
                 width="md"
                 name="preparationDate"
-                label="preparationDate"
+                label="编制日期"
               />
             </ProForm>
           </div>
