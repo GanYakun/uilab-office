@@ -1,0 +1,184 @@
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Analytics.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.xml">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Communication.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/dinstitute/control/odataAppSvc/dinstitute/$metadata">
+        <edmx:Include Namespace="com.dpbird"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="local" Alias="设计院智能分析">
+        <Annotations Target="com.dpbird.O3Container/JxywProjectInvestmentViews">
+                <Annotation Term="Aggregation.ApplySupported">
+                    <Record Type="Aggregation.ApplySupportedType">
+                        <PropertyValue Property="Transformations">
+                            <Collection>
+                                <String>aggregate</String>
+                                <String>sum</String>
+                                <String>topcount</String>
+                                <String>count</String>
+                                <String>bottomcount</String>
+                                <String>identity</String>
+                                <String>concat</String>
+                                <String>groupby</String>
+                                <String>filter</String>
+                                <String>expand</String>
+                                <String>top</String>
+                                <String>skip</String>
+                                <String>orderby</String>
+                                <String>search</String>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Rollup" EnumMember="Aggregation.RollupType/None" />
+                        <PropertyValue Property="PropertyRestrictions" Bool="true" />
+                        <PropertyValue Property="GroupableProperties">
+                            <Collection>
+                                <PropertyPath>year4</PropertyPath>
+                                <PropertyPath>quarterNumber</PropertyPath>
+                                <PropertyPath>monthNumber</PropertyPath>
+                                <PropertyPath>xmmc</PropertyPath>
+                                <PropertyPath>municipalLevelCompanyName</PropertyPath>
+                                <PropertyPath>batchName</PropertyPath>
+                                <PropertyPath>professionalType</PropertyPath>
+                                <PropertyPath>count</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="AggregatableProperties">
+                            <Collection>
+                                <Record Type="Aggregation.AggregatablePropertyType">
+                                    <PropertyValue Property="Property" PropertyPath="count"/>
+                                    <PropertyValue Property="RecommendedAggregationMethod" String="sum" />
+                                </Record>
+                                <Record Type="Aggregation.AggregatablePropertyType">
+                                    <PropertyValue Property="Property" PropertyPath="investmentEstimation"/>
+                                    <PropertyValue Property="RecommendedAggregationMethod" String="sum" />
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+
+             <Annotations Target="com.dpbird.JxywProjectInvestmentView">
+
+                <Annotation Term="Analytics.AggregatedProperties">
+                    <Collection>
+                        <Record Type="Analytics.AggregatedPropertyType">
+                            <PropertyValue Property="Name" String="maxAmount"/>
+                            <PropertyValue Property="AggregationMethod" String="max" />
+                            <PropertyValue Property="AggregatableProperty" PropertyPath="count" />
+                            <Annotation Term="Common.Label" String="{@i18n>ProjectAllocFactViewMaximalCount}"/>
+                        </Record>
+                        <Record Type="Analytics.AggregatedPropertyType">
+                            <PropertyValue Property="Name" String="minAmount"/>
+                            <PropertyValue Property="AggregationMethod" String="min" />
+                            <PropertyValue Property="AggregatableProperty" PropertyPath="count" />
+                            <Annotation Term="Common.Label" String="{@i18n>ProjectAllocFactViewMinimumCount}"/>
+                        </Record>
+                        <Record Type="Analytics.AggregatedPropertyType">
+                            <PropertyValue Property="Name" String="avgAmount"/>
+                            <PropertyValue Property="AggregationMethod" String="average"/>
+                            <PropertyValue Property="AggregatableProperty" PropertyPath="count" />
+                            <Annotation Term="Common.Label" String="{@i18n>ProjectAllocFactViewAverageCount}"/>
+                        </Record>
+                        <Record Type="Analytics.AggregatedPropertyType">
+                            <PropertyValue Property="Name" String="sumAnount"/>
+                            <PropertyValue Property="AggregationMethod" String="sum"/>
+                            <PropertyValue Property="AggregatableProperty" PropertyPath="investmentEstimation" />
+                            <Annotation Term="Common.Label" String="{@i18n>ProjectAllocFactViewSumCount}"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="年份"/>
+                            <PropertyValue Property="Value" Path="year4"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="季度"/>
+                            <PropertyValue Property="Value" Path="quarterNumber"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="月份"/>
+                            <PropertyValue Property="Value" Path="monthNumber"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="项目名称"/>
+                            <PropertyValue Property="Value" Path="xmmc"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="市级单位"/>
+                            <PropertyValue Property="Value" Path="municipalLevelCompanyName"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="批次名称"/>
+                            <PropertyValue Property="Value" Path="batchName"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="专业类型"/>
+                            <PropertyValue Property="Value" Path="professionalType"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="分配数量"/>
+                            <PropertyValue Property="Value" Path="count"/>
+                        </Record>
+                         <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="预计投资额"/>
+                            <PropertyValue Property="Value" Path="investmentEstimation"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+
+                <Annotation Term="UI.PresentationVariant">
+                    <Record Type="UI.PresentationVariantType">
+                        <PropertyValue Property="Visualizations">
+                            <Collection>
+                                <AnnotationPath>@UI.Chart#chart</AnnotationPath>
+                                <AnnotationPath>@UI.LineItem</AnnotationPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+
+                <Annotation Term="UI.Chart" Qualifier="chart">
+                    <Record Type="UI.ChartDefinitionType">
+                        <PropertyValue Property="Title" String="按年度分析"/>
+                        <PropertyValue Property="Description" String="test"/>
+                        <PropertyValue Property="ChartType" EnumMember="UI.ChartType/Column"/>
+                        <PropertyValue Property="Dimensions">
+                            <Collection>
+                                <PropertyPath>year4</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Measures">
+                            <Collection>
+                                <PropertyPath>sumAnount</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="MeasureAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartMeasureAttributeType">
+                                <PropertyValue Property="Measure" PropertyPath="maxAmount"/>
+                                <PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis1"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+             </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

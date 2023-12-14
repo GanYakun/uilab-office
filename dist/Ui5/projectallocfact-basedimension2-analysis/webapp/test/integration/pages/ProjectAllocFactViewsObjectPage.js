@@ -1,0 +1,1 @@
+sap.ui.define(["sap/fe/test/ObjectPage"],function(e){"use strict";var t={actions:{},assertions:{}};return new e({appId:"com.banfftech.projectallocfactbasedimension2analysis",componentId:"ProjectAllocFactViewsObjectPage",entitySet:"ProjectAllocFactViews"},t)});

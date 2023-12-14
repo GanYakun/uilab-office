@@ -1,0 +1,129 @@
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/dinstitute/control/odataAppSvc/dinstitute/$metadata">
+        <edmx:Include Namespace="com.dpbird"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="local">
+            <Annotations Target="com.dpbird.O3Container/SkbgContentDimensions">
+                <Annotation Term="UI.DeleteHidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="com.dpbird.SkbgContentDimension">
+                <Annotation Term="UI.Identification" >
+                    <Collection >
+                        <Record Type="UI.DataFieldForAction" >
+                            <PropertyValue Property="Action" String="com.dpbird.GenerateFeasibilityStudyReport"/>
+                            <PropertyValue Property="Label"  String="针对性生成新可研" />
+                        </Record>
+                         <Record Type="UI.DataFieldForAction" >
+                            <PropertyValue Property="Action" String="com.dpbird.GenerateDraftReviewComments"/>
+                            <PropertyValue Property="Label"  String="生成可研评审意见" />
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.HeaderFacets">
+                    <Collection>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="ID" String="GeneratedHeaerFacet1"/>
+                            <PropertyValue Property="Label" String="基本信息"/>
+                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#BaseInfo"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="Comments">
+                    <Record Type="UI.FieldGroupType">
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataFieldWithUrl">
+                                    <PropertyValue Property="Value">
+                                        <Path>reviewCommentsName</Path>
+                                    </PropertyValue>
+                                    <PropertyValue Property="Url">
+                                        <Path>reviewCommentsUrl</Path>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="FirstDraft">
+                    <Record Type="UI.FieldGroupType">
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataFieldWithUrl">
+                                    <PropertyValue Property="Value">
+                                        <Path>skbgFirstDraftName</Path>
+                                    </PropertyValue>
+                                    <PropertyValue Property="Url">
+                                        <Path>skbgFirstDraftUrl</Path>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+               <Annotation Term="UI.FieldGroup" Qualifier="BaseInfo">
+                    <Record Type="UI.FieldGroupType">
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataFieldWithUrl">
+                                    <PropertyValue Property="Value">
+                                        <Path>File/fileName</Path>
+                                    </PropertyValue>
+                                    <PropertyValue Property="Url">
+                                        <Path>File/fileUrl</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="projectName"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="projectCompany"/>
+                                </Record>
+                                 <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="preparationCompany"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.Facets">
+                    <Collection>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="ID" String="GeneratedFacet1"/>
+                            <PropertyValue Property="Label" String="1.2项目现状"/>
+                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#ProjectStatus"/>
+                        </Record>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="ID" String="GeneratedFacet2"/>
+                            <PropertyValue Property="Label" String="1.3.2项目立项依据"/>
+                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#ProjectBasis"/>
+                        </Record>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="ID" String="GeneratedFacet3"/>
+                            <PropertyValue Property="Label" String="1.5主要技术经济指标"/>
+                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#Specification"/>
+                        </Record>
+                        <!-- <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="ID" String="GeneratedFacet3"/>
+                            <PropertyValue Property="Label" String="可研评审意见"/>
+                            <PropertyValue Property="Target" AnnotationPath="@UI.LineItem#Comments"/>
+                        </Record> -->
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="ID" String="GeneratedFacet4"/>
+                            <PropertyValue Property="Label" String="可研评审意见"/>
+                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#Comments"/>
+                        </Record>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="ID" String="GeneratedFacet5"/>
+                            <PropertyValue Property="Label" String="新版可研报告初稿"/>
+                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#FirstDraft"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

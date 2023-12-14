@@ -1,0 +1,322 @@
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/dinstitute/control/odataAppSvc/dinstitute/$metadata">
+        <edmx:Include Namespace="com.dpbird"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="local">
+            <Annotations Target="com.dpbird.O3Container/GssContentDimensions">
+                <Annotation Term="UI.DeleteHidden" Bool="true"/>
+            </Annotations>
+
+            <Annotations Target="com.dpbird.GssContentDimension">
+                 <Annotation Term="UI.FieldGroup" Qualifier="BaseInfo">
+                    <Record Type="UI.FieldGroupType">
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="projectName"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="preparationDate"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="preparationCompany"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="FileDimension/folderName"/>
+                                </Record>
+                                <Record Type="UI.DataFieldWithUrl">
+                                    <PropertyValue Property="Value">
+                                        <Path>FileDimension/fileName</Path>
+                                    </PropertyValue>
+                                    <PropertyValue Property="Url">
+                                        <Path>FileDimension/fileUrl</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="FileDimension/fileType"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+
+                <Annotation Term="UI.Facets">
+                    <Collection>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="ID" String="GeneratedFacet1"/>
+                            <PropertyValue Property="Label" String="其他费用信息"/>
+                            <PropertyValue Property="Target" AnnotationPath="GssOtherExpenses/@UI.LineItem"/>
+                        </Record>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="ID" String="GeneratedFacet2"/>
+                            <PropertyValue Property="Label" String="检修工程信息"/>
+                            <PropertyValue Property="Target" AnnotationPath="GssMaintenanceExpenses/@UI.LineItem"/>
+                        </Record>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="ID" String="GeneratedFacet3"/>
+                            <PropertyValue Property="Label" String="设备检修单位工程估算信息"/>
+                            <PropertyValue Property="Target" AnnotationPath="GssDeviceEstimation/@UI.LineItem"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.HeaderFacets">
+                    <Collection>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="ID" String="GeneratedHeaderFacet1"/>
+                            <PropertyValue Property="Label" String="项目基本信息"/>
+                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#BaseInfo"/>
+                        </Record>
+                        <!-- <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="ID" String="ColumnChart"/>
+                            <PropertyValue Property="Label" String="柱状图"/>
+                            <PropertyValue Property="Target" AnnotationPath="GssOtherExpenses/@UI.Chart#chart00"/>
+                        </Record>
+                         <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="折线表"/>
+                             <PropertyValue Property="ID" String="LineChart"/>
+                            <PropertyValue Property="Target" AnnotationPath="GssDeviceEstimation/@UI.Chart#chart0"/>                 
+                        </Record> -->
+                    </Collection>
+                </Annotation>
+            </Annotations>
+
+             <Annotations Target="com.dpbird.GssOtherExpenses">
+                <Annotation Term="UI.Chart" Qualifier="chart00">
+                    <Record Type="UI.ChartDefinitionType">
+                        <PropertyValue Property="Title" String="工程费用柱状图"/>
+                        <PropertyValue Property="Description" String="描述并对比各项目合计总价"/>
+                        <PropertyValue Property="ChartType" EnumMember="UI.ChartType/Column"/>
+                        <PropertyValue Property="Dimensions">
+                            <Collection>
+                                <PropertyPath>expensesName</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Measures">
+                            <Collection>
+                                <PropertyPath>totalPrice</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="MeasureAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartMeasureAttributeType">
+                                    <PropertyValue Property="Measure" PropertyPath="totalPrice"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis1"/>
+                                    <PropertyValue Property="DataPoint" AnnotationPath="@UI.DataPoint#MonthlySales22"/> 
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+
+                 <Annotation Term="UI.DataPoint" Qualifier="MonthlySales22">
+                    <Record Type="UI.DataPointType" >
+                        <PropertyValue Property="Value" Path="totalPrice" /> 
+                        <PropertyValue Property="TargetValue" Decimal="5000" /> 
+                        <PropertyValue Property="Criticality" Path="criticalityValue">
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+             </Annotations>
+
+            <Annotations Target="com.dpbird.GssDeviceEstimation">
+            <Annotation Term="UI.Chart" Qualifier="chart0">
+                    <Record Type="UI.ChartDefinitionType">
+                        <PropertyValue Property="Title" String="设备检修估算合价折线图"/>
+                        <PropertyValue Property="Description" String="描述各项目费用金额合价、人工合价、机械合价变化"/>
+                        <PropertyValue Property="ChartType" EnumMember="UI.ChartType/Line"/>
+                        <PropertyValue Property="Dimensions">
+                            <Collection>
+                                <PropertyPath>itemNumber</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Measures">
+                            <Collection>
+                                <PropertyPath>totalArtificial</PropertyPath>
+                                <PropertyPath>totalMechanical</PropertyPath>
+                                 <PropertyPath>feeAmount</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="MeasureAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartMeasureAttributeType">
+                                    <PropertyValue Property="Measure" PropertyPath="totalArtificial"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis1"/>
+                                    <PropertyValue Property="DataPoint" AnnotationPath="@UI.DataPoint#MonthlySales_1"/> 
+                                </Record>
+                                <Record Type="UI.ChartMeasureAttributeType">
+                                    <PropertyValue Property="Measure" PropertyPath="totalMechanical"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis1"/>
+                                    <PropertyValue Property="DataPoint" AnnotationPath="@UI.DataPoint#MonthlySales_2"/> 
+                                </Record>
+                                <Record Type="UI.ChartMeasureAttributeType">
+                                    <PropertyValue Property="Measure" PropertyPath="feeAmount"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis1"/>
+                                    <PropertyValue Property="DataPoint" AnnotationPath="@UI.DataPoint#MonthlySales_3"/> 
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+
+                 <Annotation Term="UI.DataPoint" Qualifier="MonthlySales_1">
+                    <Record Type="UI.DataPointType" >
+                        <PropertyValue Property="Value" Path="totalArtificial" /> 
+                        <PropertyValue Property="TargetValue" Path="totalArtificial" /> 
+                    </Record>
+                </Annotation>
+
+                <Annotation Term="UI.DataPoint" Qualifier="MonthlySales_2">
+                    <Record Type="UI.DataPointType" >
+                        <PropertyValue Property="Value" Path="totalMechanical" /> 
+                        <PropertyValue Property="TargetValue" Path="totalMechanical" /> 
+                    </Record>
+                </Annotation>
+
+                <Annotation Term="UI.DataPoint" Qualifier="MonthlySales_3">
+                    <Record Type="UI.DataPointType" >
+                        <PropertyValue Property="Value" Path="feeAmount" /> 
+                        <PropertyValue Property="TargetValue" Path="feeAmount" /> 
+                    </Record>
+                </Annotation>
+            </Annotations>
+
+            <Annotations Target="com.dpbird.GssMaintenanceExpenses">
+                <Annotation Term="UI.LineItem">
+                
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="serialNumber"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="expensesName"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="amountIncludingTax"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="deductibleVatAmount"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                        </Record>
+                         <Record Type="UI.DataFieldForAnnotation" >
+                            <PropertyValue Property="Label" String="税额组成展示"/>                      
+                            <PropertyValue Property="Target" AnnotationPath="@UI.Chart#chart05" />
+                        </Record>
+                         <Record Type="UI.DataFieldForAnnotation">
+                            <PropertyValue Property="Label" String="占合计总费用的比例"/>
+                            <PropertyValue Property="Target" AnnotationPath="@UI.Chart#chart03"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                        </Record>
+                         <Record Type="UI.DataFieldForAnnotation" >
+                            <PropertyValue Property="Label" String="不含税金额(与含税金额对比)"/>                      
+                            <PropertyValue Property="Target" AnnotationPath="@UI.Chart#chart04" />
+                        </Record>
+                    </Collection>
+                </Annotation>
+
+                 <Annotation Term="UI.Chart" Qualifier="chart03">
+                    <Record Type="UI.ChartDefinitionType">
+                        <PropertyValue Property="Title" String="产品月销售量进度图"/>
+                        <PropertyValue Property="Description" String="描述2022年各月产品总销售量变化趋势"/>
+                        <PropertyValue Property="ChartType" EnumMember="UI.ChartType/Donut"/>
+                        <PropertyValue Property="Dimensions">
+                            <Collection>
+                                <PropertyPath>serialNumber</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Measures">
+                            <Collection>
+                                <PropertyPath>proportionTotalExpenses</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="MeasureAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartMeasureAttributeType">
+                                    <PropertyValue Property="Measure" PropertyPath="proportionTotalExpenses"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis1"/>
+                                    <PropertyValue Property="DataPoint" AnnotationPath="@UI.DataPoint#MonthlySales2"/> 
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+
+                 <Annotation Term="UI.DataPoint" Qualifier="MonthlySales2">
+                    <Record Type="UI.DataPointType" >
+                        <PropertyValue Property="Value" Path="proportionTotalExpenses" /> 
+                        <PropertyValue Property="TargetValue" Decimal="100" /> 
+                         <PropertyValue Property="Criticality" Path="criticalityValueForDonut" /> 
+                    </Record>
+                </Annotation>
+
+                 <Annotation Term="UI.Chart" Qualifier="chart04">
+                    <Record Type="UI.ChartDefinitionType">
+                        <PropertyValue Property="Title" String="产品月销售量进度图"/>
+                        <PropertyValue Property="Description" String="描述2022年各月产品总销售量变化趋势"/>
+                        <PropertyValue Property="ChartType" EnumMember="UI.ChartType/Pie"/>
+                        <PropertyValue Property="Measures">
+                            <Collection>
+                                <PropertyPath>amountExcludingTax</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="MeasureAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartMeasureAttributeType">
+                                    <PropertyValue Property="Measure" PropertyPath="amountExcludingTax"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis1"/>
+                                    <PropertyValue Property="DataPoint" AnnotationPath="@UI.DataPoint#MonthlySales3"/> 
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+
+                <Annotation Term="UI.DataPoint" Qualifier="MonthlySales3">
+                    <Record Type="UI.DataPointType" >
+                        <PropertyValue Property="Value" Path="amountExcludingTax" /> 
+                        <PropertyValue Property="MaximumValue" Path="amountIncludingTax" /> 
+                        <PropertyValue Property="Criticality" Path="criticalityValueForPie" /> 
+                    </Record>
+                </Annotation>
+
+                  <Annotation Term="UI.Chart" Qualifier="chart05">
+                    <Record Type="UI.ChartDefinitionType">
+                        <PropertyValue Property="Title" String="产品月销售量进度图"/>
+                        <PropertyValue Property="Description" String="描述2022年各月产品总销售量变化趋势"/>
+                        <PropertyValue Property="ChartType" EnumMember="UI.ChartType/Bullet"/>
+                        <PropertyValue Property="Measures">
+                            <Collection>
+                                <PropertyPath>amountExcludingTax</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="MeasureAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartMeasureAttributeType">
+                                    <PropertyValue Property="Measure" PropertyPath="amountExcludingTax"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis1"/>
+                                    <PropertyValue Property="DataPoint" AnnotationPath="@UI.DataPoint#MonthlySales33"/> 
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+
+                <Annotation Term="UI.DataPoint" Qualifier="MonthlySales33">
+                    <Record Type="UI.DataPointType" >
+                        <PropertyValue Property="Value" Path="amountExcludingTax" /> 
+                        <PropertyValue Property="MaximumValue" Path="amountIncludingTax" /> 
+                        <PropertyValue Property="TargetValue" Path="deductibleVatAmount" /> 
+                        <PropertyValue Property="MinimumValue" Decimal="0" /> 
+                        <PropertyValue Property="Criticality" Path="criticalityValueForPie" /> 
+                    </Record>
+                </Annotation>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

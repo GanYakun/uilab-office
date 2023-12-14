@@ -1,0 +1,3030 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Reference Uri="http://docs.oasis-open.org/odata/odata/v4.0/errata03/os/complete/vocabularies/Org.OData.Measures.V1.xml">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/odata/vocabularies/Core.xml">
+        <edmx:Include Namespace="Org.OData.Core.V1" Alias="Core"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/odata/vocabularies/Capabilities.xml">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/odata/vocabularies/Common.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/odata/vocabularies/UI.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/odata/vocabularies/Aggregation.xml">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/odata/vocabularies/Session.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.Session.v1" Alias="Session"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="com.dpbird">
+            <EntityType Name="SkbgContentDimension">
+                <Key>
+                    <PropertyRef Name="skbgContentId"/>
+                </Key>
+                <Property Name="fileId" Type="Edm.String" MaxLength="60"/>
+                <Property Name="reviewCommentsContent" Type="Edm.Stream"/>
+                <Property Name="skbgContentId" Type="Edm.String" Nullable="false" MaxLength="60"/>
+                <Property Name="projectName" Type="Edm.String" MaxLength="255"/>
+                <Property Name="preparationDate" Type="Edm.String" MaxLength="255"/>
+                <Property Name="preparationCompany" Type="Edm.String" MaxLength="255"/>
+                <Property Name="projectCompany" Type="Edm.String" MaxLength="255"/>
+                <Property Name="projectSituation" Type="Edm.String" MaxLength="5000"/>
+                <Property Name="economicIndicators" Type="Edm.String" MaxLength="5000"/>
+                <Property Name="projectBasis" Type="Edm.String" MaxLength="5000"/>
+                <Property Name="reviewCommentsName" Type="Edm.String" MaxLength="255"/>
+                <Property Name="reviewCommentsUrl" Type="Edm.String" MaxLength="255"/>
+                <NavigationProperty Name="File" Type="com.dpbird.File">
+                    <ReferentialConstraint Property="fileId" ReferencedProperty="fileId"/>
+                </NavigationProperty>
+            </EntityType>
+            <EntityType Name="GssOtherExpenses">
+                <Key>
+                    <PropertyRef Name="id"/>
+                </Key>
+                <Property Name="id" Type="Edm.String" Nullable="false" MaxLength="60"/>
+                <Property Name="serialNumber" Type="Edm.String" MaxLength="255"/>
+                <Property Name="expensesName" Type="Edm.String" MaxLength="255"/>
+                <Property Name="calculationDescription" Type="Edm.String" MaxLength="255"/>
+                <Property Name="totalPrice" Type="Edm.Decimal" Precision="18" Scale="2"/>
+                <Property Name="criticalityValue" Type="Edm.Int64"/>
+            </EntityType>
+            <EntityType Name="BatchDimension">
+                <Key>
+                    <PropertyRef Name="dimensionId"/>
+                </Key>
+                <Property Name="dimensionId" Type="Edm.String" Nullable="false" MaxLength="60"/>
+                <Property Name="batchName" Type="Edm.String" MaxLength="255"/>
+            </EntityType>
+            <EntityType Name="JX">
+                <Key>
+                    <PropertyRef Name="dimensionId"/>
+                </Key>
+                <Property Name="pcId" Type="Edm.String" MaxLength="255"/>
+                <Property Name="ssdsId" Type="Edm.String" MaxLength="255"/>
+                <Property Name="zyId" Type="Edm.String" MaxLength="255"/>
+                <Property Name="dimensionId" Type="Edm.String" Nullable="false" MaxLength="60"/>
+                <Property Name="xid" Type="Edm.String" MaxLength="255"/>
+                <Property Name="xmdw" Type="Edm.String" MaxLength="255"/>
+                <Property Name="xmdwmc" Type="Edm.String" MaxLength="255"/>
+                <Property Name="bzbm" Type="Edm.String" MaxLength="255"/>
+                <Property Name="zylb" Type="Edm.String" MaxLength="255"/>
+                <Property Name="zylx" Type="Edm.String" MaxLength="255"/>
+                <Property Name="zyxf" Type="Edm.String" MaxLength="255"/>
+                <Property Name="dydj" Type="Edm.String" MaxLength="255"/>
+                <Property Name="jxxm" Type="Edm.String" MaxLength="255"/>
+                <Property Name="xmxz" Type="Edm.String" MaxLength="255"/>
+                <Property Name="sblx" Type="Edm.String" MaxLength="255"/>
+                <Property Name="xmnr" Type="Edm.String" MaxLength="5000"/>
+                <Property Name="xmmc" Type="Edm.String" MaxLength="5000"/>
+                <Property Name="yxmmc" Type="Edm.String" MaxLength="5000"/>
+                <Property Name="ejxmmc" Type="Edm.String" MaxLength="5000"/>
+                <Property Name="sjxmmc" Type="Edm.String" MaxLength="5000"/>
+                <Property Name="xmlx" Type="Edm.String" MaxLength="255"/>
+                <Property Name="bzkbm" Type="Edm.String" MaxLength="255"/>
+                <Property Name="xmbyx" Type="Edm.String" MaxLength="5000"/>
+                <Property Name="jsfa" Type="Edm.String" MaxLength="5000"/>
+                <Property Name="xmpc" Type="Edm.String" MaxLength="255"/>
+                <Property Name="kylx" Type="Edm.String" MaxLength="255"/>
+                <Property Name="tzzg" Type="Edm.String" MaxLength="255"/>
+                <Property Name="dxztz" Type="Edm.String" MaxLength="255"/>
+                <Property Name="kypfdw" Type="Edm.String" MaxLength="255"/>
+                <Property Name="zcxz" Type="Edm.String" MaxLength="255"/>
+                <Property Name="fzr" Type="Edm.String" MaxLength="255"/>
+                <Property Name="lxfs" Type="Edm.String" MaxLength="255"/>
+                <Property Name="xmly" Type="Edm.String" MaxLength="255"/>
+                <Property Name="syb" Type="Edm.String" MaxLength="255"/>
+                <Property Name="jsName" Type="Edm.String" MaxLength="255"/>
+                <Property Name="jjName" Type="Edm.String" MaxLength="255"/>
+                <Property Name="jsSfwx" Type="Edm.String" MaxLength="255"/>
+                <Property Name="jsWxdw" Type="Edm.String" MaxLength="255"/>
+                <Property Name="jjSfwx" Type="Edm.String" MaxLength="255"/>
+                <Property Name="jjWxdw" Type="Edm.String" MaxLength="255"/>
+                <Property Name="tsrq" Type="Edm.String" MaxLength="255"/>
+                <Property Name="zyfprq" Type="Edm.String" MaxLength="255"/>
+                <Property Name="xmszhg" Type="Edm.String" MaxLength="255"/>
+                <Property Name="xmjd" Type="Edm.String" MaxLength="255"/>
+                <Property Name="zxfzr" Type="Edm.String" MaxLength="255"/>
+                <Property Name="xmjl" Type="Edm.String" MaxLength="255"/>
+                <Property Name="zyfzr" Type="Edm.String" MaxLength="255"/>
+                <Property Name="pcnf" Type="Edm.String" MaxLength="255"/>
+                <Property Name="jsscr" Type="Edm.String" MaxLength="255"/>
+                <Property Name="jjscr" Type="Edm.String" MaxLength="255"/>
+                <NavigationProperty Name="BatchDimension" Type="com.dpbird.BatchDimension">
+                    <ReferentialConstraint Property="pcId" ReferencedProperty="dimensionId"/>
+                </NavigationProperty>
+                <NavigationProperty Name="MunicipalCompanyDimension" Type="com.dpbird.MunicipalCompanyDimension">
+                    <ReferentialConstraint Property="ssdsId" ReferencedProperty="dimensionId"/>
+                </NavigationProperty>
+                <NavigationProperty Name="ProfessionalTypeDimension" Type="com.dpbird.ProfessionalTypeDimension">
+                    <ReferentialConstraint Property="zyId" ReferencedProperty="dimensionId"/>
+                </NavigationProperty>
+            </EntityType>
+            <EntityType Name="MunicipalCompanyDimension">
+                <Key>
+                    <PropertyRef Name="dimensionId"/>
+                </Key>
+                <Property Name="dimensionId" Type="Edm.String" Nullable="false" MaxLength="60"/>
+                <Property Name="municipalLevelCompanyName" Type="Edm.String" MaxLength="255"/>
+            </EntityType>
+            <EntityType Name="JxywProjectInvestmentView">
+                <Property Name="year4" Type="Edm.Int64"/>
+                <Property Name="quarterNumber" Type="Edm.Int64"/>
+                <Property Name="monthNumber" Type="Edm.Int64"/>
+                <Property Name="xmmc" Type="Edm.String" MaxLength="5000"/>
+                <Property Name="municipalLevelCompanyName" Type="Edm.String" MaxLength="255"/>
+                <Property Name="batchName" Type="Edm.String" MaxLength="255"/>
+                <Property Name="professionalType" Type="Edm.String" MaxLength="255"/>
+                <Property Name="count" Type="Edm.Double"/>
+                <Property Name="investmentEstimation" Type="Edm.Double"/>
+            </EntityType>
+            <EntityType Name="FileTypeEnumeration">
+                <Key>
+                    <PropertyRef Name="enumId"/>
+                </Key>
+                <Property Name="enumId" Type="Edm.String" Nullable="false" MaxLength="60"/>
+                <Property Name="enumTypeId" Type="Edm.String" MaxLength="60"/>
+                <Property Name="enumCode" Type="Edm.String" MaxLength="60"/>
+                <Property Name="sequenceId" Type="Edm.String" MaxLength="60"/>
+                <Property Name="description" Type="Edm.String" MaxLength="255"/>
+            </EntityType>
+            <EntityType Name="GssDeviceEstimation">
+                <Key>
+                    <PropertyRef Name="id"/>
+                </Key>
+                <Property Name="itemNumber" Type="Edm.String"/>
+                <Property Name="id" Type="Edm.String" Nullable="false" MaxLength="60"/>
+                <Property Name="gssContentId" Type="Edm.String" MaxLength="60"/>
+                <Property Name="serialNumber" Type="Edm.String" MaxLength="255"/>
+                <Property Name="compilationBasis" Type="Edm.String" MaxLength="255"/>
+                <Property Name="projectName" Type="Edm.String" MaxLength="255"/>
+                <Property Name="unit" Type="Edm.String" MaxLength="255"/>
+                <Property Name="count" Type="Edm.String" MaxLength="255"/>
+                <Property Name="unitPriceAccessories" Type="Edm.String" MaxLength="255"/>
+                <Property Name="fixedBasePrice" Type="Edm.String" MaxLength="255"/>
+                <Property Name="artificial" Type="Edm.String" MaxLength="255"/>
+                <Property Name="mechanical" Type="Edm.String" MaxLength="255"/>
+                <Property Name="unpricedMaterials" Type="Edm.String" MaxLength="255"/>
+                <Property Name="accessoriesTotalPrice" Type="Edm.String" MaxLength="255"/>
+                <Property Name="feeAmount" Type="Edm.String" MaxLength="255"/>
+                <Property Name="totalArtificial" Type="Edm.String" MaxLength="255"/>
+                <Property Name="totalMechanical" Type="Edm.String" MaxLength="255"/>
+                <Property Name="totalUnpricedMaterials" Type="Edm.String" MaxLength="255"/>
+            </EntityType>
+            <EntityType Name="DX">
+                <Key>
+                    <PropertyRef Name="dimensionId"/>
+                </Key>
+                <Property Name="pcId" Type="Edm.String" MaxLength="255"/>
+                <Property Name="ssdsId" Type="Edm.String" MaxLength="255"/>
+                <Property Name="zyId" Type="Edm.String" MaxLength="255"/>
+                <Property Name="dimensionId" Type="Edm.String" Nullable="false" MaxLength="60"/>
+                <Property Name="xid" Type="Edm.String" MaxLength="255"/>
+                <Property Name="xmdw" Type="Edm.String" MaxLength="255"/>
+                <Property Name="xmdwmc" Type="Edm.String" MaxLength="255"/>
+                <Property Name="bzbm" Type="Edm.String" MaxLength="255"/>
+                <Property Name="zylb" Type="Edm.String" MaxLength="255"/>
+                <Property Name="zylx" Type="Edm.String" MaxLength="255"/>
+                <Property Name="zyxf" Type="Edm.String" MaxLength="255"/>
+                <Property Name="dydj" Type="Edm.String" MaxLength="255"/>
+                <Property Name="jxxm" Type="Edm.String" MaxLength="255"/>
+                <Property Name="xmxz" Type="Edm.String" MaxLength="255"/>
+                <Property Name="sblx" Type="Edm.String" MaxLength="255"/>
+                <Property Name="xmnr" Type="Edm.String" MaxLength="5000"/>
+                <Property Name="xmmc" Type="Edm.String" MaxLength="5000"/>
+                <Property Name="yxmmc" Type="Edm.String" MaxLength="5000"/>
+                <Property Name="ejxmmc" Type="Edm.String" MaxLength="5000"/>
+                <Property Name="sjxmmc" Type="Edm.String" MaxLength="5000"/>
+                <Property Name="xmlx" Type="Edm.String" MaxLength="255"/>
+                <Property Name="bzkbm" Type="Edm.String" MaxLength="255"/>
+                <Property Name="xmbyx" Type="Edm.String" MaxLength="5000"/>
+                <Property Name="jsfa" Type="Edm.String" MaxLength="5000"/>
+                <Property Name="xmpc" Type="Edm.String" MaxLength="255"/>
+                <Property Name="kylx" Type="Edm.String" MaxLength="255"/>
+                <Property Name="tzzg" Type="Edm.String" MaxLength="255"/>
+                <Property Name="dxztz" Type="Edm.String" MaxLength="255"/>
+                <Property Name="kypfdw" Type="Edm.String" MaxLength="255"/>
+                <Property Name="zcxz" Type="Edm.String" MaxLength="255"/>
+                <Property Name="fzr" Type="Edm.String" MaxLength="255"/>
+                <Property Name="lxfs" Type="Edm.String" MaxLength="255"/>
+                <Property Name="xmly" Type="Edm.String" MaxLength="255"/>
+                <Property Name="syb" Type="Edm.String" MaxLength="255"/>
+                <Property Name="jsName" Type="Edm.String" MaxLength="255"/>
+                <Property Name="jjName" Type="Edm.String" MaxLength="255"/>
+                <Property Name="jsSfwx" Type="Edm.String" MaxLength="255"/>
+                <Property Name="jsWxdw" Type="Edm.String" MaxLength="255"/>
+                <Property Name="jjSfwx" Type="Edm.String" MaxLength="255"/>
+                <Property Name="jjWxdw" Type="Edm.String" MaxLength="255"/>
+                <Property Name="tsrq" Type="Edm.String" MaxLength="255"/>
+                <Property Name="zyfprq" Type="Edm.String" MaxLength="255"/>
+                <Property Name="xmszhg" Type="Edm.String" MaxLength="255"/>
+                <Property Name="xmjd" Type="Edm.String" MaxLength="255"/>
+                <Property Name="zxfzr" Type="Edm.String" MaxLength="255"/>
+                <Property Name="xmjl" Type="Edm.String" MaxLength="255"/>
+                <Property Name="zyfzr" Type="Edm.String" MaxLength="255"/>
+                <Property Name="pcnf" Type="Edm.String" MaxLength="255"/>
+                <Property Name="jsscr" Type="Edm.String" MaxLength="255"/>
+                <Property Name="jjscr" Type="Edm.String" MaxLength="255"/>
+                <NavigationProperty Name="BatchDimension" Type="com.dpbird.BatchDimension">
+                    <ReferentialConstraint Property="pcId" ReferencedProperty="dimensionId"/>
+                </NavigationProperty>
+                <NavigationProperty Name="MunicipalCompanyDimension" Type="com.dpbird.MunicipalCompanyDimension">
+                    <ReferentialConstraint Property="ssdsId" ReferencedProperty="dimensionId"/>
+                </NavigationProperty>
+                <NavigationProperty Name="ProfessionalTypeDimension" Type="com.dpbird.ProfessionalTypeDimension">
+                    <ReferentialConstraint Property="zyId" ReferencedProperty="dimensionId"/>
+                </NavigationProperty>
+            </EntityType>
+            <EntityType Name="GssMaintenanceExpenses">
+                <Key>
+                    <PropertyRef Name="id"/>
+                </Key>
+                <Property Name="id" Type="Edm.String" Nullable="false" MaxLength="60"/>
+                <Property Name="serialNumber" Type="Edm.String" MaxLength="255"/>
+                <Property Name="expensesName" Type="Edm.String" MaxLength="255"/>
+                <Property Name="amountIncludingTax" Type="Edm.Decimal" Precision="18" Scale="2"/>
+                <Property Name="proportionTotalExpenses" Type="Edm.Decimal" Precision="18" Scale="2"/>
+                <Property Name="amountExcludingTax" Type="Edm.Decimal" Precision="18" Scale="2"/>
+                <Property Name="deductibleVatAmount" Type="Edm.Decimal" Precision="18" Scale="2"/>
+                <Property Name="criticalityValueForDonut" Type="Edm.Int64"/>
+                <Property Name="criticalityValueForPie" Type="Edm.Int64"/>
+            </EntityType>
+            <EntityType Name="GssContentDimension">
+                <Key>
+                    <PropertyRef Name="gssContentId"/>
+                </Key>
+                <Property Name="gssContentId" Type="Edm.String" Nullable="false" MaxLength="60"/>
+                <Property Name="fileId" Type="Edm.String" MaxLength="60"/>
+                <Property Name="projectName" Type="Edm.String" MaxLength="255"/>
+                <Property Name="preparationDate" Type="Edm.String" MaxLength="255"/>
+                <Property Name="preparationCompany" Type="Edm.String" MaxLength="255"/>
+                <Property Name="criticalityValue" Type="Edm.Int64"/>
+                <NavigationProperty Name="FileDimension" Type="com.dpbird.File">
+                    <ReferentialConstraint Property="fileId" ReferencedProperty="fileId"/>
+                </NavigationProperty>
+                <NavigationProperty Name="GssOtherExpenses" Type="Collection(com.dpbird.GssOtherExpenses)"/>
+                <NavigationProperty Name="GssMaintenanceExpenses" Type="Collection(com.dpbird.GssMaintenanceExpenses)"/>
+                <NavigationProperty Name="GssDeviceEstimation" Type="Collection(com.dpbird.GssDeviceEstimation)"/>
+            </EntityType>
+            <EntityType Name="ProfessionalTypeDimension">
+                <Key>
+                    <PropertyRef Name="dimensionId"/>
+                </Key>
+                <Property Name="dimensionId" Type="Edm.String" Nullable="false" MaxLength="60"/>
+                <Property Name="professionalType" Type="Edm.String" MaxLength="255"/>
+            </EntityType>
+            <EntityType Name="ProjectAllocFactView">
+                <Property Name="year4" Type="Edm.Int64"/>
+                <Property Name="quarterNumber" Type="Edm.Int64"/>
+                <Property Name="monthNumber" Type="Edm.Int64"/>
+                <Property Name="xmmc" Type="Edm.String" MaxLength="5000"/>
+                <Property Name="municipalLevelCompanyName" Type="Edm.String" MaxLength="255"/>
+                <Property Name="batchName" Type="Edm.String" MaxLength="255"/>
+                <Property Name="professionalType" Type="Edm.String" MaxLength="255"/>
+                <Property Name="count" Type="Edm.Double"/>
+            </EntityType>
+            <EntityType Name="File">
+                <Key>
+                    <PropertyRef Name="fileId"/>
+                </Key>
+                <Property Name="fileDate" Type="Edm.String" MaxLength="255"/>
+                <Property Name="fileId" Type="Edm.String" Nullable="false" MaxLength="60"/>
+                <Property Name="meeting" Type="Edm.String" MaxLength="255"/>
+                <Property Name="folderName" Type="Edm.String" MaxLength="255"/>
+                <Property Name="fileName" Type="Edm.String" MaxLength="255"/>
+                <Property Name="fileType" Type="Edm.String" MaxLength="255"/>
+                <Property Name="fileUrl" Type="Edm.String" MaxLength="255"/>
+                <Property Name="fileContent" Type="Edm.Stream"/>
+                <NavigationProperty Name="FileTypeEnumeration" Type="com.dpbird.FileTypeEnumeration">
+                    <ReferentialConstraint Property="fileType" ReferencedProperty="enumId"/>
+                </NavigationProperty>
+            </EntityType>
+            <Action Name="GenerateDraftReviewComments" IsBound="true">
+                <Parameter Name="skbgContentDimension" Type="com.dpbird.SkbgContentDimension" Nullable="false"/>
+            </Action>
+            <EntityContainer Name="O3Container">
+                <EntitySet Name="GssContentDimensions" EntityType="com.dpbird.GssContentDimension">
+                    <NavigationPropertyBinding Path="FileDimension" Target="Files"/>
+                    <NavigationPropertyBinding Path="GssOtherExpenses" Target="GssOtherExpensess"/>
+                    <NavigationPropertyBinding Path="GssMaintenanceExpenses" Target="GssMaintenanceExpenses"/>
+                    <NavigationPropertyBinding Path="GssDeviceEstimation" Target="GssDeviceEstimations"/>
+                </EntitySet>
+                <EntitySet Name="JXs" EntityType="com.dpbird.JX">
+                    <NavigationPropertyBinding Path="BatchDimension" Target="BatchDimensions"/>
+                    <NavigationPropertyBinding Path="MunicipalCompanyDimension" Target="MunicipalCompanyDimensions"/>
+                    <NavigationPropertyBinding Path="ProfessionalTypeDimension" Target="ProfessionalTypeDimensions"/>
+                </EntitySet>
+                <EntitySet Name="ProfessionalTypeDimensions" EntityType="com.dpbird.ProfessionalTypeDimension"/>
+                <EntitySet Name="SkbgContentDimensions" EntityType="com.dpbird.SkbgContentDimension">
+                    <NavigationPropertyBinding Path="File" Target="Files"/>
+                </EntitySet>
+                <EntitySet Name="MunicipalCompanyDimensions" EntityType="com.dpbird.MunicipalCompanyDimension"/>
+                <EntitySet Name="ProjectAllocFactViews" EntityType="com.dpbird.ProjectAllocFactView"/>
+                <EntitySet Name="FileTypeEnumerations" EntityType="com.dpbird.FileTypeEnumeration"/>
+                <EntitySet Name="JxywProjectInvestmentViews" EntityType="com.dpbird.JxywProjectInvestmentView"/>
+                <EntitySet Name="GssMaintenanceExpenses" EntityType="com.dpbird.GssMaintenanceExpenses"/>
+                <EntitySet Name="GssDeviceEstimations" EntityType="com.dpbird.GssDeviceEstimation"/>
+                <EntitySet Name="GssOtherExpensess" EntityType="com.dpbird.GssOtherExpenses"/>
+                <EntitySet Name="Files" EntityType="com.dpbird.File">
+                    <NavigationPropertyBinding Path="FileTypeEnumeration" Target="FileTypeEnumerations"/>
+                </EntitySet>
+                <EntitySet Name="DXs" EntityType="com.dpbird.DX">
+                    <NavigationPropertyBinding Path="BatchDimension" Target="BatchDimensions"/>
+                    <NavigationPropertyBinding Path="MunicipalCompanyDimension" Target="MunicipalCompanyDimensions"/>
+                    <NavigationPropertyBinding Path="ProfessionalTypeDimension" Target="ProfessionalTypeDimensions"/>
+                </EntitySet>
+                <EntitySet Name="BatchDimensions" EntityType="com.dpbird.BatchDimension"/>
+            </EntityContainer>
+            <Annotations Target="com.dpbird.EntityContainer/JxywProjectInvestmentViews">
+                <Annotation Term="Aggregation.ApplySupported">
+                    <Record Type="Aggregation.ApplySupportedType">
+                        <PropertyValue Property="Transformations">
+                            <Collection>
+                                <String>aggregate</String>
+                                <String>topcount</String>
+                                <String>count</String>
+                                <String>bottomcount</String>
+                                <String>identity</String>
+                                <String>concat</String>
+                                <String>groupby</String>
+                                <String>filter</String>
+                                <String>expand</String>
+                                <String>top</String>
+                                <String>skip</String>
+                                <String>orderby</String>
+                                <String>search</String>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Rollup">
+                            <EnumMember>Aggregation.RollupType/None</EnumMember>
+                        </PropertyValue>
+                        <PropertyValue Property="PropertyRestrictions">
+                            <Bool>true</Bool>
+                        </PropertyValue>
+                        <PropertyValue Property="GroupableProperties">
+                            <Collection>
+                                <PropertyPath>year4</PropertyPath>
+                                <PropertyPath>quarterNumber</PropertyPath>
+                                <PropertyPath>monthNumber</PropertyPath>
+                                <PropertyPath>xmmc</PropertyPath>
+                                <PropertyPath>municipalLevelCompanyName</PropertyPath>
+                                <PropertyPath>batchName</PropertyPath>
+                                <PropertyPath>professionalType</PropertyPath>
+                                <PropertyPath>count</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="AggregatableProperties">
+                            <Collection>
+                                <Record Type="Aggregation.AggregatablePropertyType">
+                                    <PropertyValue Property="Property">
+                                        <PropertyPath>count</PropertyPath>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="Aggregation.AggregatablePropertyType">
+                                    <PropertyValue Property="Property">
+                                        <PropertyPath>investmentEstimation</PropertyPath>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.EntityContainer/ProjectAllocFactViews">
+                <Annotation Term="Aggregation.ApplySupported">
+                    <Record Type="Aggregation.ApplySupportedType">
+                        <PropertyValue Property="Transformations">
+                            <Collection>
+                                <String>aggregate</String>
+                                <String>topcount</String>
+                                <String>count</String>
+                                <String>bottomcount</String>
+                                <String>identity</String>
+                                <String>concat</String>
+                                <String>groupby</String>
+                                <String>filter</String>
+                                <String>expand</String>
+                                <String>top</String>
+                                <String>skip</String>
+                                <String>orderby</String>
+                                <String>search</String>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Rollup">
+                            <EnumMember>Aggregation.RollupType/None</EnumMember>
+                        </PropertyValue>
+                        <PropertyValue Property="PropertyRestrictions">
+                            <Bool>true</Bool>
+                        </PropertyValue>
+                        <PropertyValue Property="GroupableProperties">
+                            <Collection>
+                                <PropertyPath>year4</PropertyPath>
+                                <PropertyPath>quarterNumber</PropertyPath>
+                                <PropertyPath>monthNumber</PropertyPath>
+                                <PropertyPath>xmmc</PropertyPath>
+                                <PropertyPath>municipalLevelCompanyName</PropertyPath>
+                                <PropertyPath>batchName</PropertyPath>
+                                <PropertyPath>professionalType</PropertyPath>
+                                <PropertyPath>count</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="AggregatableProperties">
+                            <Collection>
+                                <Record Type="Aggregation.AggregatablePropertyType">
+                                    <PropertyValue Property="Property">
+                                        <PropertyPath>count</PropertyPath>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.SkbgContentDimension">
+                <Annotation Term="UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>File/fileName</PropertyPath>
+                        <PropertyPath>projectName</PropertyPath>
+                        <PropertyPath>projectCompany</PropertyPath>
+                        <PropertyPath>preparationCompany</PropertyPath>
+                        <PropertyPath>projectSituation</PropertyPath>
+                        <PropertyPath>economicIndicators</PropertyPath>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="BaseInfo">
+                    <Record Type="UI.FieldGroupType">
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>File/fileName</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>projectName</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>projectCompany</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>preparationCompany</Path>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Label">
+                            <String>基本信息</String>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="ProjectStatus">
+                    <Record Type="UI.FieldGroupType">
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>projectSituation</Path>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Label">
+                            <String>1.2项目现状</String>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="ProjectBasis">
+                    <Record Type="UI.FieldGroupType">
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>projectBasis</Path>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Label">
+                            <String>1.3.2项目立项依据</String>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="Specification">
+                    <Record Type="UI.FieldGroupType">
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>economicIndicators</Path>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Label">
+                            <String>1.5主要技术经济指标</String>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>File/fileName</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>projectName</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>projectCompany</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>preparationCompany</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>economicIndicators</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.HeaderInfo">
+                    <Record Type="UI.HeaderInfoType">
+                        <PropertyValue Property="TypeName">
+                            <String>SkbgContent Manage</String>
+                        </PropertyValue>
+                        <PropertyValue Property="TypeNamePlural">
+                            <String>可研收口报告</String>
+                        </PropertyValue>
+                        <PropertyValue Property="Title">
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Value">
+                                    <Path>projectName</Path>
+                                </PropertyValue>
+                            </Record>
+                        </PropertyValue>
+                        <PropertyValue Property="Description">
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Value">
+                                    <Path>preparationDate</Path>
+                                </PropertyValue>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.SkbgContentDimension/fileId">
+                <Annotation Term="Common.Label">
+                    <String>FileName</String>
+                </Annotation>
+                <Annotation Term="Common.Text">
+                    <Path>File/fileName</Path>
+                    <Annotation Term="UI.TextArrangement">
+                        <EnumMember>UI.TextArrangementType/TextOnly</EnumMember>
+                    </Annotation>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.SkbgContentDimension/reviewCommentsContent">
+                <Annotation Term="Common.Label">
+                    <String>reviewCommentsContent</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.SkbgContentDimension/skbgContentId">
+                <Annotation Term="Common.Label">
+                    <String>skbgContentId</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.SkbgContentDimension/projectName">
+                <Annotation Term="Common.Label">
+                    <String>ProjectName</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.SkbgContentDimension/preparationDate">
+                <Annotation Term="Common.Label">
+                    <String>preparationDate</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.SkbgContentDimension/preparationCompany">
+                <Annotation Term="Common.Label">
+                    <String>ProjectName</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.SkbgContentDimension/projectCompany">
+                <Annotation Term="Common.Label">
+                    <String>ProjectCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.SkbgContentDimension/projectSituation">
+                <Annotation Term="Common.Label">
+                    <String>Project Situation</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.SkbgContentDimension/economicIndicators">
+                <Annotation Term="Common.Label">
+                    <String>Economic Indicators</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.SkbgContentDimension/projectBasis">
+                <Annotation Term="Common.Label">
+                    <String>projectBasis</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.SkbgContentDimension/reviewCommentsName">
+                <Annotation Term="Common.Label">
+                    <String>FileName</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.SkbgContentDimension/reviewCommentsUrl">
+                <Annotation Term="Common.Label">
+                    <String>reviewCommentsUrl</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.GssOtherExpenses">
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>serialNumber</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>expensesName</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>calculationDescription</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>totalPrice</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.GssOtherExpenses/id">
+                <Annotation Term="Common.Label">
+                    <String>id</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.GssOtherExpenses/serialNumber">
+                <Annotation Term="Common.Label">
+                    <String>SerialNumber</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.GssOtherExpenses/expensesName">
+                <Annotation Term="Common.Label">
+                    <String>ExpensesName</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.GssOtherExpenses/calculationDescription">
+                <Annotation Term="Common.Label">
+                    <String>CalculationDescription</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.GssOtherExpenses/totalPrice">
+                <Annotation Term="Common.Label">
+                    <String>TotalPrice</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.GssOtherExpenses/criticalityValue">
+                <Annotation Term="UI.Hidden">
+                    <Bool>true</Bool>
+                </Annotation>
+                <Annotation Term="Common.Label">
+                    <String>criticalityValue</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.BatchDimension/dimensionId">
+                <Annotation Term="Common.Label">
+                    <String>dimensionId</String>
+                </Annotation>
+                <Annotation Term="Common.Text">
+                    <Path>batchName</Path>
+                    <Annotation Term="UI.TextArrangement">
+                        <EnumMember>UI.TextArrangementType/TextOnly</EnumMember>
+                    </Annotation>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.BatchDimension/batchName">
+                <Annotation Term="Common.Label">
+                    <String>batchName</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.JX">
+                <Annotation Term="UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>sjxmmc</PropertyPath>
+                        <PropertyPath>ejxmmc</PropertyPath>
+                        <PropertyPath>xmdw</PropertyPath>
+                        <PropertyPath>bzkbm</PropertyPath>
+                        <PropertyPath>jsName</PropertyPath>
+                        <PropertyPath>jjName</PropertyPath>
+                        <PropertyPath>pcId</PropertyPath>
+                        <PropertyPath>ssdsId</PropertyPath>
+                        <PropertyPath>zyId</PropertyPath>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>sjxmmc</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>ejxmmc</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>xmdw</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>zylx</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>zyxf</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>xmlx</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>bzkbm</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>jsName</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>jjName</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>pcId</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>ssdsId</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>zyId</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="BaseInfo">
+                    <Record Type="UI.FieldGroupType">
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>sjxmmc</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>ejxmmc</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>xmdw</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>zylx</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>zyxf</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>xmlx</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>bzkbm</Path>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Label">
+                            <String>基本信息</String>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="OwnerInformation">
+                    <Record Type="UI.FieldGroupType">
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>fzr</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>lxfs</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>tzzg</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>kypfdw</Path>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Label">
+                            <String>业主信息</String>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="ExternalNetworkInformation">
+                    <Record Type="UI.FieldGroupType">
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>pcId</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>zxfzr</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>xmjl</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>pcnf</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>zyfzr</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>zyId</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>zyfprq</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>ssdsId</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>jsName</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>jjName</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>jsSfwx</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>jsWxdw</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>jsscr</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>jjSfwx</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>jjWxdw</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>jjscr</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>xmszhg</Path>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Label">
+                            <String>外网信息</String>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="ProjectInformation">
+                    <Record Type="UI.FieldGroupType">
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>sjxmmc</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>ejxmmc</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>bzbm</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>dydj</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>jxxm</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>xmxz</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>sblx</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>xmnr</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>xmbyx</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>kylx</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>zcxz</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>syb</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>tsrq</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>xmjd</Path>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Label">
+                            <String>项目信息</String>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.HeaderInfo">
+                    <Record Type="UI.HeaderInfoType">
+                        <PropertyValue Property="TypeName">
+                            <String>JX Query</String>
+                        </PropertyValue>
+                        <PropertyValue Property="TypeNamePlural">
+                            <String>检修信息</String>
+                        </PropertyValue>
+                        <PropertyValue Property="Title">
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Value">
+                                    <Path>sjxmmc</Path>
+                                </PropertyValue>
+                            </Record>
+                        </PropertyValue>
+                        <PropertyValue Property="Description">
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Value">
+                                    <Path>xmdw</Path>
+                                </PropertyValue>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.JX/pcId">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+                <Annotation Term="Common.Text">
+                    <Path>BatchDimension/batchName</Path>
+                    <Annotation Term="UI.TextArrangement">
+                        <EnumMember>UI.TextArrangementType/TextOnly</EnumMember>
+                    </Annotation>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.JX/ssdsId">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+                <Annotation Term="Common.Text">
+                    <Path>MunicipalCompanyDimension/municipalLevelCompanyName</Path>
+                    <Annotation Term="UI.TextArrangement">
+                        <EnumMember>UI.TextArrangementType/TextOnly</EnumMember>
+                    </Annotation>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.JX/zyId">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+                <Annotation Term="Common.Text">
+                    <Path>ProfessionalTypeDimension/professionalType</Path>
+                    <Annotation Term="UI.TextArrangement">
+                        <EnumMember>UI.TextArrangementType/TextOnly</EnumMember>
+                    </Annotation>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.JX/dimensionId">
+                <Annotation Term="Common.Label">
+                    <String>dimensionId</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.JX/xid">
+                <Annotation Term="Common.Label">
+                    <String>xid</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.JX/xmdw">
+                <Annotation Term="Common.Label">
+                    <String>项目单位</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.JX/xmdwmc">
+                <Annotation Term="Common.Label">
+                    <String>xmdwmc</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.JX/bzbm">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.JX/zylb">
+                <Annotation Term="Common.Label">
+                    <String>专业类别</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.JX/zylx">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.JX/zyxf">
+                <Annotation Term="Common.Label">
+                    <String>专业细分</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.JX/dydj">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.JX/jxxm">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.JX/xmxz">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.JX/sblx">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.JX/xmnr">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.JX/xmmc">
+                <Annotation Term="Common.Label">
+                    <String>项目名称</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.JX/yxmmc">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.JX/ejxmmc">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.JX/sjxmmc">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.JX/xmlx">
+                <Annotation Term="Common.Label">
+                    <String>项目类型</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.JX/bzkbm">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.JX/xmbyx">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.JX/jsfa">
+                <Annotation Term="Common.Label">
+                    <String>jsfa</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.JX/xmpc">
+                <Annotation Term="Common.Label">
+                    <String>xmpc</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.JX/kylx">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.JX/tzzg">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.JX/dxztz">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.JX/kypfdw">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.JX/zcxz">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.JX/fzr">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.JX/lxfs">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.JX/xmly">
+                <Annotation Term="Common.Label">
+                    <String>xmly</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.JX/syb">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.JX/jsName">
+                <Annotation Term="Common.Label">
+                    <String>技术编制人员</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.JX/jjName">
+                <Annotation Term="Common.Label">
+                    <String>技经编制人员</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.JX/jsSfwx">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.JX/jsWxdw">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.JX/jjSfwx">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.JX/jjWxdw">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.JX/tsrq">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.JX/zyfprq">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.JX/xmszhg">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.JX/xmjd">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.JX/zxfzr">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.JX/xmjl">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.JX/zyfzr">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.JX/pcnf">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.JX/jsscr">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.JX/jjscr">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.MunicipalCompanyDimension/dimensionId">
+                <Annotation Term="Common.Label">
+                    <String>dimensionId</String>
+                </Annotation>
+                <Annotation Term="Common.Text">
+                    <Path>municipalLevelCompanyName</Path>
+                    <Annotation Term="UI.TextArrangement">
+                        <EnumMember>UI.TextArrangementType/TextOnly</EnumMember>
+                    </Annotation>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.MunicipalCompanyDimension/municipalLevelCompanyName">
+                <Annotation Term="Common.Label">
+                    <String>municipalLevelCompanyName</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.JxywProjectInvestmentView">
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>year4</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>quarterNumber</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>monthNumber</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>xmmc</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>municipalLevelCompanyName</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>batchName</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>professionalType</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>count</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.JxywProjectInvestmentView/year4">
+                <Annotation Term="Common.Label">
+                    <String>SerialNumber</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.JxywProjectInvestmentView/quarterNumber">
+                <Annotation Term="Common.Label">
+                    <String>CompilationBasis</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.JxywProjectInvestmentView/monthNumber">
+                <Annotation Term="Common.Label">
+                    <String>CompilationBasis</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.JxywProjectInvestmentView/xmmc">
+                <Annotation Term="Common.Label">
+                    <String>CompilationBasis</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.JxywProjectInvestmentView/municipalLevelCompanyName">
+                <Annotation Term="Common.Label">
+                    <String>CompilationBasis</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.JxywProjectInvestmentView/batchName">
+                <Annotation Term="Common.Label">
+                    <String>CompilationBasis</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.JxywProjectInvestmentView/professionalType">
+                <Annotation Term="Common.Label">
+                    <String>CompilationBasis</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.JxywProjectInvestmentView/count">
+                <Annotation Term="Common.Label">
+                    <String>CompilationBasis</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.JxywProjectInvestmentView/investmentEstimation">
+                <Annotation Term="Common.Label">
+                    <String>investmentEstimation</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.FileTypeEnumeration/enumId">
+                <Annotation Term="Common.Label">
+                    <String>enumId</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.FileTypeEnumeration/enumTypeId">
+                <Annotation Term="Common.Label">
+                    <String>enumTypeId</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.FileTypeEnumeration/enumCode">
+                <Annotation Term="Common.Label">
+                    <String>enumCode</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.FileTypeEnumeration/sequenceId">
+                <Annotation Term="Common.Label">
+                    <String>sequenceId</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.FileTypeEnumeration/description">
+                <Annotation Term="Common.Label">
+                    <String>description</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.GssDeviceEstimation">
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>serialNumber</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>compilationBasis</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>projectName</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>unit</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>count</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>unitPriceAccessories</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>fixedBasePrice</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>artificial</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>mechanical</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>unpricedMaterials</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>accessoriesTotalPrice</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>feeAmount</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>totalArtificial</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>totalMechanical</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>totalUnpricedMaterials</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.GssDeviceEstimation/itemNumber">
+                <Annotation Term="Common.Label">
+                    <String>itemNumber</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.GssDeviceEstimation/id">
+                <Annotation Term="Common.Label">
+                    <String>id</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.GssDeviceEstimation/gssContentId">
+                <Annotation Term="Common.Label">
+                    <String>gssContentId</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.GssDeviceEstimation/serialNumber">
+                <Annotation Term="Common.Label">
+                    <String>序号</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.GssDeviceEstimation/compilationBasis">
+                <Annotation Term="Common.Label">
+                    <String>编制依据</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.GssDeviceEstimation/projectName">
+                <Annotation Term="Common.Label">
+                    <String>设备检修单位工程估算信息-项目名称</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.GssDeviceEstimation/unit">
+                <Annotation Term="Common.Label">
+                    <String>单位</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.GssDeviceEstimation/count">
+                <Annotation Term="Common.Label">
+                    <String>数量</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.GssDeviceEstimation/unitPriceAccessories">
+                <Annotation Term="Common.Label">
+                    <String>配件单价</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.GssDeviceEstimation/fixedBasePrice">
+                <Annotation Term="Common.Label">
+                    <String>单价:定额基价</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.GssDeviceEstimation/artificial">
+                <Annotation Term="Common.Label">
+                    <String>Artificial</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.GssDeviceEstimation/mechanical">
+                <Annotation Term="Common.Label">
+                    <String>Mechanical</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.GssDeviceEstimation/unpricedMaterials">
+                <Annotation Term="Common.Label">
+                    <String>UnpricedMaterials</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.GssDeviceEstimation/accessoriesTotalPrice">
+                <Annotation Term="Common.Label">
+                    <String>AccessoriesTotalPrice</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.GssDeviceEstimation/feeAmount">
+                <Annotation Term="Common.Label">
+                    <String>FeeAmount</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.GssDeviceEstimation/totalArtificial">
+                <Annotation Term="Common.Label">
+                    <String>TotalArtificial</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.GssDeviceEstimation/totalMechanical">
+                <Annotation Term="Common.Label">
+                    <String>合价:其中机械</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.GssDeviceEstimation/totalUnpricedMaterials">
+                <Annotation Term="Common.Label">
+                    <String>TotalUnpricedMaterials</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.DX">
+                <Annotation Term="UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>xmmc</PropertyPath>
+                        <PropertyPath>xmdw</PropertyPath>
+                        <PropertyPath>jsName</PropertyPath>
+                        <PropertyPath>jjName</PropertyPath>
+                        <PropertyPath>pcId</PropertyPath>
+                        <PropertyPath>ssdsId</PropertyPath>
+                        <PropertyPath>zyId</PropertyPath>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>xmmc</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>xmdw</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>zylb</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>zyxf</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>xmlx</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>jsName</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>jjName</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>pcId</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>ssdsId</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>zyId</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="BaseInfo">
+                    <Record Type="UI.FieldGroupType">
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>xmmc</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>xmdw</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>zylb</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>zyxf</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>xmlx</Path>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Label">
+                            <String>基本信息</String>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="OwnerInformation">
+                    <Record Type="UI.FieldGroupType">
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>fzr</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>lxfs</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>tzzg</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>kypfdw</Path>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Label">
+                            <String>业主信息</String>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="ExternalNetworkInformation">
+                    <Record Type="UI.FieldGroupType">
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>pcId</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>zxfzr</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>xmjl</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>pcnf</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>zyfzr</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>zyId</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>zyfprq</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>jsName</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>jsscr</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>jsSfwx</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>jsWxdw</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>jjName</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>jjSfwx</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>jjscr</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>jjWxdw</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>xmszhg</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>ssdsId</Path>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Label">
+                            <String>外网信息</String>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="ProjectInformation">
+                    <Record Type="UI.FieldGroupType">
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>bzbm</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>dydj</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>jxxm</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>xmxz</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>sblx</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>xmnr</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>yxmmc</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>kylx</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>dxztz</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>zcxz</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>syb</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>tsrq</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>xmjd</Path>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Label">
+                            <String>项目信息</String>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.HeaderInfo">
+                    <Record Type="UI.HeaderInfoType">
+                        <PropertyValue Property="TypeName">
+                            <String>DX Query</String>
+                        </PropertyValue>
+                        <PropertyValue Property="TypeNamePlural">
+                            <String>大修信息</String>
+                        </PropertyValue>
+                        <PropertyValue Property="Title">
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Value">
+                                    <Path>xmmc</Path>
+                                </PropertyValue>
+                            </Record>
+                        </PropertyValue>
+                        <PropertyValue Property="Description">
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Value">
+                                    <Path>xmdw</Path>
+                                </PropertyValue>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.DX/pcId">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+                <Annotation Term="Common.Text">
+                    <Path>BatchDimension/batchName</Path>
+                    <Annotation Term="UI.TextArrangement">
+                        <EnumMember>UI.TextArrangementType/TextOnly</EnumMember>
+                    </Annotation>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.DX/ssdsId">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+                <Annotation Term="Common.Text">
+                    <Path>MunicipalCompanyDimension/municipalLevelCompanyName</Path>
+                    <Annotation Term="UI.TextArrangement">
+                        <EnumMember>UI.TextArrangementType/TextOnly</EnumMember>
+                    </Annotation>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.DX/zyId">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+                <Annotation Term="Common.Text">
+                    <Path>ProfessionalTypeDimension/professionalType</Path>
+                    <Annotation Term="UI.TextArrangement">
+                        <EnumMember>UI.TextArrangementType/TextOnly</EnumMember>
+                    </Annotation>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.DX/dimensionId">
+                <Annotation Term="Common.Label">
+                    <String>dimensionId</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.DX/xid">
+                <Annotation Term="Common.Label">
+                    <String>xid</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.DX/xmdw">
+                <Annotation Term="Common.Label">
+                    <String>项目单位</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.DX/xmdwmc">
+                <Annotation Term="Common.Label">
+                    <String>xmdwmc</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.DX/bzbm">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.DX/zylb">
+                <Annotation Term="Common.Label">
+                    <String>专业类别</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.DX/zylx">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.DX/zyxf">
+                <Annotation Term="Common.Label">
+                    <String>专业细分</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.DX/dydj">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.DX/jxxm">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.DX/xmxz">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.DX/sblx">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.DX/xmnr">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.DX/xmmc">
+                <Annotation Term="Common.Label">
+                    <String>项目名称</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.DX/yxmmc">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.DX/ejxmmc">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.DX/sjxmmc">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.DX/xmlx">
+                <Annotation Term="Common.Label">
+                    <String>项目类型</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.DX/bzkbm">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.DX/xmbyx">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.DX/jsfa">
+                <Annotation Term="Common.Label">
+                    <String>jsfa</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.DX/xmpc">
+                <Annotation Term="Common.Label">
+                    <String>xmpc</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.DX/kylx">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.DX/tzzg">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.DX/dxztz">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.DX/kypfdw">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.DX/zcxz">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.DX/fzr">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.DX/lxfs">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.DX/xmly">
+                <Annotation Term="Common.Label">
+                    <String>xmly</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.DX/syb">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.DX/jsName">
+                <Annotation Term="Common.Label">
+                    <String>技术编制人员</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.DX/jjName">
+                <Annotation Term="Common.Label">
+                    <String>技经编制人员</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.DX/jsSfwx">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.DX/jsWxdw">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.DX/jjSfwx">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.DX/jjWxdw">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.DX/tsrq">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.DX/zyfprq">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.DX/xmszhg">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.DX/xmjd">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.DX/zxfzr">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.DX/xmjl">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.DX/zyfzr">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.DX/pcnf">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.DX/jsscr">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.DX/jjscr">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.GssMaintenanceExpenses/id">
+                <Annotation Term="Common.Label">
+                    <String>id</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.GssMaintenanceExpenses/serialNumber">
+                <Annotation Term="Common.Label">
+                    <String>SerialNumber</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.GssMaintenanceExpenses/expensesName">
+                <Annotation Term="Common.Label">
+                    <String>ExpensesName</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.GssMaintenanceExpenses/amountIncludingTax">
+                <Annotation Term="Common.Label">
+                    <String>AmountIncludingTax</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.GssMaintenanceExpenses/proportionTotalExpenses">
+                <Annotation Term="Common.Label">
+                    <String>ProportionTotalExpenses</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.GssMaintenanceExpenses/amountExcludingTax">
+                <Annotation Term="Common.Label">
+                    <String>AmountExcludingTax</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.GssMaintenanceExpenses/deductibleVatAmount">
+                <Annotation Term="Common.Label">
+                    <String>DeductibleVatAmount</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.GssMaintenanceExpenses/criticalityValueForDonut">
+                <Annotation Term="UI.Hidden">
+                    <Bool>true</Bool>
+                </Annotation>
+                <Annotation Term="Common.Label">
+                    <String>criticalityValueForDonut</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.GssMaintenanceExpenses/criticalityValueForPie">
+                <Annotation Term="UI.Hidden">
+                    <Bool>true</Bool>
+                </Annotation>
+                <Annotation Term="Common.Label">
+                    <String>criticalityValueForPie</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.GssContentDimension">
+                <Annotation Term="UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>projectName</PropertyPath>
+                        <PropertyPath>preparationDate</PropertyPath>
+                        <PropertyPath>preparationCompany</PropertyPath>
+                        <PropertyPath>FileDimension/folderName</PropertyPath>
+                        <PropertyPath>FileDimension/fileName</PropertyPath>
+                        <PropertyPath>FileDimension/fileType</PropertyPath>
+                        <PropertyPath>GssOtherExpenses/expensesName</PropertyPath>
+                        <PropertyPath>GssMaintenanceExpenses/expensesName</PropertyPath>
+                        <PropertyPath>GssDeviceEstimation/projectName</PropertyPath>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="BaseInfo">
+                    <Record Type="UI.FieldGroupType">
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>projectName</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>preparationDate</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>preparationCompany</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>FileDimension/folderName</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>FileDimension/fileName</Path>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value">
+                                        <Path>FileDimension/fileType</Path>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Label">
+                            <String>项目基本信息</String>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>projectName</Path>
+                            </PropertyValue>
+                            <PropertyValue Property="Criticality">
+                                <Path>criticalityValue</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>preparationDate</Path>
+                            </PropertyValue>
+                            <PropertyValue Property="Criticality">
+                                <Path>criticalityValue</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>preparationCompany</Path>
+                            </PropertyValue>
+                            <PropertyValue Property="Criticality">
+                                <Path>criticalityValue</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>FileDimension/folderName</Path>
+                            </PropertyValue>
+                            <PropertyValue Property="Criticality">
+                                <Path>criticalityValue</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>FileDimension/fileName</Path>
+                            </PropertyValue>
+                            <PropertyValue Property="Criticality">
+                                <Path>criticalityValue</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>FileDimension/fileType</Path>
+                            </PropertyValue>
+                            <PropertyValue Property="Criticality">
+                                <Path>criticalityValue</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.HeaderInfo">
+                    <Record Type="UI.HeaderInfoType">
+                        <PropertyValue Property="TypeName">
+                            <String>Project Query</String>
+                        </PropertyValue>
+                        <PropertyValue Property="TypeNamePlural">
+                            <String>项目信息</String>
+                        </PropertyValue>
+                        <PropertyValue Property="Title">
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Value">
+                                    <Path>projectName</Path>
+                                </PropertyValue>
+                            </Record>
+                        </PropertyValue>
+                        <PropertyValue Property="Description">
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Value">
+                                    <Path>preparationDate</Path>
+                                </PropertyValue>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.GssContentDimension/gssContentId">
+                <Annotation Term="Common.Label">
+                    <String>gssContentId</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.GssContentDimension/fileId">
+                <Annotation Term="Common.Label">
+                    <String>fileId</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.GssContentDimension/projectName">
+                <Annotation Term="Common.Label">
+                    <String>ProjectName</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.GssContentDimension/preparationDate">
+                <Annotation Term="Common.Label">
+                    <String>PreparationDate</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.GssContentDimension/preparationCompany">
+                <Annotation Term="Common.Label">
+                    <String>PreparationCompany</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.GssContentDimension/criticalityValue">
+                <Annotation Term="Common.Label">
+                    <String>criticalityValue</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.ProfessionalTypeDimension/dimensionId">
+                <Annotation Term="Common.Label">
+                    <String>dimensionId</String>
+                </Annotation>
+                <Annotation Term="Common.Text">
+                    <Path>professionalType</Path>
+                    <Annotation Term="UI.TextArrangement">
+                        <EnumMember>UI.TextArrangementType/TextOnly</EnumMember>
+                    </Annotation>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.ProfessionalTypeDimension/professionalType">
+                <Annotation Term="Common.Label">
+                    <String>professionalType</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.ProjectAllocFactView">
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>year4</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>quarterNumber</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>monthNumber</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>xmmc</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>municipalLevelCompanyName</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>batchName</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>professionalType</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value">
+                                <Path>count</Path>
+                            </PropertyValue>
+                            <Annotation Term="UI.Importance">
+                                <EnumMember>UI.ImportanceType/High</EnumMember>
+                            </Annotation>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.ProjectAllocFactView/year4">
+                <Annotation Term="Common.Label">
+                    <String>SerialNumber</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.ProjectAllocFactView/quarterNumber">
+                <Annotation Term="Common.Label">
+                    <String>CompilationBasis</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.ProjectAllocFactView/monthNumber">
+                <Annotation Term="Common.Label">
+                    <String>CompilationBasis</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.ProjectAllocFactView/xmmc">
+                <Annotation Term="Common.Label">
+                    <String>CompilationBasis</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.ProjectAllocFactView/municipalLevelCompanyName">
+                <Annotation Term="Common.Label">
+                    <String>CompilationBasis</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.ProjectAllocFactView/batchName">
+                <Annotation Term="Common.Label">
+                    <String>CompilationBasis</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.ProjectAllocFactView/professionalType">
+                <Annotation Term="Common.Label">
+                    <String>CompilationBasis</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.ProjectAllocFactView/count">
+                <Annotation Term="Common.Label">
+                    <String>CompilationBasis</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.File">
+                <Annotation Term="UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>fileDate</PropertyPath>
+                        <PropertyPath>folderName</PropertyPath>
+                        <PropertyPath>fileName</PropertyPath>
+                        <PropertyPath>fileType</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.File/fileDate">
+                <Annotation Term="Common.Label">
+                    <String>fileDate</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.File/fileId">
+                <Annotation Term="Common.Label">
+                    <String>FolderName</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.File/meeting">
+                <Annotation Term="Common.Label">
+                    <String>Meeting</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.File/folderName">
+                <Annotation Term="Common.Label">
+                    <String>FolderName</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.File/fileName">
+                <Annotation Term="Common.Label">
+                    <String>FileName</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.File/fileType">
+                <Annotation Term="Common.Label">
+                    <String>FileType</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.File/fileUrl">
+                <Annotation Term="Common.Label">
+                    <String>fileUrl</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.File/fileContent">
+                <Annotation Term="Common.Label">
+                    <String>fileContent</String>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.GenerateDraftReviewComments">
+                <Annotation Term="Common.SideEffects">
+                    <Record>
+                        <PropertyValue Property="TargetEntities">
+                            <Collection>
+                                <NavigationPropertyPath>skbgContentDimension</NavigationPropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.JX/pcId">
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="Label">
+                            <String>BatchDimension</String>
+                        </PropertyValue>
+                        <PropertyValue Property="CollectionPath">
+                            <String>BatchDimensions</String>
+                        </PropertyValue>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty">
+                                        <PropertyPath>pcId</PropertyPath>
+                                    </PropertyValue>
+                                    <PropertyValue Property="ValueListProperty">
+                                        <String>dimensionId</String>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueListWithFixedValues">
+                    <Bool>true</Bool>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.DX/pcId">
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="Label">
+                            <String>BatchDimension</String>
+                        </PropertyValue>
+                        <PropertyValue Property="CollectionPath">
+                            <String>BatchDimensions</String>
+                        </PropertyValue>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty">
+                                        <PropertyPath>pcId</PropertyPath>
+                                    </PropertyValue>
+                                    <PropertyValue Property="ValueListProperty">
+                                        <String>dimensionId</String>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueListWithFixedValues">
+                    <Bool>true</Bool>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.JX/ssdsId">
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="Label">
+                            <String>MunicipalCompanyDimension</String>
+                        </PropertyValue>
+                        <PropertyValue Property="CollectionPath">
+                            <String>MunicipalCompanyDimensions</String>
+                        </PropertyValue>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty">
+                                        <PropertyPath>ssdsId</PropertyPath>
+                                    </PropertyValue>
+                                    <PropertyValue Property="ValueListProperty">
+                                        <String>dimensionId</String>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueListWithFixedValues">
+                    <Bool>true</Bool>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.DX/ssdsId">
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="Label">
+                            <String>MunicipalCompanyDimension</String>
+                        </PropertyValue>
+                        <PropertyValue Property="CollectionPath">
+                            <String>MunicipalCompanyDimensions</String>
+                        </PropertyValue>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty">
+                                        <PropertyPath>ssdsId</PropertyPath>
+                                    </PropertyValue>
+                                    <PropertyValue Property="ValueListProperty">
+                                        <String>dimensionId</String>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueListWithFixedValues">
+                    <Bool>true</Bool>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.File/fileType">
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="Label">
+                            <String>FileTypeEnumeration</String>
+                        </PropertyValue>
+                        <PropertyValue Property="CollectionPath">
+                            <String>FileTypeEnumerations</String>
+                        </PropertyValue>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty">
+                                        <PropertyPath>fileType</PropertyPath>
+                                    </PropertyValue>
+                                    <PropertyValue Property="ValueListProperty">
+                                        <String>enumId</String>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueListWithFixedValues">
+                    <Bool>true</Bool>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.JX/zyId">
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="Label">
+                            <String>ProfessionalTypeDimension</String>
+                        </PropertyValue>
+                        <PropertyValue Property="CollectionPath">
+                            <String>ProfessionalTypeDimensions</String>
+                        </PropertyValue>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty">
+                                        <PropertyPath>zyId</PropertyPath>
+                                    </PropertyValue>
+                                    <PropertyValue Property="ValueListProperty">
+                                        <String>dimensionId</String>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueListWithFixedValues">
+                    <Bool>true</Bool>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="com.dpbird.DX/zyId">
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="Label">
+                            <String>ProfessionalTypeDimension</String>
+                        </PropertyValue>
+                        <PropertyValue Property="CollectionPath">
+                            <String>ProfessionalTypeDimensions</String>
+                        </PropertyValue>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty">
+                                        <PropertyPath>zyId</PropertyPath>
+                                    </PropertyValue>
+                                    <PropertyValue Property="ValueListProperty">
+                                        <String>dimensionId</String>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueListWithFixedValues">
+                    <Bool>true</Bool>
+                </Annotation>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

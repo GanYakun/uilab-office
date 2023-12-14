@@ -1,0 +1,1 @@
+sap.ui.define(["sap/fe/test/ListReport"],function(t){"use strict";var n={actions:{},assertions:{}};return new t({appId:"com.banfftech.skbgwordcontentquery",componentId:"SkbgContentDimensionsList",entitySet:"SkbgContentDimensions"},n)});
