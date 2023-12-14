@@ -42,11 +42,17 @@ const appConfig = {
 							children: "",
 							SmartProps: [
 								{
-									data: {
-										facetType: "CustomButton",
+									// data: {
+									// 	facetType: "CustomButton",
+									// },
+									// type: "Identification",
+									// operate: "add",
+									property: "Identification",//对象属性
+									operateType: "add", // 操作类型：add, replace, delete, addType
+									config: {
+										type: 'CustComp',//组件类型：CommonComp CustComp
+										name: 'CustomButton',////组件名称
 									},
-									type: "Identification",
-									operate: "add",
 								}
 							]
 						}
