@@ -12,7 +12,7 @@
  */
 const appConfig = {
 	//应用名称
-	title: 'dinstitute',
+	title: '技改大修项目前期数据集成应用',
 	subTitle: 'v0.1',
 	logo: '/try8.svg',
 	//Fe应用
@@ -279,12 +279,14 @@ const appConfig = {
 					"name": "DocumentPreview",
 					"path": "/BusinessAssistant/DocumentPreview",
 					"component": "./DocumentPreview",
+					hideInMenu: 'true',
 					access: 'canSystem',
 					"routes": [
 						{
 							"path": "/BusinessAssistant/DocumentPreview",
 							"redirect": "/BusinessAssistant/DocumentPreview",
 							"component": "./DocumentPreview",
+							hideInMenu: 'true',
 							access: 'canSystem',
 						},
 					]
