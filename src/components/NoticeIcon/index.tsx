@@ -86,7 +86,7 @@ const NoticeIconView: React.FC = () => {
   })
   const [isAlarm, setIsAlarm] = useState(true)
   const [isShowLoading, setIsShowLoading] = useState(false)
-  const [popupVisible,setPopupVisible] = useState(false)
+  const [popupVisible, setPopupVisible] = useState(false)
 
   useEffect(() => {
     if (isAlarm) {
@@ -106,7 +106,6 @@ const NoticeIconView: React.FC = () => {
   const _queryUnreadAlarm = async () => {
     setIsShowLoading(true)
     let result = await queryUnreadAlarm(AppConfig?.notification?.serviceUrl1)
-    console.log({result})
     if (result) {
       let arr = []
       const { value } = result
@@ -194,7 +193,7 @@ const NoticeIconView: React.FC = () => {
         }}
         clearClose
         popupVisible={popupVisible}
-        onPopupVisibleChange={()=>{
+        onPopupVisibleChange={() => {
           setPopupVisible(!popupVisible)
         }}
       >

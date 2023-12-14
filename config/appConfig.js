@@ -19,15 +19,10 @@ const appConfig = {
 	feApps: [
 		//多维数据查询
 		{
-			path: 'multidimensionalDataQuery',
-			name: 'multidimensionalDataQuery',
+			path: 'MultidimensionalDataQuery',
+			name: 'MultidimensionalDataQuery',
 			icon: 'ApartmentOutlined',
-			apps: [
-				// {
-				// 	appName: 'dx-query',
-				// 	access: 'canSystem',
-				// },
-			],
+			apps: [],
 		},
 		//智慧档案室
 		{
@@ -65,26 +60,222 @@ const appConfig = {
 				},
 			],
 		},
+		//业务洞察助手
+		{
+			path: 'BusinessAssistant',
+			name: 'BusinessAssistant',
+			icon: 'ApartmentOutlined',
+			apps: [],
+		}
 	],
 	//自定义应用
 	custApps: [
 		{
-			"path": "/multidimensionalDataQuery",
-			"name": "multidimensionalDataQuery",
+			"path": "/MultidimensionalDataQuery",
+			"name": "MultidimensionalDataQuery",
 			"icon": "smile",
 			"routes": [
 				{
-					"name": "dx-query",
-					"path": "/multidimensionalDataQuery/dx-query",
+					"name": "DashboardAllocation",
+					"path": "/MultidimensionalDataQuery/DashboardAllocation",
+					"component": "./DashboardAllocation",
+					access: 'canSystem',
 					"routes": [
 						{
-							"path": "/multidimensionalDataQuery/dx-query",
-							"redirect": "/multidimensionalDataQuery/dx-query/SupplierPartiesList"
+							"path": "/MultidimensionalDataQuery/DashboardAllocation",
+							"redirect": "/MultidimensionalDataQuery/DashboardAllocation",
+							"component": "./DashboardAllocation",
+							access: 'canSystem',
+						},
+					]
+				},
+				{
+					"name": "DashboardInvest",
+					"path": "/MultidimensionalDataQuery/DashboardInvest",
+					"component": "./DashboardInvest",
+					access: 'canSystem',
+					"routes": [
+						{
+							"path": "/MultidimensionalDataQuery/DashboardInvest",
+							"redirect": "/MultidimensionalDataQuery/DashboardInvest",
+							"component": "./DashboardInvest",
+							access: 'canSystem',
+						},
+					]
+				},
+				//项目分配-按地市
+				{
+					"name": "AllocationByCity",
+					"path": "/MultidimensionalDataQuery/AllocationByCity",
+					isLink: true,//点击跳转
+					entry: `http://dinstitute.banff-tech.com/jxywprojectinvestment-basedimension1-analysis`, //微应用入口
+					access: 'canSystem',
+					"routes": [
+						{
+							"path": "/MultidimensionalDataQuery/AllocationByCity",
+							"redirect": "/MultidimensionalDataQuery/AllocationByCity",
+							isLink: true,
+							entry: `http://dinstitute.banff-tech.com/jxywprojectinvestment-basedimension1-analysis`, //微应用入口
+							access: 'canSystem',
+						},
+					]
+				},
+				//项目分配-按年度
+				{
+					"name": "ProjectYear",
+					"path": "/MultidimensionalDataQuery/ProjectYear",
+					isLink: true,
+					entry: `http://dinstitute.banff-tech.com/projectallocfact-basedimension1-analysis`, //微应用入口
+					access: 'canSystem',
+					"routes": [
+						{
+							"path": "/MultidimensionalDataQuery/ProjectYear",
+							"redirect": "/MultidimensionalDataQuery/ProjectYear",
+							isLink: true,
+							entry: `http://dinstitute.banff-tech.com/projectallocfact-basedimension1-analysis`, //微应用入口
+							access: 'canSystem',
+						},
+					]
+				},
+				// 项目分配-按专业
+				{
+					"name": "ProjectSpecialty",
+					"path": "/MultidimensionalDataQuery/ProjectSpecialty",
+					isLink: true,
+					entry: `http://dinstitute.banff-tech.com/projectallocfact-basedimension2-analysis`, //微应用入口
+					access: 'canSystem',
+					"routes": [
+						{
+							"path": "/MultidimensionalDataQuery/ProjectSpecialty",
+							"redirect": "/MultidimensionalDataQuery/ProjectSpecialty",
+							isLink: true,
+							entry: `http://dinstitute.banff-tech.com/projectallocfact-basedimension2-analysis`, //微应用入口
+							access: 'canSystem',
+						},
+					]
+				},
+				//项目分配-按批次
+				{
+					"name": "ProjectBatch",
+					"path": "/MultidimensionalDataQuery/ProjectBatch",
+					isLink: true,
+					entry: `http://dinstitute.banff-tech.com/projectallocfact-basedimension3-analysis`, //微应用入口
+					access: 'canSystem',
+					"routes": [
+						{
+							"path": "/MultidimensionalDataQuery/ProjectBatch",
+							"redirect": "/MultidimensionalDataQuery/ProjectBatch",
+							isLink: true,
+							entry: `http://dinstitute.banff-tech.com/projectallocfact-basedimension3-analysis`, //微应用入口
+							access: 'canSystem',
+						},
+					]
+				},
+				//投资暂估-按地市
+				{
+					"name": "InvestmentCity",
+					"path": "/MultidimensionalDataQuery/InvestmentCity",
+					isLink: true,
+					entry: `http://dinstitute.banff-tech.com/projectallocfact-basedimension3-analysis`, //微应用入口
+					access: 'canSystem',
+					"routes": [
+						{
+							"path": "/MultidimensionalDataQuery/InvestmentCity",
+							"redirect": "/MultidimensionalDataQuery/InvestmentCity",
+							isLink: true,
+							entry: `http://dinstitute.banff-tech.com/projectallocfact-basedimension3-analysis`, //微应用入口
+							access: 'canSystem',
+						},
+					]
+				},
+				//投资暂估-按年度
+				{
+					"name": "InvestmentYear",
+					"path": "/MultidimensionalDataQuery/InvestmentYear",
+					isLink: true,
+					entry: `http://dinstitute.banff-tech.com/jxywprojectinvestment-basedimension1-analysis`, //微应用入口
+					access: 'canSystem',
+					"routes": [
+						{
+							"path": "/MultidimensionalDataQuery/InvestmentYear",
+							"redirect": "/MultidimensionalDataQuery/InvestmentYear",
+							isLink: true,
+							entry: `http://dinstitute.banff-tech.com/jxywprojectinvestment-basedimension1-analysis`, //微应用入口
+							access: 'canSystem',
+						},
+					]
+				},
+				//投资暂估-按专业
+				{
+					"name": "InvestmentMajor",
+					"path": "/MultidimensionalDataQuery/InvestmentMajor",
+					isLink: true,
+					entry: `http://dinstitute.banff-tech.com/jxywprojectinvestment-basedimension2-analysis`, //微应用入口
+					access: 'canSystem',
+					"routes": [
+						{
+							"path": "/MultidimensionalDataQuery/InvestmentMajor",
+							"redirect": "/MultidimensionalDataQuery/InvestmentMajor",
+							isLink: true,
+							entry: `http://dinstitute.banff-tech.com/jxywprojectinvestment-basedimension2-analysis`, //微应用入口
+							access: 'canSystem',
+						},
+					]
+				},
+				//投资暂估-按批次,
+				{
+					"name": "InvestmentBatch",
+					"path": "/MultidimensionalDataQuery/InvestmentBatch",
+					isLink: true,
+					entry: `http://dinstitute.banff-tech.com/jxywprojectinvestment-basedimension3-analysis`, //微应用入口
+					access: 'canSystem',
+					"routes": [
+						{
+							"path": "/MultidimensionalDataQuery/InvestmentBatch",
+							"redirect": "/MultidimensionalDataQuery/InvestmentBatch",
+							isLink: true,
+							entry: `http://dinstitute.banff-tech.com/jxywprojectinvestment-basedimension3-analysis`, //微应用入口
+							access: 'canSystem',
 						},
 					]
 				},
 			]
-		}
+		},
+		{
+			"path": "/BusinessAssistant",
+			"name": "BusinessAssistant",
+			"icon": "smile",
+			"routes": [
+				{
+					"name": "IntelligentQuestion",
+					"path": "/BusinessAssistant/IntelligentQuestion",
+					"component": "./IntelligentQuestion",
+					access: 'canSystem',
+					"routes": [
+						{
+							"path": "/BusinessAssistant/IntelligentQuestion",
+							"redirect": "/BusinessAssistant/IntelligentQuestion",
+							"component": "./IntelligentQuestion",
+							access: 'canSystem',
+						},
+					]
+				},
+				{
+					"name": "DocumentPreview",
+					"path": "/BusinessAssistant/DocumentPreview",
+					"component": "./DocumentPreview",
+					access: 'canSystem',
+					"routes": [
+						{
+							"path": "/BusinessAssistant/DocumentPreview",
+							"redirect": "/BusinessAssistant/DocumentPreview",
+							"component": "./DocumentPreview",
+							access: 'canSystem',
+						},
+					]
+				},
+			]
+		},
 	],
 	//国际化配置
 	appLocales: {
@@ -121,8 +312,17 @@ const appConfig = {
 			'menu.launchPad': '应用磁贴',
 			'menu.account.logout': '登出',
 			//多维数据查询
-			'menu.multidimensionalDataQuery': '多维数据查询',
-			'menu.multidimensionalDataQuery.dx-query': '例子',
+			'menu.MultidimensionalDataQuery': '多维数据查询',
+			'menu.MultidimensionalDataQuery.DashboardAllocation': '项目分配情况-分析大屏',
+			'menu.MultidimensionalDataQuery.DashboardInvest': '项目投资情况-分析大屏',
+			'menu.MultidimensionalDataQuery.AllocationByCity': '项目分配-按地市',
+			'menu.MultidimensionalDataQuery.ProjectYear': '项目分配-按年度',
+			'menu.MultidimensionalDataQuery.ProjectSpecialty': '项目分配-按年度',
+			'menu.MultidimensionalDataQuery.ProjectBatch': '项目分配-按批次',
+			'menu.MultidimensionalDataQuery.InvestmentCity': '投资暂估-按地市',
+			'menu.MultidimensionalDataQuery.InvestmentYear': '投资暂估-按年度',
+			'menu.MultidimensionalDataQuery.InvestmentMajor': '投资暂估-按专业',
+			'menu.MultidimensionalDataQuery.InvestmentBatch': '投资暂估-按批次',
 			//智慧档案室
 			'menu.SmartArchiveRoom': '智慧档案室',
 			'menu.SmartArchiveRoom.project-query': '估算书文档-查询',
@@ -132,6 +332,10 @@ const appConfig = {
 			'menu.AllocationOfItems': '项目分配-管理',
 			'menu.AllocationOfItems.jx-query': '检修/运维-管理',
 			'menu.AllocationOfItems.dx-query': '技改/大修-管理',
+			//业务洞察助手
+			'menu.BusinessAssistant': '业务洞察助手',
+			'menu.BusinessAssistant.IntelligentQuestion': '智能问答-助理',
+			'menu.BusinessAssistant.DocumentPreview': '文档预览-助理'
 		}
 	},
 	locale: {
@@ -278,10 +482,14 @@ const getRouteFiles = () => {
 					routes.forEach((childItem) => {
 						const { path, name, routes: chidRouter } = childItem
 						result[index].routes.push({
-							path: `${path}`,
+							...childItem
+							/* path: `${path}`,
 							name: name,
 							routes: chidRouter,
-							access
+							access,
+							component: childItem?.component,
+							entry: childItem?.entry,
+							isLink: childItem?.isLink, */
 						})
 					})
 				}

@@ -1,0 +1,81 @@
+.box {
+  width: 50%;
+  height: 100%;
+  display: flex;
+ /*  position: relative; */
+
+  .quantityBox {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .title {
+      font-weight: 400;
+      color: #000;
+      
+    }
+
+    .quantity {
+      font-family: SourceHanSansCN-Bold, SourceHanSansCN;
+      font-weight: bold;
+      color: #47A4FF;
+      line-height: 1.1rem;
+    }
+  }
+}
+
+.roll {
+  width: 50%;
+  height: 100%;
+ /*  position: absolute;
+  top: 0;
+  left: 0; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 16px;
+  color: #000;
+  .rollBox {
+    width: 60%;
+    height: 90%;
+    padding-left: 1em;
+    background-color: rgba(76, 167, 255, 0.1);
+    overflow-y: scroll;
+
+    .equipmentBox {
+      width: 100%;
+      height: 25%;
+      display: flex;
+      flex-direction: column;
+
+      .equipmentName{
+        font-size: .1625rem;
+        width: 100%;
+        overflow:hidden;
+        display:inline-block; 
+        white-space:nowrap;
+      }
+
+      .singleQuantity {
+        width: 90%;
+        height: 40%;
+        border: 1px solid rgba(71, 164, 255, 0.3);
+        display: flex;
+        align-items: center;
+        padding-left: 3px;
+
+        .singleQuantityValue {
+          font-size: .1625rem;
+          font-family: PingFangSC-Regular, PingFang SC;
+          font-weight: 400;
+          color: #47A4FF;
+          line-height: 0px;
+        }
+      }
+    }
+  }
+
+}

@@ -1,0 +1,41 @@
+.chartsBox {
+  width: 100%;
+  height: 100%;
+  padding: 1.3em 1.1em;
+  background-color: linear-gradient(180deg, rgba(26, 89, 251, 0.2) 0%, #1B65FC 100%);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+  position: relative;
+
+  .imgleft {
+    width: 2.2em;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .imgRight {
+    width: 2.2em;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: rotate(180deg);
+  }
+
+  .title {
+    width: 100%;
+    height: 16%;
+    font-size: 1.4em;
+    font-family: AlibabaPuHuiTi-Medium, AlibabaPuHuiTi;
+    font-weight: 500;
+    color: #FFFFFF;
+  }
+
+  .chart {
+    width: 100%;
+    height: 86%;
+    display: flex;
+    justify-content: space-between;
+  }
+}
