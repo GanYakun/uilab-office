@@ -21,14 +21,14 @@ const appConfig = {
 		{
 			path: 'MultidimensionalDataQuery',
 			name: 'MultidimensionalDataQuery',
-			icon: 'ApartmentOutlined',
+			icon: 'BankOutlined',
 			apps: [],
 		},
 		//智慧档案室
 		{
 			path: 'SmartArchiveRoom',
 			name: 'SmartArchiveRoom',
-			icon: 'ApartmentOutlined',
+			icon: 'BankOutlined',
 			apps: [
 				{
 					appName: 'project-query',
@@ -63,7 +63,7 @@ const appConfig = {
 		{
 			path: 'AllocationOfItems',
 			name: 'AllocationOfItems',
-			icon: 'ApartmentOutlined',
+			icon: 'BankOutlined',
 			apps: [
 				{
 					appName: 'jx-query',
@@ -79,7 +79,7 @@ const appConfig = {
 		{
 			path: 'BusinessAssistant',
 			name: 'BusinessAssistant',
-			icon: 'ApartmentOutlined',
+			icon: 'BankOutlined',
 			apps: [],
 		}
 	],
