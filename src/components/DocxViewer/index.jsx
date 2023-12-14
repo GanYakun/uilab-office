@@ -26,6 +26,7 @@ const DocxViewer = ({ docxUrl, id, skbgContentId }) => {
       console.log('预览失败', e);
       if (isTurnDocx) {
         console.log('预览失败，尝试转换成docx')
+        clearContent()
         _ConvertDocToDocx()
       }
     })
@@ -40,6 +41,13 @@ const DocxViewer = ({ docxUrl, id, skbgContentId }) => {
     const result = await Odata.submit(option);
     if (result) {
       initDocxPreviewer()
+    }
+  }
+
+  function clearContent() {
+    var element = document.getElementById(id);
+    if (element) {
+      element.innerHTML = ''; // 将内容设置为空字符串
     }
   }
 
