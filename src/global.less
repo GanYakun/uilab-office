@@ -75,6 +75,12 @@ body {
   }
 }
 
+.uilab-ObjectPage-hide-header {
+  .ant-page-header-heading-left {
+    align-items: flex-start;
+  }
+}
+
 #uilab-SmartFilterbar {
 
   .ant-col-6,
@@ -118,10 +124,6 @@ ol {
     border: none;
     border-top: 1px solid #f0f0f0;
   }
-}
-
-.ant-table-cell {
-  max-width: 30px !important;
 }
 
 .ant-layout-header {
@@ -176,6 +178,40 @@ ol {
 }
 
 #uilab-ObjectPage-icon::after {
+  content: "";
+  position: absolute;
+  width: 64px;
+  height: 1px;
+  top: 50%;
+  transform: translate(0, -50%);
+  background-image: linear-gradient(to right, #0854a0, rgba(8, 84, 160, 0)) !important;
+  left: 100%;
+}
+
+#uilab-ObjectPage-icon-left::before {
+  content: "";
+  position: absolute;
+  width: 64px;
+  height: 1px;
+  top: 50%;
+  transform: translate(0, -50%);
+  background-image: linear-gradient(to left, #0854a0, rgba(8, 84, 160, 0)) !important;
+  right: 100%;
+}
+
+#uilab-ObjectPage-icon-right::before {
+  content: "";
+  position: absolute;
+  width: 22px;
+  height: 1px;
+  top: 50%;
+  transform: translate(0, -50%);
+  background: #0854a0 !important;
+  left: -22px;
+}
+
+
+#uilab-ObjectPage-icon-right::after {
   content: "";
   position: absolute;
   width: 64px;

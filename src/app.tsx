@@ -8,7 +8,8 @@ import { stringify } from 'querystring';
 import defaultSettings from '../config/defaultSettings';
 import Odata from '../lib/Uilab-Comp/utils/odata/odata.js';
 import { appConfig } from '../config/appConfig';
-import '../lib/Uilab-Comp/smart-comp/Process/auto-update'
+import '../lib/Uilab-Comp/smart-comp/Process/auto-update';
+import { onPageChange } from "../lib/Uilab-Comp/smart-comp/UIComp/SmartApp"
 const loginPath = '/user/login';
 
 /** 获取用户信息比较慢的时候会展示一个*/
@@ -101,24 +102,17 @@ export const layout: RunTimeLayoutConfig = ({ initialState }) => {
     },
     footerRender: () => <Footer />,
     onPageChange: () => {
-      const { location } = history;
-      const { query = {}, search, pathname } = location;
-      const { redirect } = query;
-      // 如果没有登录，重定向到 login
-      if (!initialState?.currentUser && location.pathname !== loginPath) {
-        if (!redirect) {
-          history.replace({
-            pathname: loginPath,
-            search: stringify({
-              redirect: pathname + search,
-            }),
-          });
-        } else {
-          history.push(loginPath);
-        }
-      }
+      onPageChange(initialState, loginPath);
     },
     menuHeaderRender: undefined,
+    itemRender: (route, params, routes) => {
+      return <span style={{ cursor: 'pointer' }} onClick={() => {
+        if (routes.indexOf(route) !== 0) {
+          history.replace(route.path);
+        }
+      }}>{route.breadcrumbName}</span>
+    },
+
     menuDataRender: menuDataRender,
     ...initialState?.settings,
   };
