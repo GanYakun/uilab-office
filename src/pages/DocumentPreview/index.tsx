@@ -22,7 +22,7 @@ const DocumentPreview: React.FC = (props) => {
           当前文档
         </div>
         <div className={styles.fileViewer}>
-          <DocxViewer docxUrl={`${window.location.origin}${fileUrl}`} id={'type'} />
+          <DocxViewer docxUrl={`${window.location.origin}${fileUrl}`} id={'type'} skbgContentId={skbgContentId} />
         </div>
       </div>
       {
@@ -105,7 +105,7 @@ const DocumentPreview: React.FC = (props) => {
 
           </div>
           <div className={styles.fileViewer}>
-            <DocxViewer docxUrl={`${window.location.origin}${newFileUrl}`} id={'type1'} />
+            <DocxViewer docxUrl={`${window.location.origin}${newFileUrl}`} id={'type1'} skbgContentId={skbgContentId} />
           </div>
         </div>
       }
