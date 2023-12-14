@@ -120,7 +120,7 @@ export const layout: RunTimeLayoutConfig = ({ initialState }) => {
     },
     menuHeaderRender: undefined,
     itemRender: (route, params, routes) => {
-      return <span onClick={() => {
+      return <span style={{ cursor: 'pointer' }} onClick={() => {
         if (routes.indexOf(route) !== 0) {
           history.replace(route.path);
         }
