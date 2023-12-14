@@ -44,7 +44,7 @@
     ".prettierrc.js",
     "jest.config.js",
     "mock/*",
-    "lib/**/*",
+    "lib/**/*", "src",
   ],
   "exclude": [
     "node_modules",
