@@ -119,6 +119,14 @@ export const layout: RunTimeLayoutConfig = ({ initialState }) => {
       }
     },
     menuHeaderRender: undefined,
+    itemRender: (route, params, routes) => {
+      return <span onClick={() => {
+        if (routes.indexOf(route) !== 0) {
+          history.replace(route.path);
+        }
+      }}>{route.breadcrumbName}</span>
+    },
+
     menuDataRender: menuDataRender,
     ...initialState?.settings,
   };
