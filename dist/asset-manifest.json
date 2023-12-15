@@ -1,6 +1,6 @@
 {
   "/umi.css": "/umi.cf783b67.css",
-  "/umi.js": "/umi.7b10d701.js",
+  "/umi.js": "/umi.71c9d1b2.js",
   "/t__plugin-layout__Layout.css": "/t__plugin-layout__Layout.ee219fdf.chunk.css",
   "/t__plugin-layout__Layout.js": "/t__plugin-layout__Layout.c4570780.async.js",
   "/lib__Uilab-Comp__smart-comp__CommonPages__launchPad__index.css": "/lib__Uilab-Comp__smart-comp__CommonPages__launchPad__index.7eb07cf6.chunk.css",
@@ -32,8 +32,8 @@
   "/public/Ui5/approval-manage/package-lock.json": "/Ui5/approval-manage/package-lock.json",
   "/public/Ui5/role-manage/package-lock.json": "/Ui5/role-manage/package-lock.json",
   "/public/Ui5/supplierapprove-managebyprocurement/webapp/localService/metadata.xml": "/Ui5/supplierapprove-managebyprocurement/webapp/localService/metadata.xml",
-  "/public/Ui5/supplierapprove-managebyapplication/webapp/localService/metadata.xml": "/Ui5/supplierapprove-managebyapplication/webapp/localService/metadata.xml",
   "/public/Ui5/supplierapprove-managebycompliance/webapp/localService/metadata.xml": "/Ui5/supplierapprove-managebycompliance/webapp/localService/metadata.xml",
+  "/public/Ui5/supplierapprove-managebyapplication/webapp/localService/metadata.xml": "/Ui5/supplierapprove-managebyapplication/webapp/localService/metadata.xml",
   "/public/Ui5/vendor-dd-form/package-lock.json": "/Ui5/vendor-dd-form/package-lock.json",
   "/public/Ui5/supplier-dd-form/package-lock.json": "/Ui5/supplier-dd-form/package-lock.json",
   "/public/Ui5/uilab-app-manage/package-lock.json": "/Ui5/uilab-app-manage/package-lock.json",

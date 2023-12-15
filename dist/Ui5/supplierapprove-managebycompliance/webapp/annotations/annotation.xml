@@ -140,6 +140,11 @@
                             <PropertyValue Property="Facets">
                                 <Collection>
                                     <Record Type="UI.ReferenceFacet">
+                                        <PropertyValue Property="Label" String="Commercial License"/>
+                                        <PropertyValue Property="ID" String="Commercial_License_File"/>
+                                        <PropertyValue Property="Target" AnnotationPath="SupplierDDForm/FileList/@UI.LineItem#FileList"/>
+                                    </Record>
+                                    <Record Type="UI.ReferenceFacet">
                                         <PropertyValue Property="Label"
                                             String="Full Name of Company or Individual Party" />
                                         <PropertyValue Property="ID" String="FullName" />
@@ -229,8 +234,26 @@
                             <PropertyValue Property="Label" String="{@i18n>ComplianceNote}"/>
                             <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#ComplianceNote"/>
                         </Record>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="ID" String="ApproveComments" />
+                            <PropertyValue Property="Label" String="{@i18n>ApproveComments}" />
+                            <PropertyValue Property="Target"
+                                AnnotationPath="@UI.FieldGroup#ApproveComments" />
+                        </Record>
                 </Collection>
             </Annotation>
+
+            <Annotation Term="UI.FieldGroup" Qualifier="ApproveComments">
+                    <Record Type="UI.FieldGroupType">
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="approveComments" />
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
 
             <Annotation Term="UI.FieldGroup" Qualifier="ComplianceNote">
                 <Record Type="UI.FieldGroupType">
