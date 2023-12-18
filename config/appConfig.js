@@ -2,7 +2,7 @@
  * @Author: lx.jin 308561217@qq.com
  * @Date: 2023-11-23 10:51:23
  * @LastEditors: lx.jin 308561217@qq.com
- * @LastEditTime: 2023-12-14 12:09:25
+ * @LastEditTime: 2023-12-18 10:02:07
  * @FilePath: /Uilab-Application/config/appConfig.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -106,14 +106,35 @@ const appConfig = {
                                         name: 'Steps',////组件名称
                                     },
                                 },
-                                {
-                                    property: "Identification",//对象属性
-                                    operateType: "add", // 操作类型：add, replace, delete
-                                    config: {
-                                        type: 'CommonComp',//组件类型：CommonComp CustComp
-                                        name: 'Tour',////组件名称
-                                    },
-                                },
+                                // {
+                                //     property: "Identification",//对象属性
+                                //     operateType: "add", // 操作类型：add, replace, delete
+                                //     config: {
+                                //         type: 'CommonComp',//组件类型：CommonComp CustComp
+                                //         name: 'Tour',////组件名称
+                                //         steps: (refs) =>
+                                //             [
+                                //                 {
+                                //                     title: 'Upload File',
+                                //                     description: 'Put your files here.',
+                                //                     target: () => refs?.current[0],
+                                //                 },
+                                //                 {
+                                //                     title: 'Save',
+                                //                     description: 'Save your changes.',
+                                //                     target: () => {
+                                //                         return document.getElementsByClassName('ant-tabs-tab-active')?.[0]
+                                //                     },
+                                //                 },
+                                //                 {
+                                //                     title: 'Other Actions',
+                                //                     description: 'Click to see other actions.',
+                                //                     target: () => refs?.current[2],
+                                //                 },
+                                //             ]
+
+                                //     },
+                                // },
                             ]
                         }
                     ],
