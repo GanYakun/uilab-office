@@ -3,7 +3,7 @@
  * @Author: lx.jin 308561217@qq.com
  * @Date: 2022-01-20 21:59:52
  * @LastEditors: lx.jin 308561217@qq.com
- * @LastEditTime: 2023-12-05 18:47:10
+ * @LastEditTime: 2023-12-20 14:14:26
  * @FilePath: /uilab/README.md
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -33,7 +33,7 @@
 | 序号 | 软件名                      | 版本                            |
 | ---- | --------------------------- | ------------------------------- |
 | 1    | umi.js                      | v3.5                            |
-| 2    | node.js                     | 10.13 或以上，且 17.00 以下     |
+| 2    | node.js                     | 16.0 或以上，且 17.00 以下     |
 | 3    | npm                         | <7.00                           |
 | 4    | yarn                        | ^1.7                            |
 | 3    | @umijs/plugin-qiankun       | v2.39(主应用、子应用都需要安装) |
