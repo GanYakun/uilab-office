@@ -35,7 +35,7 @@ const appConfig = {
         },
         {
             path: 'po',
-            name: 'PO apps',
+            name: 'poapps',
             icon: 'ApartmentOutlined',
             apps: [
                 {
@@ -226,6 +226,12 @@ const appConfig = {
             'menu.supplier.supplierapprove-managebycompliance': 'Vendor Check-up',
             'menu.supplier.supplierapprove-managebyprocurement': 'Vendor On-boarding Procurement',
             'menu.supplier.vendor-dd-form': 'Due Diligence Form',
+            //采购应用
+            'menu.poapps': 'PO Apps',
+            'menu.poapps.purchase-request': 'Purchase Request',
+            'menu.poapps.requirement-manage': 'Requirement',
+            'menu.poapps.purchasequote-manage': 'Purchase Quote',
+            'menu.poapps.purchaseorder-manage': 'Purchase Order',
             //流程管理
             'menu.workflow': 'WorkFlow',
             'menu.workflow.custom-workflow-manage': 'WorkFlow',
@@ -254,6 +260,12 @@ const appConfig = {
             'menu.supplier.supplierapprove-managebycompliance': '供应商-检查',
             'menu.supplier.supplierapprove-managebyprocurement': '供应商-注册 (P)',
             'menu.supplier.supplierapprove-managebysupplier': '供应商-调查表',
+            //采购应用
+            'menu.poapps': 'PO Apps',
+            'menu.poapps.purchase-request': '采购请求',
+            'menu.poapps.requirement-manage': '需求',
+            'menu.poapps.purchasequote-manage': '报价',
+            'menu.poapps.purchaseorder-manage': '订单',
             //流程管理
             'menu.workflow': '工作流',
             'menu.workflow.custom-workflow-manage': '工作流',
