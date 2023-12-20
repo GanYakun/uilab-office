@@ -1,26 +1,25 @@
 ## Application Details
 |               |
 | ------------- |
-|**Generation Date and Time**<br>Thu Dec 08 2022 10:49:04 GMT+0800 (中国标准时间)|
+|**Generation Date and Time**<br>Tue Dec 19 2023 18:34:38 GMT+0800 (China Standard Time)|
 |**App Generator**<br>@sap/generator-fiori-elements|
-|**App Generator Version**<br>1.8.2|
+|**App Generator Version**<br>1.7.1|
 |**Generation Platform**<br>Visual Studio Code|
-|**Template Used**<br>List Report Page V4|
+|**Floorplan Used**<br>List Report Object Page V4|
 |**Service Type**<br>OData Url|
-|**Service URL**<br>http://localhost:8080/bf-demo/control/odatasvc/purchaseOrderManage/
+|**Service URL**<br>http://localhost:8080/officeauto/control/odataAppSvc/purchaseOrderManage
 |**Module Name**<br>purchaseorder-manage|
-|**Application Title**<br>Manage PurchaseOrder|
+|**Application Title**<br>App Title|
 |**Namespace**<br>com.banfftech|
 |**UI5 Theme**<br>sap_horizon|
-|**UI5 Version**<br>1.108.0|
+|**UI5 Version**<br>1.120.3|
 |**Enable Code Assist Libraries**<br>False|
-|**Enable TypeScript**<br>False|
 |**Add Eslint configuration**<br>False|
 |**Main Entity**<br>PurchaseOrderHeaders|
 
 ## purchaseorder-manage
 
-PurchaseOrder Manage
+A Fiori application.
 
 ### Starting the generated app
 

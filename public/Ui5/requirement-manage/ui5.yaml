@@ -2,7 +2,7 @@
 
 specVersion: "2.5"
 metadata:
-  name: com.banfftech.purchasequotemanage
+  name: com.banfftech.requirementmanage
 type: application
 server:
   customMiddleware:
@@ -24,11 +24,8 @@ server:
         port: 35729
         path: webapp
         delay: 300
-    - name: sap-fe-mockserver
-      beforeMiddleware: csp
+    - name: fiori-tools-preview
+      afterMiddleware: fiori-tools-appreload
       configuration:
-        service:
-          urlPath: /officeauto/control/odataAppSvc/purchaseQuoteManage
-          metadataXmlPath: ./webapp/localService/metadata.xml
-          mockdataRootPath: ./webapp/localService/data
-          generateMockData: true
+        component: com.banfftech.requirementmanage
+        ui5Theme: sap_horizon

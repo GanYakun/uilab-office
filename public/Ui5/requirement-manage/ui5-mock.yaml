@@ -2,7 +2,7 @@
 
 specVersion: "2.5"
 metadata:
-  name: com.banfftech.purchasequotemanage
+  name: com.banfftech.requirementmanage
 type: application
 server:
   customMiddleware:
@@ -28,7 +28,7 @@ server:
       beforeMiddleware: csp
       configuration:
         service:
-          urlPath: /officeauto/control/odataAppSvc/purchaseQuoteManage
+          urlPath: /officeauto/control/odataAppSvc/requirementManage
           metadataXmlPath: ./webapp/localService/metadata.xml
           mockdataRootPath: ./webapp/localService/data
           generateMockData: true

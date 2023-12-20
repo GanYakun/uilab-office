@@ -1,7 +1,7 @@
 {
     "_version": "1.40.0",
     "sap.app": {
-        "id": "com.banfftech.purchasequotemanage",
+        "id": "com.banfftech.requirementmanage",
         "type": "application",
         "i18n": "i18n/i18n.properties",
         "applicationVersion": {
@@ -13,11 +13,11 @@
         "sourceTemplate": {
             "id": "@sap/generator-fiori:lrop",
             "version": "1.7.1",
-            "toolsId": "0c66a6ca-2230-49f4-a296-99672f8c67ad"
+            "toolsId": "e713d56f-d2d7-4819-823f-16a0bd75a525"
         },
         "dataSources": {
             "mainService": {
-                "uri": "/officeauto/control/odataAppSvc/purchaseQuoteManage/",
+                "uri": "/officeauto/control/odataAppSvc/requirementManage/",
                 "type": "OData",
                 "settings": {
                     "annotations": [
@@ -37,12 +37,12 @@
         },
         "crossNavigation": {
             "inbounds": {
-                "com-banfftech-purchasequotemanage-inbound": {
+                "com-banfftech-requirementmanage-inbound": {
                     "signature": {
                         "parameters": {},
                         "additionalParameters": "allowed"
                     },
-                    "semanticObject": "PurchaseQuote",
+                    "semanticObject": "Requirement",
                     "action": "Manage",
                     "title": "{{flpTitle}}",
                     "subTitle": "{{flpSubtitle}}",
@@ -86,7 +86,7 @@
             "i18n": {
                 "type": "sap.ui.model.resource.ResourceModel",
                 "settings": {
-                    "bundleName": "com.banfftech.purchasequotemanage.i18n.i18n"
+                    "bundleName": "com.banfftech.requirementmanage.i18n.i18n"
                 }
             },
             "": {
@@ -112,42 +112,42 @@
             "routes": [
                 {
                     "pattern": ":?query:",
-                    "name": "PurchaseQuotesList",
-                    "target": "PurchaseQuotesList"
+                    "name": "ProductRequirementsList",
+                    "target": "ProductRequirementsList"
                 },
                 {
-                    "pattern": "PurchaseQuotes({key}):?query:",
-                    "name": "PurchaseQuotesObjectPage",
-                    "target": "PurchaseQuotesObjectPage"
+                    "pattern": "ProductRequirements({key}):?query:",
+                    "name": "ProductRequirementsObjectPage",
+                    "target": "ProductRequirementsObjectPage"
                 }
             ],
             "targets": {
-                "PurchaseQuotesList": {
+                "ProductRequirementsList": {
                     "type": "Component",
-                    "id": "PurchaseQuotesList",
+                    "id": "ProductRequirementsList",
                     "name": "sap.fe.templates.ListReport",
                     "options": {
                         "settings": {
-                            "entitySet": "PurchaseQuotes",
+                            "entitySet": "ProductRequirements",
                             "variantManagement": "Page",
                             "navigation": {
-                                "PurchaseQuotes": {
+                                "ProductRequirements": {
                                     "detail": {
-                                        "route": "PurchaseQuotesObjectPage"
+                                        "route": "ProductRequirementsObjectPage"
                                     }
                                 }
                             }
                         }
                     }
                 },
-                "PurchaseQuotesObjectPage": {
+                "ProductRequirementsObjectPage": {
                     "type": "Component",
-                    "id": "PurchaseQuotesObjectPage",
+                    "id": "ProductRequirementsObjectPage",
                     "name": "sap.fe.templates.ObjectPage",
                     "options": {
                         "settings": {
                             "editableHeaderContent": false,
-                            "entitySet": "PurchaseQuotes"
+                            "entitySet": "ProductRequirements"
                         }
                     }
                 }

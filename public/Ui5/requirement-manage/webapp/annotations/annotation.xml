@@ -8,37 +8,31 @@
     <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Communication.xml">
         <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
     </edmx:Reference>
-    <edmx:Reference Uri="/officeauto/control/odataAppSvc/purchaseOrderManage/$metadata">
+    <edmx:Reference Uri="/officeauto/control/odataAppSvc/requirementManage/$metadata">
         <edmx:Include Namespace="com.dpbird"/>
     </edmx:Reference>
     <edmx:DataServices>
         <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="local">
-            <Annotations Target="com.dpbird.PurchaseOrder">
+            <Annotations Target="com.dpbird.ProductRequirement">
                 <Annotation Term="UI.LineItem">
                     <Collection>
                         <Record Type="UI.DataField">
-                            <PropertyValue Property="Value" Path="orderName" ></PropertyValue>
+                            <PropertyValue Property="Value" Path="productId" ></PropertyValue>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="facilityId" ></PropertyValue>
                         </Record>
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="statusId" ></PropertyValue>
                         </Record>
-                        <Record Type="UI.DataField">
-                            <PropertyValue Property="Value" Path="orderDate" ></PropertyValue>
-                        </Record>
-                        <Record Type="UI.DataField">
-                            <PropertyValue Property="Value" Path="quoteId" ></PropertyValue>
-                        </Record>
-                        <Record Type="UI.DataField">
-                            <PropertyValue Property="Value" Path="agreementId" ></PropertyValue>
-                        </Record>
                         <Record Type="UI.DataFieldForAction">
-                            <PropertyValue Property="Action" String="com.dpbird.CreatePurchaseOrder"/>
+                            <PropertyValue Property="Action" String="com.dpbird.CreateProductRequirement"/>
                             <PropertyValue Property="Label" String="Create"/>
                             <PropertyValue Property="Criticality" EnumMember="UI.CriticalityType/Positive" />
                         </Record>
                     </Collection>
                 </Annotation>
-                
+
             </Annotations>
         </Schema>
     </edmx:DataServices>

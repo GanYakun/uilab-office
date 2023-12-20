@@ -1,24 +1,24 @@
 ## Application Details
 |               |
 | ------------- |
-|**Generation Date and Time**<br>Tue Dec 19 2023 18:26:09 GMT+0800 (China Standard Time)|
+|**Generation Date and Time**<br>Tue Dec 19 2023 18:30:07 GMT+0800 (China Standard Time)|
 |**App Generator**<br>@sap/generator-fiori-elements|
 |**App Generator Version**<br>1.7.1|
 |**Generation Platform**<br>Visual Studio Code|
 |**Floorplan Used**<br>List Report Object Page V4|
 |**Service Type**<br>OData Url|
-|**Service URL**<br>http://localhost:8080/officeauto/control/odataAppSvc/purchaseQuoteManage
-|**Module Name**<br>purchasequote-manage|
+|**Service URL**<br>http://localhost:8080/officeauto/control/odataAppSvc/requirementManage
+|**Module Name**<br>requirement-manage|
 |**Application Title**<br>App Title|
 |**Namespace**<br>com.banfftech|
 |**UI5 Theme**<br>sap_horizon|
 |**UI5 Version**<br>1.120.3|
 |**Enable Code Assist Libraries**<br>False|
 |**Add Eslint configuration**<br>False|
-|**Main Entity**<br>PurchaseQuotes|
+|**Main Entity**<br>ProductRequirements|
 |**Navigation Entity**<br>None|
 
-## purchasequote-manage
+## requirement-manage
 
 A Fiori application.
 

@@ -16,7 +16,7 @@ server:
             - /test-resources
           url: https://ui5.sap.com
         backend:
-          - path: /bf-demo
+          - path: /officeauto
             url: http://localhost:8080
     - name: fiori-tools-appreload
       afterMiddleware: compression
@@ -27,10 +27,8 @@ server:
     - name: sap-fe-mockserver
       beforeMiddleware: csp
       configuration:
-        mountPath: /
-        services:
-          - urlPath: /bf-demo/control/odatasvc/purchaseOrderManage
-            metadataPath: ./webapp/localService/metadata.xml
-            mockdataPath: ./webapp/localService/data
-            generateMockData: true
-        annotations: []
+        service:
+          urlPath: /officeauto/control/odataAppSvc/purchaseOrderManage
+          metadataXmlPath: ./webapp/localService/metadata.xml
+          mockdataRootPath: ./webapp/localService/data
+          generateMockData: true
