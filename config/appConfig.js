@@ -34,6 +34,29 @@ const appConfig = {
             ],
         },
         {
+            path: 'po',
+            name: 'PO apps',
+            icon: 'ApartmentOutlined',
+            apps: [
+                {
+                    appName: 'purchase-request',
+                    access: 'canAdmin',
+                },
+                {
+                    appName: 'requirement-manage',
+                    access: 'canAdmin',
+                },
+                {
+                    appName: 'purchasequote-manage',
+                    access: 'canAdmin',
+                },
+                {
+                    appName: 'purchaseorder-manage',
+                    access: 'canAdmin',
+                }
+            ],
+        },
+        {
             path: 'supplier',
             name: 'supplier',
             icon: 'AppstoreOutlined',
