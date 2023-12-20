@@ -2,7 +2,7 @@
  * @Author: lx.jin 308561217@qq.com
  * @Date: 2023-11-23 10:51:23
  * @LastEditors: lx.jin 308561217@qq.com
- * @LastEditTime: 2023-12-18 10:02:07
+ * @LastEditTime: 2023-12-20 12:19:50
  * @FilePath: /Uilab-Application/config/appConfig.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -173,6 +173,10 @@ const appConfig = {
                         }
                     ]
                 },
+                // {
+                //     appName: 'vendor-dd-form',
+                //     access: 'can03',
+                // }
             ],
         }
     ],
@@ -198,7 +202,7 @@ const appConfig = {
             'menu.supplier.supplierapprove-managebyapplication': 'Vendor On-boarding Applicant',
             'menu.supplier.supplierapprove-managebycompliance': 'Vendor Check-up',
             'menu.supplier.supplierapprove-managebyprocurement': 'Vendor On-boarding Procurement',
-            'menu.supplier.supplier-dd-form': 'Due Diligence Form',
+            'menu.supplier.vendor-dd-form': 'Due Diligence Form',
             //流程管理
             'menu.workflow': 'WorkFlow',
             'menu.workflow.custom-workflow-manage': 'WorkFlow',
