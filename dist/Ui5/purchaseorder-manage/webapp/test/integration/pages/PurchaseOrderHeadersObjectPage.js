@@ -1,1 +1,0 @@
-sap.ui.define(["sap/fe/test/ObjectPage"],function(e){"use strict";var a={actions:{},assertions:{}};return new e({appId:"com.banfftech.purchaseordermanage",componentId:"PurchaseOrderHeadersObjectPage",entitySet:"PurchaseOrderHeaders"},a)});

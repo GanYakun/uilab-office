@@ -1,21 +1,22 @@
 ## Application Details
 |               |
 | ------------- |
-|**Generation Date and Time**<br>Mon Oct 30 2023 12:01:10 GMT+0800 (China Standard Time)|
+|**Generation Date and Time**<br>Tue Dec 19 2023 18:32:15 GMT+0800 (China Standard Time)|
 |**App Generator**<br>@sap/generator-fiori-elements|
 |**App Generator Version**<br>1.7.1|
 |**Generation Platform**<br>Visual Studio Code|
 |**Floorplan Used**<br>List Report Object Page V4|
 |**Service Type**<br>OData Url|
-|**Service URL**<br>http://localhost:8080/bf-demo/control/odatasvc/shipmentRequestManage
+|**Service URL**<br>http://localhost:8080/officeauto/control/odataAppSvc/purchaseRequestManage
 |**Module Name**<br>purchase-request|
 |**Application Title**<br>App Title|
 |**Namespace**<br>com.banfftech|
 |**UI5 Theme**<br>sap_horizon|
-|**UI5 Version**<br>1.104.0|
+|**UI5 Version**<br>1.120.3|
 |**Enable Code Assist Libraries**<br>False|
 |**Add Eslint configuration**<br>False|
 |**Main Entity**<br>PurchaseRequests|
+|**Navigation Entity**<br>None|
 
 ## purchase-request
 
