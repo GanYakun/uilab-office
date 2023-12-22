@@ -2,7 +2,7 @@
  * @Author: lx.jin 308561217@qq.com
  * @Date: 2023-11-23 10:51:23
  * @LastEditors: lx.jin 308561217@qq.com
- * @LastEditTime: 2023-12-22 15:36:52
+ * @LastEditTime: 2023-12-22 16:07:30
  * @FilePath: /Uilab-Application/config/appConfig.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -196,10 +196,10 @@ const appConfig = {
                         }
                     ]
                 },
-                // {
-                //     appName: 'vendor-dd-form',
-                //     access: 'can03',
-                // }
+                {
+                    appName: 'vendor-dd-form',
+                    access: 'canDD',
+                }
             ],
         }
     ],
@@ -337,6 +337,7 @@ const getSecurityPermissionGroup = (currentUser) => {
             can03: currentUser.UILabApp.findIndex((item) => item.permissionId === '03') !== -1,//procurement
             can04: currentUser.UILabApp.findIndex((item) => item.permissionId === '04') !== -1,//vondors
             can05: currentUser.UILabApp.findIndex((item) => item.permissionId === '05') !== -1,//PO
+            canDD: currentUser.UILabApp.findIndex((item) => item.permissionId === 'DD') !== -1,//DD
         }
     }
 
