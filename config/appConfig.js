@@ -2,7 +2,7 @@
  * @Author: lx.jin 308561217@qq.com
  * @Date: 2023-11-23 10:51:23
  * @LastEditors: lx.jin 308561217@qq.com
- * @LastEditTime: 2023-12-20 12:19:50
+ * @LastEditTime: 2023-12-22 15:36:52
  * @FilePath: /Uilab-Application/config/appConfig.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -40,7 +40,7 @@ const appConfig = {
             apps: [
                 {
                     appName: 'purchase-request',
-                    access: 'canAdmin',
+                    access: 'can05',
                 },
                 {
                     appName: 'requirement-manage',
@@ -336,6 +336,7 @@ const getSecurityPermissionGroup = (currentUser) => {
             can02: currentUser.UILabApp.findIndex((item) => item.permissionId === '02') !== -1,//Compliance
             can03: currentUser.UILabApp.findIndex((item) => item.permissionId === '03') !== -1,//procurement
             can04: currentUser.UILabApp.findIndex((item) => item.permissionId === '04') !== -1,//vondors
+            can05: currentUser.UILabApp.findIndex((item) => item.permissionId === '05') !== -1,//PO
         }
     }
 
