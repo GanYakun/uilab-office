@@ -40,19 +40,23 @@ const appConfig = {
             apps: [
                 {
                     appName: 'purchase-request',
-                    access: 'can05',
+                    access: 'canRPP',
                 },
                 {
                     appName: 'requirement-manage',
-                    access: 'canAdmin',
+                    access: 'canRMAP',
                 },
                 {
                     appName: 'purchasequote-manage',
-                    access: 'canAdmin',
+                    access: 'canQEP',
                 },
                 {
                     appName: 'purchaseorder-manage',
-                    access: 'canAdmin',
+                    access: 'canORP',
+                },
+                {
+                    appName: 'catalog-request',
+                    access: 'canRAP',
                 }
             ],
         },
@@ -228,10 +232,11 @@ const appConfig = {
             'menu.supplier.vendor-dd-form': 'Due Diligence Form',
             //采购应用
             'menu.poapps': 'PO Apps',
-            'menu.poapps.purchase-request': 'Purchase Request',
-            'menu.poapps.requirement-manage': 'Requirement',
+            'menu.poapps.purchase-request': 'Request-Procurement',
+            'menu.poapps.requirement-manage': 'Requirement-Applicant',
             'menu.poapps.purchasequote-manage': 'Purchase Quote',
             'menu.poapps.purchaseorder-manage': 'Purchase Order',
+            'menu.poapps.catalog-request': 'Request-Applicant',
             //流程管理
             'menu.workflow': 'WorkFlow',
             'menu.workflow.custom-workflow-manage': 'WorkFlow',
@@ -266,6 +271,7 @@ const appConfig = {
             'menu.poapps.requirement-manage': '需求',
             'menu.poapps.purchasequote-manage': '报价',
             'menu.poapps.purchaseorder-manage': '订单',
+            'menu.poapps.catalog-request': '目录请求',
             //流程管理
             'menu.workflow': '工作流',
             'menu.workflow.custom-workflow-manage': '工作流',
@@ -338,6 +344,13 @@ const getSecurityPermissionGroup = (currentUser) => {
             can04: currentUser.UILabApp.findIndex((item) => item.permissionId === '04') !== -1,//vondors
             can05: currentUser.UILabApp.findIndex((item) => item.permissionId === '05') !== -1,//PO
             canDD: currentUser.UILabApp.findIndex((item) => item.permissionId === 'DD') !== -1,//DD
+            canRAP: currentUser.UILabApp.findIndex((item) => item.permissionId === 'RAP') !== -1,//request-applicant
+            canRPP: currentUser.UILabApp.findIndex((item) => item.permissionId === 'RPP') !== -1,//request-procurement
+            canRMAP: currentUser.UILabApp.findIndex((item) => item.permissionId === 'RMAP') !== -1,//requirement-applicant
+            canRMPP: currentUser.UILabApp.findIndex((item) => item.permissionId === 'RMPP') !== -1,//requirement-procurement
+            canQEP: currentUser.UILabApp.findIndex((item) => item.permissionId === 'QEP') !== -1,//quote-manage
+            canORP: currentUser.UILabApp.findIndex((item) => item.permissionId === 'ORP') !== -1,//order-manage
+        
         }
     }
 
