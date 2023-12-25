@@ -57,6 +57,14 @@ const appConfig = {
                 {
                     appName: 'catalog-request',
                     access: 'canRAP',
+                },
+                {
+                    appName: 'catalog-requestbyit',
+                    access: 'canRIP',
+                },
+                {
+                    appName: 'requirement-managebyprocurement',
+                    access: 'canRMPP',
                 }
             ],
         },
@@ -237,6 +245,8 @@ const appConfig = {
             'menu.poapps.purchasequote-manage': 'Purchase Quote',
             'menu.poapps.purchaseorder-manage': 'Purchase Order',
             'menu.poapps.catalog-request': 'Request-Applicant',
+            'menu.poapps.catalog-requestbyit': 'Request-IT',
+            'menu.poapps.requirement-managebyprocurement': 'Requirement-Procurement',
             //流程管理
             'menu.workflow': 'WorkFlow',
             'menu.workflow.custom-workflow-manage': 'WorkFlow',
@@ -272,6 +282,8 @@ const appConfig = {
             'menu.poapps.purchasequote-manage': '报价',
             'menu.poapps.purchaseorder-manage': '订单',
             'menu.poapps.catalog-request': '目录请求',
+            'menu.poapps.catalog-requestbyit': '请求-IT',
+            'menu.poapps.requirement-managebyprocurement': '需求-采购',
             //流程管理
             'menu.workflow': '工作流',
             'menu.workflow.custom-workflow-manage': '工作流',
@@ -350,7 +362,7 @@ const getSecurityPermissionGroup = (currentUser) => {
             canRMPP: currentUser.UILabApp.findIndex((item) => item.permissionId === 'RMPP') !== -1,//requirement-procurement
             canQEP: currentUser.UILabApp.findIndex((item) => item.permissionId === 'QEP') !== -1,//quote-manage
             canORP: currentUser.UILabApp.findIndex((item) => item.permissionId === 'ORP') !== -1,//order-manage
-        
+            canRIP: currentUser.UILabApp.findIndex((item) => item.permissionId === 'RIP') !== -1,//it-request-applicant
         }
     }
 
